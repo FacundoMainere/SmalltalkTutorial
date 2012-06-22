@@ -11847,7 +11847,8 @@ selector: "port",
 category: 'accessing',
 fn: function (){
 var self=this;
-return (($receiver = self['@port']) == nil || $receiver == undefined) ? (function(){return (4000);})() : $receiver;
+var port = process.env.PORT || 3000;
+return (($receiver = self['@port']) == nil || $receiver == undefined) ? (function(){return (port);})() : $receiver;
 return self;},
 args: [],
 source: "port\x0a\x09^port ifNil: [4000]",

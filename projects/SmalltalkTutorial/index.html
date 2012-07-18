@@ -17,6 +17,19 @@
             xfbml      : true  // parse XFBML
           });
           // Additional initialization code here
+          
+          
+          FB.api('/me', function(user) {
+            if (user) {
+              var image = document.getElementById('image');
+              image.src = 'http://graph.facebook.com/' + user.id + '/picture';
+              var name = document.getElementById('name');
+              name.innerHTML = user.name
+            }
+          });
+        };
+          
+          
         };
         // Load the SDK Asynchronously
         (function(d){

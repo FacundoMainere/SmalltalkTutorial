@@ -1,5 +1,5 @@
 var  connect = require('./node_modules/connect')
-   , auth= require('./lib')
+   , auth= require('lib')
    , url= require('url');
 
 var fbId= "138391069632276";

@@ -79,7 +79,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 function routes(app) {
   app.get(specialPaths.secret, function(req, res, params) {
     res.writeHead(200, {'Content-Type': 'text/html'})
-    res.end("HERE BE UNICORNS... Special Secret unicorns.")
+    res.end('<html><body>HERE BE UNICORNS... Special Secret unicorns.<br><iframe width="560" height="315" src="http://www.youtube.com/embed/IR__WMtmN90" frameborder="0" allowfullscreen></iframe></body></html>')
   });
   app.get(specialPaths.accessDenied, function(req, res, params) {
     res.writeHead(403, {'Content-Type': 'text/html'})

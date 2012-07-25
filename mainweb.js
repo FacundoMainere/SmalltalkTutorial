@@ -99,7 +99,7 @@ function routes(app) {
   app.get(/.*/, function(req, res, params) {
     res.writeHead(200, {'Content-Type': 'text/html'})
     if( req.isAuthenticated() ) {
-      res.end("<html><body>Congratulations, you have logged on, like a good-un! <br>Tus auth details: <p>"+ req.getAuthDetails() + "</p><a href='/logout'>Logout</a><br /> <a href='/secret'>Shhh! Secrets</a></body></html>")
+      res.end("<html><body>Congratulations, you have logged on, like a good-un! <br>Tus auth details: <p>"+ JSON.stringify(req.getAuthDetails()) + "</p><a href='/logout'>Logout</a><br /> <a href='/secret'>Shhh! Secrets</a></body></html>")
     }
     else {
       res.end("<html><body>Please <a href='/login'>Login</a> <br /> <a href='/secret'>Shhh! Secrets</a></body></html>")

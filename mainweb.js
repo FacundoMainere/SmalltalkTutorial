@@ -99,7 +99,8 @@ function routes(app) {
   app.get(/.*/, function(req, res, params) {
     res.writeHead(200, {'Content-Type': 'text/html'})
     if( req.isAuthenticated() ) {
-      res.end("<html><body>Congratulations, you have logged on, like a good-un! <br>Tus auth details: <p>"+ JSON.stringify(req.getAuthDetails()) + "</p><a href='/logout'>Logout</a><br /> <a href='/secret'>Shhh! Secrets</a></body></html>")
+	  det = req.getAuthDetails();
+      res.end("<html><body>Hola, " + det.user.first_name + "!<br><img src='http://graph.facebook.com/"+ det.user.id +"/picture'><br>Tus auth details: <p>"+ JSON.stringify(det) + "</p><a href='/logout'>Logout</a><br /> <a href='/secret'>Shhh! Secrets</a></body></html>")
     }
     else {
       res.end("<html><body>Please <a href='/login'>Login</a> <br /> <a href='/secret'>Shhh! Secrets</a></body></html>")

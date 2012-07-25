@@ -92,7 +92,7 @@ function routes(app) {
     res.end("<html><body>Facebook no like you :( Please <a href='/login'>Try again!</a> </body></html>")
   }); 
   app.get(specialPaths.justLoggedIn, function(req, res, params) {
-    console.log("Someone just logged in for the first time.. account management time? ")
+    console.log("Es realmente puto el que lee? Muchas gracias. AH SE REGISTRO UN FLACO")
     redirect( req, res, "/" );
   }); 
 

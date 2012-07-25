@@ -99,7 +99,7 @@ function routes(app) {
   app.get(/.*/, function(req, res, params) {
     res.writeHead(200, {'Content-Type': 'text/html'})
     if( req.isAuthenticated() ) {
-      res.end("<html><body>Congratulations, you have logged on, like a good-un! <a href='/logout'>Logout</a><br /> <a href='/secret'>Shhh! Secrets</a></body></html>")
+      res.end("<html><body>Congratulations, you have logged on, like a good-un! <br>Tus auth details: <p>"+ req.getAuthDetails() + "</p><a href='/logout'>Logout</a><br /> <a href='/secret'>Shhh! Secrets</a></body></html>")
     }
     else {
       res.end("<html><body>Please <a href='/login'>Login</a> <br /> <a href='/secret'>Shhh! Secrets</a></body></html>")
@@ -109,7 +109,7 @@ function routes(app) {
 
 var server= connect.createServer(connect.cookieParser()
                                , connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
-                               , auth( {  strategies: auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "email", callback: fbCallbackAddress})
+                               , auth( {  strategies: auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
                                         , trace: true
                                         , firstLoginHandler: firstLoginHandler } )
                                , example_auth_middleware()

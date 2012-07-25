@@ -79,7 +79,12 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 function routes(app) {
   app.get(specialPaths.secret, function(req, res, params) {
     res.writeHead(200, {'Content-Type': 'text/html'})
-    res.end('<html><body>HERE BE UNICORNS... Special Secret unicorns.<br><iframe width="560" height="315" src="http://www.youtube.com/embed/IR__WMtmN90" frameborder="0" allowfullscreen></iframe></body></html>')
+	
+	var wachi = "<div id='fb-root'></div><script src='http://connect.facebook.net/en_US/all.js'></script><p><a onclick='postToFeed(); return false;'>Post to Feed</a></p><p id='msg'></p><script> FB.init({appId: fbId, status: true, cookie: true});function postToFeed() { var obj = {method: 'feed', link: 'http://smalltalktutorial.herokuapp.com/secret', picture: 'http://smalltalktutorial.herokuapp.com/favicon.ico',name: 'WA',caption: 'CHI',description: 'TU RROS'};function callback(response) {document.getElementById('msg').innerHTML = 'Post ID: ' + response['post_id'];}FB.ui(obj, callback);      } </script>"	;
+
+    res.end('<html><body>HERE BE UNICORNS... Special Secret unicorns.<br><iframe width="560" height="315" src="http://www.youtube.com/embed/IR__WMtmN90" frameborder="0" allowfullscreen></iframe>' + wachi + '</body></html>')
+	
+	
   });
   app.get(specialPaths.accessDenied, function(req, res, params) {
     res.writeHead(403, {'Content-Type': 'text/html'})

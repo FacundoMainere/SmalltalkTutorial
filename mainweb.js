@@ -62,7 +62,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
   if( users[executionResult.user.id] ) {
     // So here one would probably load in the local user representation for this 'user'
     console.log('Known USER: ' + executionResult.user.id);
-    redirect( authContext.request, authContext.response, "/" );
+    redirect( authContext.request, authContext.response, "/" + executionResult.user.id );
   } else {
     // So here one would probably 'register' the user in the local system.
     console.log('Brand new USER: ' + executionResult.user.id);
@@ -108,7 +108,7 @@ function routes(app) {
 }
 
 var server= connect.createServer(connect.cookieParser()
-                               , connect.session({secret: 'FlurbleGurgleBurgle', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
+                               , connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
                                , auth( {  strategies: auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "email", callback: fbCallbackAddress})
                                         , trace: true
                                         , firstLoginHandler: firstLoginHandler } )

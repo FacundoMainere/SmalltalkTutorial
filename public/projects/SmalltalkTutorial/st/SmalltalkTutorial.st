@@ -132,6 +132,7 @@ self explanation: 'Para avanzar a la siguiente leccion cree un string de 7 carac
 self name: 'Lesson 2'.
 self result:[:x|x size = 7].
 self next:Lesson1.
+self content:''.
 ^self
 ! !
 

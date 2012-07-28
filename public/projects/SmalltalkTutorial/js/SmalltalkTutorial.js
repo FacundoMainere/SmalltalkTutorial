@@ -286,18 +286,18 @@ smalltalk.addMethod(
 smalltalk.method({
 selector: "initialize",
 category: 'not yet classified',
-fn: function () {
-    var self = this;
-    smalltalk.send(self, "_explanation_", ["Para avanzar a la siguiente leccion cree un string de 7 caracteres"]);
-    smalltalk.send(self, "_name_", ["Lesson 2"]);
-    smalltalk.send(self, "_result_", [function (x) {return smalltalk.send(smalltalk.send(x, "_size", []), "__eq", [7]);}]);
-    smalltalk.send(self, "_next_", [smalltalk.Lesson1 || Lesson1]);
-    return self;
-    return self;
-},
+fn: function (){
+var self=this;
+smalltalk.send(self, "_explanation_", ["Para avanzar a la siguiente leccion cree un string de 7 caracteres"]);
+smalltalk.send(self, "_name_", ["Lesson 2"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(x, "_size", []), "__eq", [(7)]);})]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson1 || Lesson1)]);
+smalltalk.send(self, "_content_", [""]);
+return self;
+return self;},
 args: [],
-source: "initialize\x0aself explanation: 'Para avanzar a la siguiente leccion cree un string de 7 caracteres'.\x0aself name: 'Lesson 2'.\x0aself result:[:x|x size = 7].\x0aself next:Lesson1.\x0a^self",
-messageSends: ["explanation:", "name:", "result:", "=", "size", "next:"],
+source: "initialize\x0aself explanation: 'Para avanzar a la siguiente leccion cree un string de 7 caracteres'.\x0aself name: 'Lesson 2'.\x0aself result:[:x|x size = 7].\x0aself next:Lesson1.\x0aself content:''.\x0a^self",
+messageSends: ["explanation:", "name:", "result:", "=", "size", "next:", "content:"],
 referencedClasses: ["Lesson1"]
 }),
 smalltalk.Lesson2);

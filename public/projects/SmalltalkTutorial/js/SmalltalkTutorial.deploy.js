@@ -205,15 +205,15 @@ smalltalk.addMethod(
 "_initialize",
 smalltalk.method({
 selector: "initialize",
-fn: function () {
-    var self = this;
-    smalltalk.send(self, "_explanation_", ["Para avanzar a la siguiente leccion cree un string de 7 caracteres"]);
-    smalltalk.send(self, "_name_", ["Lesson 2"]);
-    smalltalk.send(self, "_result_", [function (x) {return smalltalk.send(smalltalk.send(x, "_size", []), "__eq", [7]);}]);
-    smalltalk.send(self, "_next_", [smalltalk.Lesson1 || Lesson1]);
-    return self;
-    return self;
-}
+fn: function (){
+var self=this;
+smalltalk.send(self, "_explanation_", ["Para avanzar a la siguiente leccion cree un string de 7 caracteres"]);
+smalltalk.send(self, "_name_", ["Lesson 2"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(x, "_size", []), "__eq", [(7)]);})]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson1 || Lesson1)]);
+smalltalk.send(self, "_content_", [""]);
+return self;
+return self;}
 }),
 smalltalk.Lesson2);
 

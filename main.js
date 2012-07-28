@@ -49,9 +49,9 @@ function routes(app) {
 	}); 
 
 	app.get("/", function(req, res, params) {
-		res.writeHead(200, {'Content-Type': 'text/html'})
 		if( req.isAuthenticated() ) {
 			det = req.getAuthDetails();
+			res.writeHead(200, {'Content-Type': 'text/html'})
 			renderFile(res, 'index.html', {
 				lesson_number: 1,
 				user: det.user

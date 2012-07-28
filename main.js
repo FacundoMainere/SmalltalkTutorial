@@ -73,7 +73,7 @@ function routes(app) {
 				lesson_number: 1,
 				user: det.user,
 				twitter: ( typeof det.twitter_oauth_token != "undefined"),
-				debug: (JSON.stringify(det) + JSON.stringify(req))
+				debug: (JSON.stringify(det))
 			});
 		} else {
 			renderWrapped(res, 'home-noauth.html');

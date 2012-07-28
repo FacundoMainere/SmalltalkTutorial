@@ -108,7 +108,7 @@ function routes(app) {
     if( req.isAuthenticated() ) {
 		det = req.getAuthDetails();
 		renderFile(res, 'index.html', {
-			lesson_number: 2,
+			lesson_number: 1,
 			user: det.user
 		});
     }

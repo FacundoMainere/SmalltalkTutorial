@@ -1,5 +1,5 @@
 smalltalk.addPackage('SmalltalkTutorial', {});
-smalltalk.addClass('Lesson', smalltalk.Widget, ['explanation', 'result', 'name', 'next'], 'SmalltalkTutorial');
+smalltalk.addClass('Lesson', smalltalk.Widget, ['explanation', 'result', 'name', 'next', 'content'], 'SmalltalkTutorial');
 smalltalk.addMethod(
 "_checkResult_",
 smalltalk.method({
@@ -21,6 +21,28 @@ fn: function () {
     smalltalk.send(smalltalk.send(".lesson", "_asJQuery", []), "_empty", []);
     return self;
 }
+}),
+smalltalk.Lesson);
+
+smalltalk.addMethod(
+"_content",
+smalltalk.method({
+selector: "content",
+fn: function (){
+var self=this;
+return self['@content'];
+return self;}
+}),
+smalltalk.Lesson);
+
+smalltalk.addMethod(
+"_content_",
+smalltalk.method({
+selector: "content:",
+fn: function (aContent){
+var self=this;
+(self['@content']=aContent);
+return self;}
 }),
 smalltalk.Lesson);
 
@@ -112,13 +134,12 @@ smalltalk.addMethod(
 "_renderOn_",
 smalltalk.method({
 selector: "renderOn:",
-fn: function (html) {
-    var self = this;
-    var workspace = nil;
-    workspace = smalltalk.send(smalltalk.SourceArea || SourceArea, "_new", []);
-    (function ($rec) {smalltalk.send($rec, "_class_", ["section center"]);return smalltalk.send($rec, "_with_", [function () {smalltalk.send(smalltalk.send(html, "_h1", []), "_with_", [smalltalk.send(self, "_name", [])]);smalltalk.send(smalltalk.send(html, "_h3", []), "_with_", [smalltalk.send(self, "_explanation", [])]);smalltalk.send(workspace, "_renderOn_", [html]);return smalltalk.send(smalltalk.send(html, "_div", []), "_with_", [function () {(function ($rec) {smalltalk.send($rec, "_with_", ["DoIt"]);return smalltalk.send($rec, "_onClick_", [function () {return ($receiver = smalltalk.send(self, "_checkResult_", [smalltalk.send(workspace, "_doIt", [])])).klass === smalltalk.Boolean ? $receiver ? function () {smalltalk.send(self, "_close", []);return smalltalk.send(smalltalk.send(smalltalk.send(self, "_next", []), "_new", []), "_open", []);}() : nil : smalltalk.send($receiver, "_ifTrue_", [function () {smalltalk.send(self, "_close", []);return smalltalk.send(smalltalk.send(smalltalk.send(self, "_next", []), "_new", []), "_open", []);}]);}]);}(smalltalk.send(html, "_button", [])));(function ($rec) {smalltalk.send($rec, "_with_", ["PrintIt"]);return smalltalk.send($rec, "_onClick_", [function () {return smalltalk.send(workspace, "_printIt", []);}]);}(smalltalk.send(html, "_button", [])));(function ($rec) {smalltalk.send($rec, "_with_", ["InspectIt"]);return smalltalk.send($rec, "_onClick_", [function () {return smalltalk.send(workspace, "_inspectIt", []);}]);}(smalltalk.send(html, "_button", [])));return function ($rec) {smalltalk.send($rec, "_with_", ["Class Browser"]);return smalltalk.send($rec, "_onClick_", [function () {return smalltalk.send(smalltalk.Browser || Browser, "_open", []);}]);}(smalltalk.send(html, "_button", []));}]);}]);}(smalltalk.send(html, "_div", [])));
-    return self;
-}
+fn: function (html){
+var self=this;
+var workspace=nil;
+(workspace=smalltalk.send((smalltalk.SourceArea || SourceArea), "_new", []));
+(function($rec){smalltalk.send($rec, "_class_", ["section center"]);return smalltalk.send($rec, "_with_", [(function(){smalltalk.send(smalltalk.send(html, "_h1", []), "_with_", [smalltalk.send(self, "_name", [])]);smalltalk.send(smalltalk.send(html, "_h3", []), "_with_", [smalltalk.send(self, "_explanation", [])]);smalltalk.send(workspace, "_renderOn_", [html]);smalltalk.send(workspace, "_val_", [smalltalk.send(self, "_content", [])]);return smalltalk.send(smalltalk.send(html, "_div", []), "_with_", [(function(){(function($rec){smalltalk.send($rec, "_with_", ["DoIt"]);return smalltalk.send($rec, "_onClick_", [(function(){return ((($receiver = smalltalk.send(self, "_checkResult_", [smalltalk.send(workspace, "_doIt", [])])).klass === smalltalk.Boolean) ? ($receiver ? (function(){smalltalk.send(self, "_close", []);return smalltalk.send(smalltalk.send(smalltalk.send(self, "_next", []), "_new", []), "_open", []);})() : nil) : smalltalk.send($receiver, "_ifTrue_", [(function(){smalltalk.send(self, "_close", []);return smalltalk.send(smalltalk.send(smalltalk.send(self, "_next", []), "_new", []), "_open", []);})]));})]);})(smalltalk.send(html, "_button", []));(function($rec){smalltalk.send($rec, "_with_", ["PrintIt"]);return smalltalk.send($rec, "_onClick_", [(function(){return smalltalk.send(workspace, "_printIt", []);})]);})(smalltalk.send(html, "_button", []));(function($rec){smalltalk.send($rec, "_with_", ["InspectIt"]);return smalltalk.send($rec, "_onClick_", [(function(){return smalltalk.send(workspace, "_inspectIt", []);})]);})(smalltalk.send(html, "_button", []));return (function($rec){smalltalk.send($rec, "_with_", ["Class Browser"]);return smalltalk.send($rec, "_onClick_", [(function(){return smalltalk.send((smalltalk.Browser || Browser), "_open", []);})]);})(smalltalk.send(html, "_button", []));})]);})]);})(smalltalk.send(html, "_div", []));
+return self;}
 }),
 smalltalk.Lesson);
 
@@ -165,15 +186,15 @@ smalltalk.addMethod(
 "_initialize",
 smalltalk.method({
 selector: "initialize",
-fn: function () {
-    var self = this;
-    smalltalk.send(self, "_explanation_", ["Para avanzar a la siguiente leccion evalue una expresion de resultado 6"]);
-    smalltalk.send(self, "_name_", ["Lesson 1"]);
-    smalltalk.send(self, "_result_", [function (x) {return smalltalk.send(x, "__eq", [6]);}]);
-    smalltalk.send(self, "_next_", [smalltalk.Lesson2 || Lesson2]);
-    return self;
-    return self;
-}
+fn: function (){
+var self=this;
+smalltalk.send(self, "_explanation_", ["Para avanzar a la siguiente leccion evalue una expresion de resultado 6"]);
+smalltalk.send(self, "_name_", ["Lesson 1"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(6)]);})]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson2 || Lesson2)]);
+smalltalk.send(self, "_content_", ["3+"]);
+return self;
+return self;}
 }),
 smalltalk.Lesson1);
 

@@ -1,5 +1,5 @@
 smalltalk.addPackage('SmalltalkTutorial', {});
-smalltalk.addClass('Lesson', smalltalk.Widget, ['explanation', 'result', 'name', 'next'], 'SmalltalkTutorial');
+smalltalk.addClass('Lesson', smalltalk.Widget, ['explanation', 'result', 'name', 'next', 'content'], 'SmalltalkTutorial');
 smalltalk.addMethod(
 "_checkResult_",
 smalltalk.method({
@@ -30,6 +30,38 @@ fn: function () {
 args: [],
 source: "close\x0a'.lesson' asJQuery empty.",
 messageSends: ["empty", "asJQuery"],
+referencedClasses: []
+}),
+smalltalk.Lesson);
+
+smalltalk.addMethod(
+"_content",
+smalltalk.method({
+selector: "content",
+category: 'accessors',
+fn: function (){
+var self=this;
+return self['@content'];
+return self;},
+args: [],
+source: "content\x0a\x0a^content",
+messageSends: [],
+referencedClasses: []
+}),
+smalltalk.Lesson);
+
+smalltalk.addMethod(
+"_content_",
+smalltalk.method({
+selector: "content:",
+category: 'accessors',
+fn: function (aContent){
+var self=this;
+(self['@content']=aContent);
+return self;},
+args: ["aContent"],
+source: "content:aContent\x0a\x0acontent:=aContent",
+messageSends: [],
 referencedClasses: []
 }),
 smalltalk.Lesson);
@@ -158,16 +190,15 @@ smalltalk.addMethod(
 smalltalk.method({
 selector: "renderOn:",
 category: 'render',
-fn: function (html) {
-    var self = this;
-    var workspace = nil;
-    workspace = smalltalk.send(smalltalk.SourceArea || SourceArea, "_new", []);
-    (function ($rec) {smalltalk.send($rec, "_class_", ["section center"]);return smalltalk.send($rec, "_with_", [function () {smalltalk.send(smalltalk.send(html, "_h1", []), "_with_", [smalltalk.send(self, "_name", [])]);smalltalk.send(smalltalk.send(html, "_h3", []), "_with_", [smalltalk.send(self, "_explanation", [])]);smalltalk.send(workspace, "_renderOn_", [html]);return smalltalk.send(smalltalk.send(html, "_div", []), "_with_", [function () {(function ($rec) {smalltalk.send($rec, "_with_", ["DoIt"]);return smalltalk.send($rec, "_onClick_", [function () {return ($receiver = smalltalk.send(self, "_checkResult_", [smalltalk.send(workspace, "_doIt", [])])).klass === smalltalk.Boolean ? $receiver ? function () {smalltalk.send(self, "_close", []);return smalltalk.send(smalltalk.send(smalltalk.send(self, "_next", []), "_new", []), "_open", []);}() : nil : smalltalk.send($receiver, "_ifTrue_", [function () {smalltalk.send(self, "_close", []);return smalltalk.send(smalltalk.send(smalltalk.send(self, "_next", []), "_new", []), "_open", []);}]);}]);}(smalltalk.send(html, "_button", [])));(function ($rec) {smalltalk.send($rec, "_with_", ["PrintIt"]);return smalltalk.send($rec, "_onClick_", [function () {return smalltalk.send(workspace, "_printIt", []);}]);}(smalltalk.send(html, "_button", [])));(function ($rec) {smalltalk.send($rec, "_with_", ["InspectIt"]);return smalltalk.send($rec, "_onClick_", [function () {return smalltalk.send(workspace, "_inspectIt", []);}]);}(smalltalk.send(html, "_button", [])));return function ($rec) {smalltalk.send($rec, "_with_", ["Class Browser"]);return smalltalk.send($rec, "_onClick_", [function () {return smalltalk.send(smalltalk.Browser || Browser, "_open", []);}]);}(smalltalk.send(html, "_button", []));}]);}]);}(smalltalk.send(html, "_div", [])));
-    return self;
-},
+fn: function (html){
+var self=this;
+var workspace=nil;
+(workspace=smalltalk.send((smalltalk.SourceArea || SourceArea), "_new", []));
+(function($rec){smalltalk.send($rec, "_class_", ["section center"]);return smalltalk.send($rec, "_with_", [(function(){smalltalk.send(smalltalk.send(html, "_h1", []), "_with_", [smalltalk.send(self, "_name", [])]);smalltalk.send(smalltalk.send(html, "_h3", []), "_with_", [smalltalk.send(self, "_explanation", [])]);smalltalk.send(workspace, "_renderOn_", [html]);smalltalk.send(workspace, "_val_", [smalltalk.send(self, "_content", [])]);return smalltalk.send(smalltalk.send(html, "_div", []), "_with_", [(function(){(function($rec){smalltalk.send($rec, "_with_", ["DoIt"]);return smalltalk.send($rec, "_onClick_", [(function(){return ((($receiver = smalltalk.send(self, "_checkResult_", [smalltalk.send(workspace, "_doIt", [])])).klass === smalltalk.Boolean) ? ($receiver ? (function(){smalltalk.send(self, "_close", []);return smalltalk.send(smalltalk.send(smalltalk.send(self, "_next", []), "_new", []), "_open", []);})() : nil) : smalltalk.send($receiver, "_ifTrue_", [(function(){smalltalk.send(self, "_close", []);return smalltalk.send(smalltalk.send(smalltalk.send(self, "_next", []), "_new", []), "_open", []);})]));})]);})(smalltalk.send(html, "_button", []));(function($rec){smalltalk.send($rec, "_with_", ["PrintIt"]);return smalltalk.send($rec, "_onClick_", [(function(){return smalltalk.send(workspace, "_printIt", []);})]);})(smalltalk.send(html, "_button", []));(function($rec){smalltalk.send($rec, "_with_", ["InspectIt"]);return smalltalk.send($rec, "_onClick_", [(function(){return smalltalk.send(workspace, "_inspectIt", []);})]);})(smalltalk.send(html, "_button", []));return (function($rec){smalltalk.send($rec, "_with_", ["Class Browser"]);return smalltalk.send($rec, "_onClick_", [(function(){return smalltalk.send((smalltalk.Browser || Browser), "_open", []);})]);})(smalltalk.send(html, "_button", []));})]);})]);})(smalltalk.send(html, "_div", []));
+return self;},
 args: ["html"],
-source: "renderOn: html\x0a\x0a\x09| workspace |\x0a\x09workspace := SourceArea new.\x0a\x09html div class: 'section center'; with: [\x0a\x09\x09html h1 with: self name.\x0a\x09\x09html h3 with: self explanation.\x0a\x09\x09workspace renderOn: html.\x0a\x09\x09html div with: [\x0a\x09\x09\x09html button\x0a\x09\x09\x09\x09with: 'DoIt';\x0a\x09\x09\x09\x09onClick: [(self checkResult:workspace doIt) ifTrue:[\x0aself close.\x0aself next new open.\x0a]].\x0a\x09\x09\x09html button\x0a\x09\x09\x09\x09with: 'PrintIt';\x0a\x09\x09\x09\x09onClick: [workspace printIt].\x0a\x09\x09\x09html button\x0a\x09\x09\x09\x09with: 'InspectIt';\x0a\x09\x09\x09\x09onClick: [workspace inspectIt].\x0ahtml button with: 'Class Browser'; onClick: [Browser open]\x0a]]",
-messageSends: ["new", "class:", "with:", "h1", "name", "h3", "explanation", "renderOn:", "div", "onClick:", "ifTrue:", "checkResult:", "doIt", "close", "open", "next", "button", "printIt", "inspectIt"],
+source: "renderOn: html\x0a\x0a\x09| workspace |\x0a\x09workspace := SourceArea new.\x0a\x09html div class: 'section center'; with: [\x0a\x09\x09html h1 with: self name.\x0a\x09\x09html h3 with: self explanation.\x0a\x09\x09workspace renderOn: html.\x0a\x09\x09workspace val: self content.\x0a\x09\x09html div with: [\x0a\x09\x09\x09html button\x0a\x09\x09\x09\x09with: 'DoIt';\x0a\x09\x09\x09\x09onClick: [(self checkResult:workspace doIt) ifTrue:[\x0aself close.\x0aself next new open.\x0a]].\x0a\x09\x09\x09html button\x0a\x09\x09\x09\x09with: 'PrintIt';\x0a\x09\x09\x09\x09onClick: [workspace printIt].\x0a\x09\x09\x09html button\x0a\x09\x09\x09\x09with: 'InspectIt';\x0a\x09\x09\x09\x09onClick: [workspace inspectIt].\x0ahtml button with: 'Class Browser'; onClick: [Browser open]\x0a]]",
+messageSends: ["new", "class:", "with:", "h1", "name", "h3", "explanation", "renderOn:", "val:", "content", "div", "onClick:", "ifTrue:", "checkResult:", "doIt", "close", "open", "next", "button", "printIt", "inspectIt"],
 referencedClasses: ["SourceArea", "Browser"]
 }),
 smalltalk.Lesson);
@@ -231,18 +262,18 @@ smalltalk.addMethod(
 smalltalk.method({
 selector: "initialize",
 category: 'initialize',
-fn: function () {
-    var self = this;
-    smalltalk.send(self, "_explanation_", ["Para avanzar a la siguiente leccion evalue una expresion de resultado 6"]);
-    smalltalk.send(self, "_name_", ["Lesson 1"]);
-    smalltalk.send(self, "_result_", [function (x) {return smalltalk.send(x, "__eq", [6]);}]);
-    smalltalk.send(self, "_next_", [smalltalk.Lesson2 || Lesson2]);
-    return self;
-    return self;
-},
+fn: function (){
+var self=this;
+smalltalk.send(self, "_explanation_", ["Para avanzar a la siguiente leccion evalue una expresion de resultado 6"]);
+smalltalk.send(self, "_name_", ["Lesson 1"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(6)]);})]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson2 || Lesson2)]);
+smalltalk.send(self, "_content_", ["3+"]);
+return self;
+return self;},
 args: [],
-source: "initialize\x0aself explanation: 'Para avanzar a la siguiente leccion evalue una expresion de resultado 6'.\x0aself name: 'Lesson 1'.\x0aself result:[:x|x=6].\x0aself next:Lesson2.\x0a^self",
-messageSends: ["explanation:", "name:", "result:", "=", "next:"],
+source: "initialize\x0aself explanation: 'Para avanzar a la siguiente leccion evalue una expresion de resultado 6'.\x0aself name: 'Lesson 1'.\x0aself result:[:x|x=6].\x0aself next:Lesson2.\x0aself content: '3+'.\x0a^self",
+messageSends: ["explanation:", "name:", "result:", "=", "next:", "content:"],
 referencedClasses: ["Lesson2"]
 }),
 smalltalk.Lesson1);

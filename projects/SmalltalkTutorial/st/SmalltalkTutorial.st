@@ -1,9 +1,19 @@
 Smalltalk current createPackage: 'SmalltalkTutorial' properties: #{}!
 Widget subclass: #Lesson
-	instanceVariableNames: 'explanation result name next'
+	instanceVariableNames: 'explanation result name next content'
 	package: 'SmalltalkTutorial'!
 
 !Lesson methodsFor: 'accessors'!
+
+content
+
+^content
+!
+
+content:aContent
+
+content:=aContent
+!
 
 explanation
 
@@ -71,6 +81,7 @@ renderOn: html
 		html h1 with: self name.
 		html h3 with: self explanation.
 		workspace renderOn: html.
+		workspace val: self content.
 		html div with: [
 			html button
 				with: 'DoIt';
@@ -106,6 +117,7 @@ self explanation: 'Para avanzar a la siguiente leccion evalue una expresion de r
 self name: 'Lesson 1'.
 self result:[:x|x=6].
 self next:Lesson2.
+self content: '3+'.
 ^self
 ! !
 

@@ -15,7 +15,7 @@ body.amberBody {
 #amberTabs li, #amber .amber_tabs li {
     padding: 0 1px;
     cursor: pointer;
-    color: #565656;
+    color: #CACACA;
 	max-width: 200px;
 	float:left;
 }
@@ -57,7 +57,7 @@ body.amberBody {
 
 #amberTabs li.selected,
 #amber .amber_tabs li.selected {
-    color: #111;
+    color: #EEE;
 }
 
 #amberTabs li.selected .ltab,
@@ -92,6 +92,7 @@ body.amberBody {
 #amber, #amber button, #amber input, #amber select {
        font-family: Lucida Grande, Tahoma, sans-serif;
        font-size: 11px;
+	   color:#EEE;
 }
 
 #amber #logo {

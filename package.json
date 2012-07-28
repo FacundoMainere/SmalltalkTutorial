@@ -2,7 +2,6 @@
   "name": "smalltalk-tutorial",
   "version": "0.0.1",
   "dependencies": {
-	"express" : "x",
 	"connect" : "1.8.x",
 	"connect-auth" : "0.5.x",
 	"ejs" : "0.8.x"

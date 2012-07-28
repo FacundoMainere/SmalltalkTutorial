@@ -1,6 +1,5 @@
-var  express= require('express')
-	, connect = require('connect')
-	,auth= require('connect-auth')
+var	  connect = require('connect')
+	, auth= require('connect-auth')
 	, url= require('url')
 	, ejs= require('ejs')
 	, fs= require('fs');
@@ -12,41 +11,6 @@ var fbCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/facebook_cal
 var twitterConsumerKey="TAatled5jg5qjhE51QHFg";
 var twitterConsumerSecret="bfEWQX2v7DyN0j6BG49XQDTlwdOQ67HToofGR6w7js";
 var twitterCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/twitter_callback";
-
-var app = express.createServer();
-
-app.configure(function(){
-  app.use(express.cookieParser());
-  app.use(express.session({ secret: 'foobar' }));
-  app.use(auth( [
-   auth.Twitter({consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret})
-  ]) );
-});
-
-
-app.get('/', function(req, res){
-    res.send('Hello World <a href="/secrets">Secrets!</a>');
-});
-
-app.get('/secrets', protect, function(req, res){
-    res.send('Shhhh!!! Unicorns');
-});
-
-function protect(req, res, next) {
-  if( req.isAuthenticated() ) next();
-  else {
-    req.authenticate(function(error, authenticated) {
-      if( error ) next(new Error("Problem authenticating"));
-      else {
-        if( authenticated === true)next();
-        else if( authenticated === false ) next(new Error("Access Denied!"));
-        else {
-          // Abort processing, browser interaction was required (and has happened/is happening)
-        }
-      }
-    })
-  }
-}
 
 function redirect(req, res, location) {
   res.writeHead(303, { 'Location': location });
@@ -111,17 +75,15 @@ function routes(app) {
 	});
 }
 
-var app2 = connect.createServer(
+var app = connect.createServer(
 	  connect.static(__dirname + '/public')
 	, connect.cookieParser()
 	, connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
 	, auth( {  strategies: [
-				/*auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
-				,*/ auth.Twitter({consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret, callback: twitterCallbackAddress})]
+				auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
+				, auth.Twitter({consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret, callback: twitterCallbackAddress})]
 			, trace: true
 			, firstLoginHandler: firstLoginHandler } )
 	, smalltalk_tutorial_middleware()
 	, connect.router(routes)
-);
-
-app2.listen(process.env.PORT);
+).listen(process.env.PORT);

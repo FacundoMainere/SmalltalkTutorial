@@ -98,10 +98,10 @@ body.amberBody {
 #amber #logo {
     position: absolute;
     top: 3px;
-    left: 8px;
-    width: 22px;
-    height: 20px;
-    background: url("../images/tinylogo.amber.png") top left no-repeat;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: url("../images/tinylogo.png") top left no-repeat;
 }
 
 #amber #amber_toolbar {
@@ -121,12 +121,12 @@ body.amberBody {
     top: 6px;
     width: 16px;
     height: 16px;
-    background: url('../images/off.amber.png');
+    background: url('../images/off.png');
     cursor: pointer;
 }
 
 #amber #amber_toolbar #amber_close:hover {
-    background: url('../images/offHover.amber.png');
+    background: url('../images/offHover.png');
 }
 
 

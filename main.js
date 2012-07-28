@@ -103,7 +103,7 @@ function routes(app) {
     redirect( req, res, "/" );
   }); 
 
-  app.get(/.*/, function(req, res, params) {
+  app.get("/", function(req, res, params) {
     res.writeHead(200, {'Content-Type': 'text/html'})
     if( req.isAuthenticated() ) {
 	  det = req.getAuthDetails();
@@ -115,16 +115,17 @@ function routes(app) {
   })
 }
 
-var server= connect.createServer(connect.cookieParser()
-                               , connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
-                               , auth( {  strategies: auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
-                                        , trace: true
-                                        , firstLoginHandler: firstLoginHandler } )
-							   , connect.static(__dirname + '/js')
-							   , connect.static(__dirname + '/projects')
-                               , example_auth_middleware()
-                               , connect.router(routes));
-server.listen(process.env.PORT);
+connect.createServer(
+		     connect.static(__dirname + '/js')
+		   , connect.static(__dirname + '/projects')
+		   , connect.cookieParser()
+		   , connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
+		   , auth( {  strategies: auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
+					, trace: true
+					, firstLoginHandler: firstLoginHandler } )
+		   , example_auth_middleware()
+		   , connect.router(routes)
+).listen(process.env.PORT);
 
 /*
 var connect = require('connect');

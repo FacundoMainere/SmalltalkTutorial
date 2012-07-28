@@ -12,6 +12,10 @@ var twitterConsumerKey="TAatled5jg5qjhE51QHFg";
 var twitterConsumerSecret="bfEWQX2v7DyN0j6BG49XQDTlwdOQ67HToofGR6w7js";
 var twitterCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/twitter_callback";
 
+var google2Id="268287627284.apps.googleusercontent.com";
+var google2Secret="1kNtqmML8hFT4Kuul3Bnxty2";
+var google2CallbackAddress="http://smalltalktutorial.herokuapp.com/auth/google2_callback";
+
 function redirect(req, res, location) {
   res.writeHead(303, { 'Location': location });
   res.end('');
@@ -33,17 +37,15 @@ var smalltalk_tutorial_middleware = function() {
 			req.logout(function() {
 				next();
 			});
-		} else if (path == "/login") {
-			if (urlp.query.using) {
-				req.authenticate([urlp.query.using], function (error, authenticated){
-					if (error) { 	
-						res.end("ERROR!! AAAAAAAAA!!11oneone"); 
-					} else {
-					if( authenticated === undefined ) { }
-					else next();
-					}
-				});	
-			} else next();
+		} else if (path == "/login" && urlp.query.using) {
+			req.authenticate([urlp.query.using], function (error, authenticated){
+				if (error) { 	
+					res.end("ERROR!! AAAAAAAAA!!11oneone"); 
+				} else {
+				if( authenticated === undefined ) { }
+				else next();
+				}
+			});	
 		} else next();
 	}
 };
@@ -87,8 +89,9 @@ var app = connect.createServer(
 	, connect.cookieParser()
 	, connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
 	, auth( {  strategies: [
-				auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
+				  auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
 				, auth.Twitter({consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret, callback: twitterCallbackAddress})]
+				, auth.Google2({appId : google2Id, appSecret: google2Secret, callback: google2CallbackAddress})
 			, trace: true
 			, firstLoginHandler: firstLoginHandler } )
 	, smalltalk_tutorial_middleware()

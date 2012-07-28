@@ -26,7 +26,8 @@ function renderFile(filename, options) {
 }
 
 function renderWrapped(res, filename, options) {
-	res.end(renderFile('header.html', options) + renderFile(filename, options) + renderFile('footer.html'));
+	res.write(renderFile('header.html', options) + renderFile(filename, options) + renderFile('footer.html'));
+	res.end('');
 }
 
 var smalltalk_tutorial_middleware = function() {

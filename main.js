@@ -49,7 +49,7 @@ function routes(app) {
 		res.end("<html><body>Authentication error, please <a href='/login'>try again</a>.</body></html>")
 	}); 
 
-	app.get(/.*/, function(req, res, params) {
+	app.get("/", function(req, res, params) {
 		res.writeHead(200, {'Content-Type': 'text/html'})
 		if( req.isAuthenticated() ) {
 			det = req.getAuthDetails();
@@ -60,7 +60,11 @@ function routes(app) {
 		} else {
 			renderFile(res, 'home-noauth.html');
 		}
-	})
+	});
+	
+	app.get(/.*/, function(req, res, params) {
+		redirect(res, req, "/");
+	});
 }
 
 connect.createServer(

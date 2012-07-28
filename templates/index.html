@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>SmalltalkTutorial</title>
+		<title>Smalltalk Tutorial</title>
 		<script src="../../js/amber.js" type="text/javascript"></script>
 		<style type="text/css">
 			body {
@@ -12,12 +12,16 @@
 				background: #CB2324;
 				color: white;
 			}
+			#wrapper {
+				margin: 0 auto;
+				width: 750px;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="wrapper">
 			<div id="topbar">
-				<span>Hola, <%=user.first_name%>!<img src='http://graph.facebook.com/<%=user.id%>/picture'></span>
+				<span class="user"><img src='http://graph.facebook.com/<%=user.id%>/picture'><%=user.first_name%></span>
 				- <a href='/secret'>S</a>
 				- <a href='/logout'>Logout</a> 
 			</div>

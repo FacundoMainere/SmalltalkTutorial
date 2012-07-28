@@ -83,7 +83,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 // a 'Secrets page' (requires authentication (but won't attempt to authenticate) )
 function routes(app) {
   app.get(specialPaths.secret, function(req, res, params) {
-    res.writeHead(200, {'Content-Type': 'text/html'})
+    res.writeHead(200, {'Content-Type': 'text/html'});
 	renderFile(res, 'pedo.js', {
 		fbid: req.getAuthDetails().user.id
 	});

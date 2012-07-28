@@ -73,13 +73,24 @@ function routes(app) {
 			isTwitter = ( typeof det.twitter_oauth_token != "undefined");
 			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google")));
 			isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook")));
+			var uimg="";
+			var uname="";
+			if (isTwitter) {
+				uimg = "https://api.twitter.com/1/users/profile_image?screen_name=" + det.user.username + "&size=normal";
+				uname = det.user.username;
+			}
+			else if (isFacebook) {
+				uimg = "http://graph.facebook.com/"+ det.user.id + "/picture";
+				uname = det.user.name;
+			}
+			else if (isGoogle) {
+				uimg = det.user.picture;
+				uname = det.user.name;
+			}
 			
 			renderWrapped(res, 'home.html', {
 				  lesson_number: 1
-				, user: det.user
-				, twitter: isTwitter
-				, google: isGoogle
-				, facebook: isFacebook
+				, user: {name: uname, imgsrc: uimg}
 				//, debug: (JSON.stringify(det))
 			});
 		} else {

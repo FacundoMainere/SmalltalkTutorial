@@ -69,10 +69,13 @@ function routes(app) {
 		res.writeHead(200, {'Content-Type': 'text/html'})
 		if( req.isAuthenticated() ) {
 			det = req.getAuthDetails();
+			isTwitter = ( typeof det.twitter_oauth_token != "undefined");
+			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined"));
 			renderWrapped(res, 'home.html', {
 				lesson_number: 1,
 				user: det.user,
-				twitter: ( typeof det.twitter_oauth_token != "undefined"),
+				twitter: isTwitter,
+				google: isGoogle,
 				debug: (JSON.stringify(det))
 			});
 		} else {

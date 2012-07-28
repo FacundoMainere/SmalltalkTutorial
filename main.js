@@ -57,7 +57,7 @@ function routes(app) {
 				user: det.user
 			});
 		} else {
-			renderFile(res, 'home-noauth.html');
+			redirect(res, req, "/login"); //renderFile(res, 'home-noauth.html');
 		}
 	});
 	

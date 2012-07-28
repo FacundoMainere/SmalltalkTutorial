@@ -7,10 +7,11 @@ var  express= require('express')
 
 var fbId= "138391069632276";
 var fbSecret= "662321b535c93082a88378ff4c468e60";
-var fbCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/facebook_callback"
+var fbCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/facebook_callback";
 
 var twitterConsumerKey="TAatled5jg5qjhE51QHFg";
 var twitterConsumerSecret="bfEWQX2v7DyN0j6BG49XQDTlwdOQ67HToofGR6w7js";
+var twitterCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/twitter/callback";
 
 var app = express.createServer();
 
@@ -115,7 +116,7 @@ var app2 = connect.createServer(
 	, connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
 	, auth( {  strategies: [
 				/*auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
-				,*/ auth.Twitter({consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret})]
+				,*/ auth.Twitter({consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret, callback: })]
 			, trace: true
 			, firstLoginHandler: firstLoginHandler } )
 	, smalltalk_tutorial_middleware()

@@ -121,6 +121,8 @@ var server= connect.createServer(connect.cookieParser()
                                         , trace: true
                                         , firstLoginHandler: firstLoginHandler } )
                                , example_auth_middleware()
+							   , connect.static('js')
+							   , connect.static('projects')
                                , connect.router(routes));
 server.listen(process.env.PORT);
 

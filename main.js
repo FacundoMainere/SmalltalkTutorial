@@ -47,7 +47,6 @@ function protect(req, res, next) {
   }
 }
 
-
 function redirect(req, res, location) {
   res.writeHead(303, { 'Location': location });
   res.end('');
@@ -123,4 +122,4 @@ var app2 = connect.createServer(
 	, connect.router(routes)
 );
 
-app.listen(process.env.PORT);
+app2.listen(process.env.PORT);

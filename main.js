@@ -98,7 +98,8 @@ function routes(app) {
 			det = req.getAuthDetails();
 			renderWrapped(res, 'home.html', {
 				lesson_number: 1,
-				user: det.user
+				user: det.user,
+				debug: JSON.stringify(det)
 			});
 		} else {
 			renderWrapped(res, 'home-noauth.html');

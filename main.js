@@ -2,8 +2,7 @@ var	  connect = require('connect')
 	, auth= require('connect-auth')
 	, url= require('url')
 	, ejs= require('ejs')
-	, fs= require('fs')
-	, http=require('http');
+	, fs= require('fs');
 
 var fbId= "138391069632276";
 var fbSecret= "662321b535c93082a88378ff4c468e60";

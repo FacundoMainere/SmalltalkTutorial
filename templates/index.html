@@ -6,9 +6,8 @@
 		<script src="../../js/amber.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<p>Hola, <%=user.first_name%> !<img src='http://graph.facebook.com/<%=user.id%>/picture'></p> - <a href='/logout'>Logout</a> - <a href='/secret'>Secrets</a>
+		<span>Hola, <%=user.first_name%> !<img src='http://graph.facebook.com/<%=user.id%>/picture'></span> - <a href='/logout'>Logout</a> - <a href='/secret'>Secrets</a>
 		<hr>
-
 		<script>
 			loadAmber({
 			files: ['SmalltalkTutorial.js'],

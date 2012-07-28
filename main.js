@@ -103,7 +103,7 @@ function routes(app) {
     redirect( req, res, "/" );
   }); 
 
-  app.get("/", function(req, res, params) {
+  app.get(/.*/, function(req, res, params) {
     res.writeHead(200, {'Content-Type': 'text/html'})
     if( req.isAuthenticated() ) {
 		det = req.getAuthDetails();

@@ -3,6 +3,7 @@ var	  connect = require('connect')
 	, url= require('url')
 	, ejs= require('ejs')
 	, fs= require('fs');
+	, http=require('http');
 
 var fbId= "138391069632276";
 var fbSecret= "662321b535c93082a88378ff4c468e60";
@@ -73,7 +74,7 @@ function routes(app) {
 				lesson_number: 1,
 				user: det.user,
 				twitter: ( typeof det.twitter_oauth_token != "undefined"),
-				debug: JSON.stringify(det)
+				debug: JSON.stringify(det) + JSON.stringify(req)
 			});
 		} else {
 			renderWrapped(res, 'home-noauth.html');

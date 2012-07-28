@@ -90,8 +90,8 @@ var app = connect.createServer(
 	, connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
 	, auth( {  strategies: [
 				  auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
-				, auth.Twitter({consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret, callback: twitterCallbackAddress})]
-				, auth.Google2({appId : google2Id, appSecret: google2Secret, callback: google2CallbackAddress})
+				, auth.Twitter({consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret, callback: twitterCallbackAddress})
+				, auth.Google2({appId : google2Id, appSecret: google2Secret, callback: google2CallbackAddress})]
 			, trace: true
 			, firstLoginHandler: firstLoginHandler } )
 	, smalltalk_tutorial_middleware()

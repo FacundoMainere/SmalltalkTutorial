@@ -71,13 +71,16 @@ function routes(app) {
 		if( req.isAuthenticated() ) {
 			det = req.getAuthDetails();
 			isTwitter = ( typeof det.twitter_oauth_token != "undefined");
-			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined"));
+			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google")));
+			isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook")));
+			
 			renderWrapped(res, 'home.html', {
-				lesson_number: 1,
-				user: det.user,
-				twitter: isTwitter,
-				google: isGoogle,
-				debug: (JSON.stringify(det))
+				  lesson_number: 1
+				, user: det.user
+				, twitter: isTwitter
+				, google: isGoogle
+				, facebook: 
+				//, debug: (JSON.stringify(det))
 			});
 		} else {
 			renderWrapped(res, 'home-noauth.html');

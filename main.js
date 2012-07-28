@@ -22,6 +22,32 @@ app.configure(function(){
   ]) );
 });
 
+
+app.get('/', function(req, res){
+    res.send('Hello World <a href="/secrets">Secrets!</a>');
+});
+
+app.get('/secrets', protect, function(req, res){
+    res.send('Shhhh!!! Unicorns');
+});
+
+function protect(req, res, next) {
+  if( req.isAuthenticated() ) next();
+  else {
+    req.authenticate(function(error, authenticated) {
+      if( error ) next(new Error("Problem authenticating"));
+      else {
+        if( authenticated === true)next();
+        else if( authenticated === false ) next(new Error("Access Denied!"));
+        else {
+          // Abort processing, browser interaction was required (and has happened/is happening)
+        }
+      }
+    })
+  }
+}
+
+
 function redirect(req, res, location) {
   res.writeHead(303, { 'Location': location });
   res.end('');

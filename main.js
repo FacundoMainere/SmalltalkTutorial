@@ -71,9 +71,6 @@ function routes(app) {
 	app.get(/.*/, function(req, res, params) {
 		redirect(req, res, "/");
 	});
-	app.post(/.*/, function(req, res, params) {
-		redirect(req, res, "/");
-	});
 }
 
 connect.createServer(

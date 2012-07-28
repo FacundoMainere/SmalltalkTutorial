@@ -104,7 +104,7 @@ function routes(app) {
 }
 
 var app = connect.createServer(
-	  connect.cache()
+	  connect.staticCache()
 	, connect.static(__dirname + '/public')
 	, connect.cookieParser()
 	, connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })

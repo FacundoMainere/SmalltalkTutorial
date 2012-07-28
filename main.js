@@ -2,7 +2,7 @@ var	  connect = require('connect')
 	, auth= require('connect-auth')
 	, url= require('url')
 	, ejs= require('ejs')
-	, fs= require('fs');
+	, fs= require('fs')
 	, http=require('http');
 
 var fbId= "138391069632276";
@@ -74,7 +74,7 @@ function routes(app) {
 				lesson_number: 1,
 				user: det.user,
 				twitter: ( typeof det.twitter_oauth_token != "undefined"),
-				debug: JSON.stringify(det) + JSON.stringify(req)
+				debug: (JSON.stringify(det) + JSON.stringify(req))
 			});
 		} else {
 			renderWrapped(res, 'home-noauth.html');

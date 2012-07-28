@@ -6,34 +6,40 @@
 		<script src="../../js/amber.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="/font/droid.css" type="text.css" charset="utf-8">
 		<style type="text/css">
-			body {
+			body, p {
 				margin: 0;
-				font-family: DroidSansRegular
+				font-family: DroidSansRegular;
+				font-size: 12px;
 			}
 			#topbar {
 				background: #CB2324;
 				color: white;
 				height: 50px;
 			}
-			#topbar img {
+			#topbar img, #stt {
 				float: left;
 			}
+			#stt {
+				font-size: 16px;
+			}
 			#topbar p {
-				line-height: 45px;
-				padding: 5px;
+				line-height: 50px;
+				height: 50px;
+				padding-left: 5px;
 			}
 			#wrapper {
 				margin: 0 auto;
 				width: 750px;
+				border: #CB2324 solid 1px;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="wrapper">
 			<div id="topbar">
+				<div id="stt">SmallTalk Tutorial</div>
 				<img src='http://graph.facebook.com/<%=user.id%>/picture'>
-				<p><%=user.name%></p>
-				<a href='/logout'>Logout</a> 
+				<p><%=user.name%> (<a href='/logout'>log out</a>)</p>
 			</div>
 			<script>
 				loadAmber({

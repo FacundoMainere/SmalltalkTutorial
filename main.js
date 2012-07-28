@@ -39,6 +39,7 @@ var smalltalk_tutorial_middleware = function() {
 				} else {
 				if( authenticated === undefined ) { }
 				else next();
+				}
 			});	
 		} else next();
 	}

@@ -253,7 +253,7 @@ smalltalk.send(self, "_name_", ["Lesson 3"]);
 smalltalk.send(self, "_explanation_", ["Sometimes you may need to explore inside yours results, that is when InspectIt becomes very handy"]);
 smalltalk.send(self, "_mission_", ["Select the following code and InspectIt, get the age of the person, write it, and then value it"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson1 || Lesson1)]);
-smalltalk.send(self, "_content_", ["david:=Person bornWithName:'David'\x0a\x0adavid"]);
+smalltalk.send(self, "_content_", ["david:=Person bornWithName:'David'.\x0a\x0adavid"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(0)]);})]);
 return self;
 return self;}

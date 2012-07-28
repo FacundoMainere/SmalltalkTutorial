@@ -44,6 +44,13 @@
 			.right {
 				float: right;
 			}
+			#logins {
+				text-align:center;
+				padding:1em;
+			}
+			#logins img {
+				padding: 0.5em;
+			}
 		</style>
 	</head>
 	<body>
@@ -53,7 +60,7 @@
 				<% if ((typeof user != "undefined") && user) { %>
 				<div class="right">
 					<% if ( twitter ) {%>
-					<img class="vcenter left" src='https://api.twitter.com/1/users/profile_image?screen_name=<%=user.username%>&size=normal/picture'>
+					<img class="vcenter left" src='https://api.twitter.com/1/users/profile_image?screen_name=<%=user.username%>&size=normal'>
 					<span class="vcenter"><%=user.username%> (<a href='/logout'>log out</a>)</span>
 					<%} else { %>
 					<img class="vcenter left" src='http://graph.facebook.com/<%=user.id%>/picture'>

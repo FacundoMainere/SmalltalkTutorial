@@ -113,12 +113,12 @@ function routes(app) {
       res.end("<html><body>Please <a href='/login'>Login</a> <br /> <a href='/secret'>Shhh! Secrets</a></body></html>")
     }
   })
+  app.use("/js", connect.static(__dirname + '/js'));
+  app.use("/projects", connect.static(__dirname + '/projects'));
 }
 
 connect.createServer(
-		     connect.static(__dirname + '/js')
-		   , connect.static(__dirname + '/projects')
-		   , connect.cookieParser()
+			 connect.cookieParser()
 		   , connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
 		   , auth( {  strategies: auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
 					, trace: true

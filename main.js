@@ -33,7 +33,7 @@ var smalltalk_tutorial_middleware = function() {
 				if( authenticated === true ) next();
 				else if( authenticated === false ) redirect( req, res, "/fail" );
 			});	
-		}
+		} else next();
 	}
 };
 

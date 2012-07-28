@@ -20,6 +20,7 @@ function renderFile(filename, options) {
 function renderWrapped(res, filename, options) {
 	res.end(renderFile('header.html') + renderFile(filename, options) + renderFile('footer.html'));
 }
+
 var smalltalk_tutorial_middleware = function() {
 	return function (req, res, next) {
 		var path = url.parse(req.url, true).pathname;

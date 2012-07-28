@@ -116,10 +116,9 @@ function routes(app) {
   app.use("/js", connect.static(__dirname + '/js'));
   app.use("/projects", connect.static(__dirname + '/projects'));
 }
-var = app.connect()
-	.use(connect.static(__dirname + '/public'))
-	
-	.listen(process.env.PORT);
+connect.createServer(
+		connect.static(__dirname + '/public')
+).listen(process.env.PORT);
 	
 /*
 connect.createServer(

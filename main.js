@@ -104,7 +104,8 @@ function routes(app) {
 }
 
 var app = connect.createServer(
-	  connect.static(__dirname + '/public')
+	  connect.cache()
+	, connect.static(__dirname + '/public')
 	, connect.cookieParser()
 	, connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
 	, auth( {  strategies: [

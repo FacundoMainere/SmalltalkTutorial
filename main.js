@@ -27,20 +27,23 @@ function renderWrapped(res, filename, options) {
 
 var smalltalk_tutorial_middleware = function() {
 	return function (req, res, next) {
-		var path = url.parse(req.url, true).pathname;
+		var urlp = url.parse(req.url, true);
+		var path = urlp.pathname;
 		if (path == "/logout") {
 			req.logout(function() {
 				next();
 			});
 		} else if (path == "/login") {
-			req.authenticate(function (error, authenticated){
-				if (error) { 	
-					res.end("ERROR!! AAAAAAAAA!!11oneone"); 
-				} else {
-				if( authenticated === undefined ) { }
-				else next();
-				}
-			});	
+			if (urlp.query.using) {
+				req.authenticate([urlp.query.using], function (error, authenticated){
+					if (error) { 	
+						res.end("ERROR!! AAAAAAAAA!!11oneone"); 
+					} else {
+					if( authenticated === undefined ) { }
+					else next();
+					}
+				});	
+			}
 		} else next();
 	}
 };

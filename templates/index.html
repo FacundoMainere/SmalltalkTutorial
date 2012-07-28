@@ -5,29 +5,34 @@
 		<title>SmalltalkTutorial</title>
 		<script src="../../js/amber.js" type="text/javascript"></script>
 		<style type="text/css">
+			body {
+				margin: 0;
+			}
 			#topbar {
 				background: #CB2324;
-				}
+				color: white;
+			}
 		</style>
 	</head>
-	<body >
-		<div id="topbar">
-			<span>Hola, <%=user.first_name%>!<img src='http://graph.facebook.com/<%=user.id%>/picture'></span>
-			- <a href='/secret'>S</a>
-			- <a href='/logout'>Logout</a> 
+	<body>
+		<div id="wrapper">
+			<div id="topbar">
+				<span>Hola, <%=user.first_name%>!<img src='http://graph.facebook.com/<%=user.id%>/picture'></span>
+				- <a href='/secret'>S</a>
+				- <a href='/logout'>Logout</a> 
+			</div>
+			<script>
+				loadAmber({
+				files: ['SmalltalkTutorial.js'],
+				prefix: 'projects/SmalltalkTutorial/js',
+				ready: function() {smalltalk.Lesson<%=lesson_number%>._new()._open() }
+				}); 
+			</script>
+			<button onclick="smalltalk.Browser._open()">class browser</button>
+			<div class='lesson'></div>
+			<script type="text/javascript"> 
+				window.onbeforeunload = function() { return "You are about to lose all uncommitted changes!" }
+			</script>
 		</div>
-		<script>
-			loadAmber({
-			files: ['SmalltalkTutorial.js'],
-			prefix: 'projects/SmalltalkTutorial/js',
-			ready: function() {smalltalk.Lesson<%=lesson_number%>._new()._open() }
-			}); 
-		</script>
-		<button onclick="smalltalk.Browser._open()">class browser</button>
-		<div class='lesson'></div>
-		<script type="text/javascript"> 
-			window.onbeforeunload = function() { return "You are about to lose all uncommitted changes!" }
-		</script>
-
 	</body>
 </html>

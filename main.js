@@ -66,7 +66,7 @@ function routes(app) {
 	});
 	
 	app.get(/.*/, function(req, res, params) {
-		redirect(res, req, "/");
+		redirect(req, res, "/");
 	});
 }
 

@@ -16,14 +16,14 @@
 				color: white;
 				height: 70px;
 			}
-			#topbar img, #stt {
-				float: left;p
+			.left {
+				float: left;
 			}
 			#topbar .vcenter {
-				padding-top: 10px;
+				padding: 10px;
 				height: 50px;
 				line-height:50px;
-				padding-right: 10px;
+				display: inline-block
 			}
 			#stt {
 				font-size: 24px;
@@ -37,15 +37,20 @@
 			#content {
 				padding: 2em;
 			}
+			.right {
+				float: right;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="wrapper">
 			<div id="topbar">
-				<p id="stt">SmallTalk Tutorial</p>
+				<p class="left" id="stt">SmallTalk Tutorial</p>
 				<% if ((typeof user != "undefined") && user) { %>
-				<img class="vcenter" src='http://graph.facebook.com/<%=user.id%>/picture'>
-				<p class="vcenter"><%=user.name%> (<a href='/logout'>log out</a>)</p>
+				<div class="right">
+					<img class="vcenter left" src='http://graph.facebook.com/<%=user.id%>/picture'>
+					<span class="vcenter"><%=user.name%> (<a href='/logout'>log out</a>)</span>
+				</div>
 				<% } %>
 			</div>
 			<div id="content">

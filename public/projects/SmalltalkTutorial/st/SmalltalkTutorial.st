@@ -1,6 +1,6 @@
 Smalltalk current createPackage: 'SmalltalkTutorial' properties: #{}!
 Widget subclass: #Lesson
-	instanceVariableNames: 'explanation result name next content'
+	instanceVariableNames: 'explanation mission result name next content'
 	package: 'SmalltalkTutorial'!
 
 !Lesson methodsFor: 'accessors'!
@@ -23,6 +23,16 @@ explanation
 explanation: aExplanation
 
 explanation:= aExplanation
+!
+
+mission
+
+^mission
+!
+
+mission:aMission
+
+mission:=aMission
 !
 
 name
@@ -59,7 +69,7 @@ result:= aResult
 
 checkResult:aResult
 
-^self result value:aResult
+^[self result value:aResult] on: Error do:[self error: 'That is not the result']
 !
 
 close
@@ -79,7 +89,8 @@ renderOn: html
 	workspace := SourceArea new.
 	html div class: 'section center'; with: [
 		html h1 with: self name.
-		html h3 with: self explanation.
+		html h5 with: self explanation.
+		html h4 with: self mission.
 		workspace renderOn: html.
 		workspace val: self content.
 		html div with: [
@@ -113,11 +124,12 @@ Lesson subclass: #Lesson1
 !Lesson1 methodsFor: 'initialize'!
 
 initialize
-self explanation: 'Para avanzar a la siguiente leccion evalue una expresion de resultado 6'.
+self explanation: 'Smalltalk expressions are evaluated by selecting the code and clicking "DoIt"'.
 self name: 'Lesson 1'.
-self result:[:x|x=6].
+self result:[:x| x class = Date].
 self next:Lesson2.
-self content: '3+'.
+self content: 'Date now'.
+self mission: 'To advance to the next lesson value the following code'.
 ^self
 ! !
 
@@ -128,11 +140,36 @@ Lesson subclass: #Lesson2
 !Lesson2 methodsFor: 'not yet classified'!
 
 initialize
-self explanation: 'Para avanzar a la siguiente leccion cree un string de 7 caracteres'.
+self explanation: 'Also, you can know the result of evaluating your expression by selecting the code and clicking "PrintIt"'.
+self mission:'Print the results of the next expressions one by one, once finished, select the result of printing 3<4 and click "DoIt"'.
 self name: 'Lesson 2'.
-self result:[:x|x size = 7].
+self result:[:x|x].
+self next:Lesson3.
+self content:'3+3.
+
+''tutorial'' class.
+
+Date now.
+
+3<4'.
+^self
+! !
+
+Lesson subclass: #Lesson3
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson3 methodsFor: 'not yet classified'!
+
+initialize
+self name:'Lesson 3'.
+self explanation:'Sometimes you may need to explore inside yours results, that is when InspectIt becomes very handy'.
+self mission:'Select the following code and InspectIt, get the age of the person, write it, and then value it'.
 self next:Lesson1.
-self content:''.
+self content: 'david:=Person bornWithName:''David''
+
+david'.
+self result:[:x|x=0].
 ^self
 ! !
 

@@ -13,10 +13,13 @@ function redirect(req, res, location) {
   res.end('');
 }
 
-function renderFile(res, filename, options) {
-	res.end(ejs.render(fs.readFileSync(__dirname + '/templates/' + filename, 'utf8'), options));
+function renderFile(filename, options) {
+	return ejs.render(fs.readFileSync(__dirname + '/templates/' + filename, 'utf8'), options);
 }
 
+function renderWrapped(res, filename, options) {
+	res.end(renderFile('header.html') + renderFile(filename, options) + renderFile('footer.html'));
+}
 var smalltalk_tutorial_middleware = function() {
 	return function (req, res, next) {
 		var path = url.parse(req.url, true).pathname;
@@ -49,15 +52,15 @@ function routes(app) {
 	}); 
 
 	app.get("/", function(req, res, params) {
+		res.writeHead(200, {'Content-Type': 'text/html'})
 		if( req.isAuthenticated() ) {
 			det = req.getAuthDetails();
-			res.writeHead(200, {'Content-Type': 'text/html'})
-			renderFile(res, 'index.html', {
+			renderWrapped(res, 'home.html', {
 				lesson_number: 1,
 				user: det.user
 			});
 		} else {
-			redirect(res, req, "/login"); //renderFile(res, 'home-noauth.html');
+			renderWrapped(res, 'home-noauth.html');
 		}
 	});
 	

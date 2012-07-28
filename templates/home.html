@@ -1,0 +1,12 @@
+			<script>
+				loadAmber({
+				files: ['SmalltalkTutorial.js'],
+				prefix: 'projects/SmalltalkTutorial/js',
+				ready: function() {smalltalk.Lesson<%=lesson_number%>._new()._open() }
+				}); 
+			</script>
+			
+			<div class='lesson'></div>
+			<script type="text/javascript"> 
+				window.onbeforeunload = function() { return "You are about to lose all uncommitted changes!" }
+			</script>

@@ -42,18 +42,3 @@
 				<img src='http://graph.facebook.com/<%=user.id%>/picture'>
 				<p><%=user.name%> (<a href='/logout'>log out</a>)</p>
 			</div>
-			<script>
-				loadAmber({
-				files: ['SmalltalkTutorial.js'],
-				prefix: 'projects/SmalltalkTutorial/js',
-				ready: function() {smalltalk.Lesson<%=lesson_number%>._new()._open() }
-				}); 
-			</script>
-			
-			<div class='lesson'></div>
-			<script type="text/javascript"> 
-				window.onbeforeunload = function() { return "You are about to lose all uncommitted changes!" }
-			</script>
-		</div>
-	</body>
-</html>

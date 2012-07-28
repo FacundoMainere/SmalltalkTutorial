@@ -43,7 +43,7 @@ var smalltalk_tutorial_middleware = function() {
 					else next();
 					}
 				});	
-			}
+			} else next();
 		} else next();
 	}
 };

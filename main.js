@@ -120,9 +120,9 @@ var server= connect.createServer(connect.cookieParser()
                                , auth( {  strategies: auth.Facebook({appId : fbId, appSecret: fbSecret, scope: "", callback: fbCallbackAddress})
                                         , trace: true
                                         , firstLoginHandler: firstLoginHandler } )
-                               , example_auth_middleware()
 							   , connect.static(__dirname + '/js')
 							   , connect.static(__dirname + '/projects')
+                               , example_auth_middleware()
                                , connect.router(routes));
 server.listen(process.env.PORT);
 

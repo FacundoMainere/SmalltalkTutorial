@@ -79,7 +79,7 @@ function routes(app) {
 				, user: det.user
 				, twitter: isTwitter
 				, google: isGoogle
-				, facebook: 
+				, facebook: isFacebook
 				//, debug: (JSON.stringify(det))
 			});
 		} else {

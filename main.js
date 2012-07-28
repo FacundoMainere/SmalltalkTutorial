@@ -14,7 +14,7 @@ var twitterCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/twitter
 
 var google2Id="268287627284.apps.googleusercontent.com";
 var google2Secret="1kNtqmML8hFT4Kuul3Bnxty2";
-var google2CallbackAddress="http://smalltalktutorial.herokuapp.com/auth/google2_callback";
+var google2CallbackAddress="http://smalltalktutorial.herokuapp.com/oauth2callback";
 
 function redirect(req, res, location) {
   res.writeHead(303, { 'Location': location });

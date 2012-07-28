@@ -1,5 +1,5 @@
 var  connect = require('connect')
-   , auth= require('./lib')
+   , auth= require('connect-auth')
    , url= require('url')
    , ejs= require('ejs')
    , fs= require('fs');

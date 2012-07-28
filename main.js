@@ -69,7 +69,8 @@ function routes(app) {
 			det = req.getAuthDetails();
 			renderWrapped(res, 'home.html', {
 				lesson_number: 1,
-				user: det.user
+				user: det.user,
+				twitter: ( typeof det.twitter_oauth_token != "undefined")
 			});
 		} else {
 			renderWrapped(res, 'home-noauth.html');

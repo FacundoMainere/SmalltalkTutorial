@@ -52,9 +52,9 @@
 				<img class="left" src="images/FullLogo.png">
 				<% if ((typeof user != "undefined") && user) { %>
 				<div class="right">
-					<% if ( typeof twitter_oauth_token != "undefined") {%>
+					<% if ( twitter ) {%>
 					<img class="vcenter left" src='https://api.twitter.com/1/users/profile_image?screen_name=<%=user.username%>&size=normal/picture'>
-					<span class="vcenter"><%=user.usernamename%> (<a href='/logout'>log out</a>)</span>
+					<span class="vcenter"><%=user.username%> (<a href='/logout'>log out</a>)</span>
 					<%} else { %>
 					<img class="vcenter left" src='http://graph.facebook.com/<%=user.id%>/picture'>
 					<span class="vcenter"><%=user.name%> (<a href='/logout'>log out</a>)</span>

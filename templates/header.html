@@ -45,12 +45,12 @@
 	<body>
 		<div id="wrapper">
 			<div id="topbar">
-				<p id="stt">SmallTalk Tutorial</p>
+				<p class="left" id="stt">SmallTalk Tutorial</p>
+				<% if ((typeof user != "undefined") && user) { %>
 				<div class="right">
-					<% if ((typeof user != "undefined") && user) { %>
 					<img class="vcenter left" src='http://graph.facebook.com/<%=user.id%>/picture'>
 					<span class="vcenter"><%=user.name%> (<a href='/logout'>log out</a>)</span>
-					<% } %>
 				</div>
+				<% } %>
 			</div>
 			<div id="content">

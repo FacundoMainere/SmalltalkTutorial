@@ -39,7 +39,7 @@
 		<div id="wrapper">
 			<div id="topbar">
 				<p id="stt">SmallTalk Tutorial</p>
-				<% if (user) { %>
+				<% if ((typeof foo != "undefined") && user) { %>
 				<img src='http://graph.facebook.com/<%=user.id%>/picture'>
 				<p><%=user.name%> (<a href='/logout'>log out</a>)</p>
 				<% } %>

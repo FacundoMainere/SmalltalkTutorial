@@ -114,7 +114,10 @@ function routes(app) {
     }
   })
 }
-
+connect.createServer(
+		connect.static(__dirname + '/public')
+).listen(process.env.PORT);
+/*
 connect.createServer(
 	  connect.static(__dirname + '/public')
 	, connect.cookieParser()
@@ -125,9 +128,8 @@ connect.createServer(
 	, example_auth_middleware()
 	, connect.router(routes)
 ).listen(process.env.PORT);
-
+*/
 /*
-var connect = require('connect');
 connect.createServer(
     connect.static(__dirname)
 ).listen(process.env.PORT);

@@ -11,7 +11,7 @@ var fbCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/facebook_cal
 
 var twitterConsumerKey="TAatled5jg5qjhE51QHFg";
 var twitterConsumerSecret="bfEWQX2v7DyN0j6BG49XQDTlwdOQ67HToofGR6w7js";
-var twitterCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/twitter/callback";
+var twitterCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/twitter_callback";
 
 var app = express.createServer();
 

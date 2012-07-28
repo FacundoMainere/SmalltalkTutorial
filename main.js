@@ -34,8 +34,11 @@ var smalltalk_tutorial_middleware = function() {
 			});
 		} else if (path == "/login") {
 			req.authenticate(function (error, authenticated){
-				if( authenticated === true ) next();
-				else if( authenticated === false ) redirect( req, res, "/fail" );
+				if (error) { 	
+					res.end("ERROR!! AAAAAAAAA!!11oneone"); 
+				} else {
+				if( authenticated === undefined ) { }
+				else next();
 			});	
 		} else next();
 	}

@@ -91,7 +91,7 @@ function routes(app) {
 			renderWrapped(res, 'home.html', {
 				  lesson_number: 1
 				, user: {name: uname, imgsrc: uimg}
-				//, debug: (JSON.stringify(det))
+				, debug: (JSON.stringify(det))
 			});
 		} else {
 			renderWrapped(res, 'home-noauth.html');

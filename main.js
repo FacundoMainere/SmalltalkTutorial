@@ -1,8 +1,9 @@
-var  connect = require('connect')
-   , auth= require('connect-auth')
-   , url= require('url')
-   , ejs= require('ejs')
-   , fs= require('fs');
+var  express= require('express')
+	, connect = require('connect')
+	,auth= require('connect-auth')
+	, url= require('url')
+	, ejs= require('ejs')
+	, fs= require('fs');
 
 var fbId= "138391069632276";
 var fbSecret= "662321b535c93082a88378ff4c468e60";
@@ -10,6 +11,16 @@ var fbCallbackAddress= "http://smalltalktutorial.herokuapp.com/auth/facebook_cal
 
 var twitterConsumerKey="TAatled5jg5qjhE51QHFg";
 var twitterConsumerSecret="bfEWQX2v7DyN0j6BG49XQDTlwdOQ67HToofGR6w7js";
+
+var app = express.createServer();
+
+app.configure(function(){
+  app.use(express.cookieParser());
+  app.use(express.session({ secret: 'foobar' }));
+  app.use(auth( [
+   auth.Twitter({consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret})
+  ]) );
+});
 
 function redirect(req, res, location) {
   res.writeHead(303, { 'Location': location });
@@ -73,7 +84,7 @@ function routes(app) {
 	});
 }
 
-connect.createServer(
+var app2 = connect.createServer(
 	  connect.static(__dirname + '/public')
 	, connect.cookieParser()
 	, connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
@@ -84,4 +95,6 @@ connect.createServer(
 			, firstLoginHandler: firstLoginHandler } )
 	, smalltalk_tutorial_middleware()
 	, connect.router(routes)
-).listen(process.env.PORT);
+);
+
+app.listen(process.env.PORT);

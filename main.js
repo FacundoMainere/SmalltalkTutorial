@@ -84,7 +84,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 function routes(app) {
   app.get(specialPaths.secret, function(req, res, params) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-	renderFile(res, 'pedo.js', {
+	renderFile(res, 'pedo.ejs', {
 		fbid: req.getAuthDetails().user.id
 	});
   });

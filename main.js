@@ -70,7 +70,7 @@ function routes(app) {
 			renderWrapped(res, 'home.html', {
 				lesson_number: 1,
 				//user: ,
-				debug: JSON.stringify(det)
+				debug: JSON.stringify(det.user)
 			});
 		} else {
 			renderWrapped(res, 'home-noauth.html');

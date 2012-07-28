@@ -21,9 +21,13 @@
 			}
 			#topbar .vcenter {
 				padding: 10px;
+				padding-left: 0;
 				height: 50px;
 				line-height:50px;
 				display: inline-block
+			}
+			#topbar div {
+				padding-right: 10px;
 			}
 			#stt {
 				font-size: 24px;
@@ -35,7 +39,7 @@
 				border: #CB2324 solid 1px;
 			}
 			#content {
-				padding: 2em;
+				padding: 0.5em;
 			}
 			.right {
 				float: right;
@@ -45,7 +49,7 @@
 	<body>
 		<div id="wrapper">
 			<div id="topbar">
-				<p class="left" id="stt">SmallTalk Tutorial</p>
+				<img class="left" src="images/FullLogo.png">
 				<% if ((typeof user != "undefined") && user) { %>
 				<div class="right">
 					<img class="vcenter left" src='http://graph.facebook.com/<%=user.id%>/picture'>

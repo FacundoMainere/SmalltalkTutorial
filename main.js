@@ -116,7 +116,12 @@ function routes(app) {
   app.use("/js", connect.static(__dirname + '/js'));
   app.use("/projects", connect.static(__dirname + '/projects'));
 }
-
+var = app.connect()
+	.use(connect.static(__dirname + '/public'))
+	
+	.listen(process.env.PORT);
+	
+/*
 connect.createServer(
 			 connect.cookieParser()
 		   , connect.session({secret: 'ajiozkaEsUnNombreMagico', store: new connect.session.MemoryStore({ reapInterval: -1 }) })
@@ -126,7 +131,7 @@ connect.createServer(
 		   , example_auth_middleware()
 		   , connect.router(routes)
 ).listen(process.env.PORT);
-
+*/
 /*
 var connect = require('connect');
 connect.createServer(

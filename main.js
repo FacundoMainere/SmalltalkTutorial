@@ -71,8 +71,8 @@ function routes(app) {
 		if( req.isAuthenticated() ) {
 			det = req.getAuthDetails();
 			isTwitter = ( typeof det.twitter_oauth_token != "undefined");
-			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google")));
-			isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook")));
+			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google") != -1));
+			isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook") != -1));
 			var uimg="";
 			var uname="";
 			if (isTwitter) {

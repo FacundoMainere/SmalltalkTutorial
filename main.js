@@ -36,9 +36,8 @@ var smalltalk_tutorial_middleware = function() {
 var users= {};
 
 function firstLoginHandler( authContext, executionResult, callback ) {
-	// executionResult.originalUrl 
-	if( ! users[executionResult.user.id] ) { // if not registered
-		users[executionResult.user.id]= true; //register
+	if( ! users[executionResult.user.id] ) {  // ClearDB dis
+		users[executionResult.user.id]= true;
 	}
 	redirect( authContext.request, authContext.response, "/");
 }

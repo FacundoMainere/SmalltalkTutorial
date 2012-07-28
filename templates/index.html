@@ -11,6 +11,10 @@
 			#topbar {
 				background: #CB2324;
 				color: white;
+				height: 50px;
+			}
+			#topbar p {
+				vertical-align: middle;
 			}
 			#wrapper {
 				margin: 0 auto;
@@ -21,9 +25,9 @@
 	<body>
 		<div id="wrapper">
 			<div id="topbar">
-				<span class="user"><img src='http://graph.facebook.com/<%=user.id%>/picture'><%=user.first_name%></span>
-				- <a href='/secret'>S</a>
-				- <a href='/logout'>Logout</a> 
+				<img src='http://graph.facebook.com/<%=user.id%>/picture'>
+				<p><%=user.name%></p>
+				<a href='/logout'>Logout</a> 
 			</div>
 			<script>
 				loadAmber({

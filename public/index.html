@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SmalltalkTutorial</title>
+    <script src="js/amber.js" type="text/javascript"></script>
+    
+  </head>
+  <body>
+	  <script>
+      loadAmber({
+        files: ['SmalltalkTutorial.js','Exercises.js'],
+        prefix: 'js',
+        ready: function() {smalltalk.Lesson1._new()._open() }
+        }); 
+    </script>
+    <button onclick="smalltalk.Browser._open()">class browser</button>
+    <div class='lesson'></div>
+
+
+  </body>
+</html>

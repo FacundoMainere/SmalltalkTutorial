@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 
 <html itemscope itemtype="http://schema.org/">
@@ -74,4 +75,82 @@
 			<div id="content">
 			<% if (typeof debug != "undefined") { %>
 			<%=debug%>
+=======
+<!DOCTYPE html>
+
+<html itemscope itemtype="http://schema.org/">
+
+	<head>
+		<title>Smalltalk Tutorial</title>
+		<meta itemprop="name" content="Smalltalk Tutorial">
+		<meta itemprop="description" content="Interactive and Social Smalltalk Tutorial">
+		<script src="../../js/amber.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="/font/droid.css" type="text.css" charset="utf-8">
+		<style type="text/css">
+			body, p {
+				margin: 0;
+				font-family: DroidSansRegular;
+				font-size: 14px;
+			}
+			#topbar {
+				background: #CB2324;
+				height: 70px;
+			}
+			#topbar, a {
+				color: white;
+			}
+			.left {
+				float: left;
+			}
+			#topbar .vcenter {
+				padding: 10px;
+				padding-left: 0;
+				height: 50px;
+				line-height:50px;
+				display: inline-block
+			}
+			#topbar div {
+				padding-right: 10px;
+			}
+			#stt {
+				font-size: 24px;
+				margin-right: 200px
+			}
+			#wrapper {
+				margin: 0 auto;
+				width: 750px;
+				border: #CB2324 solid 1px;
+			}
+			#content {
+				padding: 0.5em;
+			}
+			.right {
+				float: right;
+			}
+			
+			#logins {
+				text-align:center;
+				padding:1em;
+			}
+			
+			#logins img {
+				padding: 0.5em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="topbar">
+				<img class="left" src="images/FullLogo.png">
+				<% if ((typeof user != "undefined") && user) { %>
+				<div class="right">
+					<img class="vcenter left" src='<%=user.imgsrc%>'>
+					<span class="vcenter"><%=user.name%> (<a href='/logout'>log out</a>)</span>
+				</div>
+				<% } %>
+			</div>
+			<div id="content">
+			<% if (typeof debug != "undefined") { %>
+			<%=debug%>
+>>>>>>> parent of ba3b3f5... arreglado share fb
 			<% } %>

@@ -1,5 +1,5 @@
 smalltalk.addPackage('SmalltalkTutorial', {});
-smalltalk.addClass('Achievement', smalltalk.Object, ['next', 'name'], 'SmalltalkTutorial');
+smalltalk.addClass('Achievement', smalltalk.Widget, ['next', 'title'], 'SmalltalkTutorial');
 smalltalk.addMethod(
 "_close",
 smalltalk.method({
@@ -12,38 +12,6 @@ return self;},
 args: [],
 source: "close\x0a'.lesson' asJQuery empty.",
 messageSends: ["empty", "asJQuery"],
-referencedClasses: []
-}),
-smalltalk.Achievement);
-
-smalltalk.addMethod(
-"_name",
-smalltalk.method({
-selector: "name",
-category: 'not yet classified',
-fn: function (){
-var self=this;
-return self['@name'];
-return self;},
-args: [],
-source: "name\x0a\x0a^name",
-messageSends: [],
-referencedClasses: []
-}),
-smalltalk.Achievement);
-
-smalltalk.addMethod(
-"_name_",
-smalltalk.method({
-selector: "name:",
-category: 'not yet classified',
-fn: function (aName){
-var self=this;
-(name=aName);
-return self;},
-args: ["aName"],
-source: "name:aName\x0a\x0aname:=aName",
-messageSends: [],
 referencedClasses: []
 }),
 smalltalk.Achievement);
@@ -103,15 +71,64 @@ selector: "renderOn:",
 category: 'not yet classified',
 fn: function (html){
 var self=this;
+smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", [smalltalk.send(smalltalk.send("Congratulations, you just achieved ", "__comma", [self['@title']]), "__comma", ["!"])]);
 (function($rec){smalltalk.send($rec, "_with_", ["Next Lesson"]);return smalltalk.send($rec, "_onClick_", [(function(){smalltalk.send(self, "_close", []);return smalltalk.send(smalltalk.send(smalltalk.send(self, "_next", []), "_new", []), "_open", []);})]);})(smalltalk.send(html, "_button", []));
 return self;},
 args: ["html"],
-source: "renderOn: html\x0a\x0ahtml button with: 'Next Lesson'; onClick: [self close. self next new open]\x0a",
-messageSends: ["with:", "onClick:", "close", "open", "new", "next", "button"],
+source: "renderOn: html\x0ahtml h2 with:'Congratulations, you just achieved ',title,'!'.\x0ahtml button with: 'Next Lesson'; onClick: [self close. self next new open]\x0a",
+messageSends: ["with:", "h2", ",", "onClick:", "close", "open", "new", "next", "button"],
 referencedClasses: []
 }),
 smalltalk.Achievement);
 
+smalltalk.addMethod(
+"_title",
+smalltalk.method({
+selector: "title",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+return self['@title'];
+return self;},
+args: [],
+source: "title\x0a\x0a^title",
+messageSends: [],
+referencedClasses: []
+}),
+smalltalk.Achievement);
+
+smalltalk.addMethod(
+"_title_",
+smalltalk.method({
+selector: "title:",
+category: 'not yet classified',
+fn: function (aTitle){
+var self=this;
+(self['@title']=aTitle);
+return self;},
+args: ["aTitle"],
+source: "title: aTitle\x0a\x0atitle:=aTitle",
+messageSends: [],
+referencedClasses: []
+}),
+smalltalk.Achievement);
+
+
+smalltalk.addMethod(
+"_new",
+smalltalk.method({
+selector: "new",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+return smalltalk.send(smalltalk.send(self, "_new", [], smalltalk.Achievement.klass.superclass || nil), "_initialize", []);
+return self;},
+args: [],
+source: "new\x0a\x0a^super new initialize",
+messageSends: ["initialize", "new"],
+referencedClasses: []
+}),
+smalltalk.Achievement.klass);
 
 
 smalltalk.addClass('Achievement1', smalltalk.Achievement, [], 'SmalltalkTutorial');
@@ -123,12 +140,12 @@ category: 'not yet classified',
 fn: function (){
 var self=this;
 smalltalk.send(self, "_next_", [(smalltalk.Lesson1 || Lesson1)]);
-smalltalk.send(self, "_name_", ["DoIt, PrintIt, InspectIt"]);
+smalltalk.send(self, "_title_", ["DoIt, PrintIt, InspectIt"]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0a\x0aself next:Lesson1.\x0aself name:'DoIt, PrintIt, InspectIt'.\x0a^self",
-messageSends: ["next:", "name:"],
+source: "initialize\x0a\x0aself next:Lesson1.\x0aself title:'DoIt, PrintIt, InspectIt'.\x0a^self",
+messageSends: ["next:", "title:"],
 referencedClasses: ["Lesson1"]
 }),
 smalltalk.Achievement1);

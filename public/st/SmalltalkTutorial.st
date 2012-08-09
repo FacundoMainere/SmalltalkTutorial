@@ -1,22 +1,12 @@
 Smalltalk current createPackage: 'SmalltalkTutorial' properties: #{}!
-Object subclass: #Achievement
-	instanceVariableNames: 'next name'
+Widget subclass: #Achievement
+	instanceVariableNames: 'next title'
 	package: 'SmalltalkTutorial'!
 
 !Achievement methodsFor: 'not yet classified'!
 
 close
 '.lesson' asJQuery empty.
-!
-
-name
-
-^name
-!
-
-name:aName
-
-name:=aName
 !
 
 next
@@ -37,8 +27,25 @@ open
 !
 
 renderOn: html
-
+html h2 with:'Congratulations, you just achieved ',title,'!!'.
 html button with: 'Next Lesson'; onClick: [self close. self next new open]
+!
+
+title
+
+^title
+!
+
+title: aTitle
+
+title:=aTitle
+! !
+
+!Achievement class methodsFor: 'not yet classified'!
+
+new
+
+^super new initialize
 ! !
 
 Achievement subclass: #Achievement1
@@ -50,7 +57,7 @@ Achievement subclass: #Achievement1
 initialize
 
 self next:Lesson1.
-self name:'DoIt, PrintIt, InspectIt'.
+self title:'DoIt, PrintIt, InspectIt'.
 ^self
 ! !
 

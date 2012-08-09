@@ -22,6 +22,7 @@ function redirect(req, res, location) {
 }
 
 function renderFile(filename, options) {
+  console.log('wesa, ' + filename);
 	return ejs.render(fs.readFileSync(__dirname + '/templates/' + filename, 'utf8'), options);
 }
 

@@ -186,7 +186,8 @@ Lesson subclass: #Lesson1
 !Lesson1 methodsFor: 'initialize'!
 
 initialize
-self explanation: 'Smalltalk expressions are evaluated by selecting the code and clicking "DoIt"'.
+self explanation: 'Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.
+Smalltalk expressions are evaluated by selecting the code and clicking "DoIt"'.
 self name: 'Lesson 1'.
 self result:[:x| x class = Date].
 self next:Lesson2.

@@ -448,7 +448,7 @@ selector: "initialize",
 category: 'initialize',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_explanation_", ["Smalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22"]);
+smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.\x0aSmalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22"]);
 smalltalk.send(self, "_name_", ["Lesson 1"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(x, "_class", []), "__eq", [(smalltalk.Date || Date)]);})]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson2 || Lesson2)]);
@@ -457,7 +457,7 @@ smalltalk.send(self, "_mission_", ["To advance to the next lesson value the foll
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself explanation: 'Smalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22'.\x0aself name: 'Lesson 1'.\x0aself result:[:x| x class = Date].\x0aself next:Lesson2.\x0aself content: 'Date now'.\x0aself mission: 'To advance to the next lesson value the following code'.\x0a^self",
+source: "initialize\x0aself explanation: 'Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.\x0aSmalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22'.\x0aself name: 'Lesson 1'.\x0aself result:[:x| x class = Date].\x0aself next:Lesson2.\x0aself content: 'Date now'.\x0aself mission: 'To advance to the next lesson value the following code'.\x0a^self",
 messageSends: ["explanation:", "name:", "result:", "=", "class", "next:", "content:", "mission:"],
 referencedClasses: ["Date", "Lesson2"]
 }),

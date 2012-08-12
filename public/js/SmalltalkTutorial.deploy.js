@@ -317,7 +317,7 @@ smalltalk.method({
 selector: "initialize",
 fn: function (){
 var self=this;
-smalltalk.send(self, "_explanation_", ["Smalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22"]);
+smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.\x0aSmalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22"]);
 smalltalk.send(self, "_name_", ["Lesson 1"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(x, "_class", []), "__eq", [(smalltalk.Date || Date)]);})]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson2 || Lesson2)]);

@@ -192,7 +192,7 @@ self name: 'Lesson 1'.
 self result:[:x| x class = Date].
 self next:Lesson2.
 self content: 'Date now'.
-self mission: 'To advance to the next lesson value the following code'.
+self mission: 'To advance to the next lesson evaluate the following code'.
 ^self
 ! !
 
@@ -226,7 +226,7 @@ Lesson subclass: #Lesson3
 
 initialize
 self name:'Lesson 3'.
-self explanation:'Sometimes you may need to explore inside your results, that is when InspectIt becomes very handy'.
+self explanation:'Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy'.
 self mission:'Select the following code and InspectIt, get the age of the person, write it, and then value it'.
 self next:Achievement1.
 self content: 'david:=Person bornWithName:''David''.

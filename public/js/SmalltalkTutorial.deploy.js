@@ -322,7 +322,7 @@ smalltalk.send(self, "_name_", ["Lesson 1"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(x, "_class", []), "__eq", [(smalltalk.Date || Date)]);})]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson2 || Lesson2)]);
 smalltalk.send(self, "_content_", ["Date now"]);
-smalltalk.send(self, "_mission_", ["To advance to the next lesson value the following code"]);
+smalltalk.send(self, "_mission_", ["To advance to the next lesson evaluate the following code"]);
 return self;
 return self;}
 }),
@@ -358,7 +358,7 @@ selector: "initialize",
 fn: function (){
 var self=this;
 smalltalk.send(self, "_name_", ["Lesson 3"]);
-smalltalk.send(self, "_explanation_", ["Sometimes you may need to explore inside your results, that is when InspectIt becomes very handy"]);
+smalltalk.send(self, "_explanation_", ["Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy"]);
 smalltalk.send(self, "_mission_", ["Select the following code and InspectIt, get the age of the person, write it, and then value it"]);
 smalltalk.send(self, "_next_", [(smalltalk.Achievement1 || Achievement1)]);
 smalltalk.send(self, "_content_", ["david:=Person bornWithName:'David'.\x0a\x0adavid"]);

@@ -453,11 +453,11 @@ smalltalk.send(self, "_name_", ["Lesson 1"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(x, "_class", []), "__eq", [(smalltalk.Date || Date)]);})]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson2 || Lesson2)]);
 smalltalk.send(self, "_content_", ["Date now"]);
-smalltalk.send(self, "_mission_", ["To advance to the next lesson value the following code"]);
+smalltalk.send(self, "_mission_", ["To advance to the next lesson evaluate the following code"]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself explanation: 'Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.\x0aSmalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22'.\x0aself name: 'Lesson 1'.\x0aself result:[:x| x class = Date].\x0aself next:Lesson2.\x0aself content: 'Date now'.\x0aself mission: 'To advance to the next lesson value the following code'.\x0a^self",
+source: "initialize\x0aself explanation: 'Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.\x0aSmalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22'.\x0aself name: 'Lesson 1'.\x0aself result:[:x| x class = Date].\x0aself next:Lesson2.\x0aself content: 'Date now'.\x0aself mission: 'To advance to the next lesson evaluate the following code'.\x0a^self",
 messageSends: ["explanation:", "name:", "result:", "=", "class", "next:", "content:", "mission:"],
 referencedClasses: ["Date", "Lesson2"]
 }),
@@ -499,7 +499,7 @@ category: 'not yet classified',
 fn: function (){
 var self=this;
 smalltalk.send(self, "_name_", ["Lesson 3"]);
-smalltalk.send(self, "_explanation_", ["Sometimes you may need to explore inside your results, that is when InspectIt becomes very handy"]);
+smalltalk.send(self, "_explanation_", ["Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy"]);
 smalltalk.send(self, "_mission_", ["Select the following code and InspectIt, get the age of the person, write it, and then value it"]);
 smalltalk.send(self, "_next_", [(smalltalk.Achievement1 || Achievement1)]);
 smalltalk.send(self, "_content_", ["david:=Person bornWithName:'David'.\x0a\x0adavid"]);
@@ -507,7 +507,7 @@ smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", 
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 3'.\x0aself explanation:'Sometimes you may need to explore inside your results, that is when InspectIt becomes very handy'.\x0aself mission:'Select the following code and InspectIt, get the age of the person, write it, and then value it'.\x0aself next:Achievement1.\x0aself content: 'david:=Person bornWithName:''David''.\x0a\x0adavid'.\x0aself result:[:x|x=0].\x0a^self",
+source: "initialize\x0aself name:'Lesson 3'.\x0aself explanation:'Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy'.\x0aself mission:'Select the following code and InspectIt, get the age of the person, write it, and then value it'.\x0aself next:Achievement1.\x0aself content: 'david:=Person bornWithName:''David''.\x0a\x0adavid'.\x0aself result:[:x|x=0].\x0a^self",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Achievement1"]
 }),

@@ -227,7 +227,7 @@ Lesson subclass: #Lesson3
 initialize
 self name:'Lesson 3'.
 self explanation:'Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy'.
-self mission:'Select the following code and InspectIt, get the age of the person, write it, and then value it'.
+self mission:'Select the following code and InspectIt, get the age of the person, write it, and then evaluate it'.
 self next:Achievement1.
 self content: 'david:=Person bornWithName:''David''.
 
@@ -248,9 +248,9 @@ self explanation:'Goal: In the next four lessons you are going to learn the thre
 The following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated.'.
 self mission:'Print the expressions to see the results, then ask for the object String length, to do it, send it the message "size"'.
 self next:Lesson5.
-self content: '3 factorial.
+self content: '3 squared.
 
-Date tomorrow.
+Date asString.
 
 ''ImAString'''.
 self result:[:x|x=9].

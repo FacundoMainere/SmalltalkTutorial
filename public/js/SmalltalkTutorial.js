@@ -139,14 +139,14 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_next_", [(smalltalk.Lesson1 || Lesson1)]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson4 || Lesson4)]);
 smalltalk.send(self, "_title_", ["DoIt, PrintIt, InspectIt"]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0a\x0aself next:Lesson1.\x0aself title:'DoIt, PrintIt, InspectIt'.\x0a^self",
+source: "initialize\x0a\x0aself next:Lesson4.\x0aself title:'DoIt, PrintIt, InspectIt'.\x0a^self",
 messageSends: ["next:", "title:"],
-referencedClasses: ["Lesson1"]
+referencedClasses: ["Lesson4"]
 }),
 smalltalk.Achievement1);
 
@@ -512,6 +512,106 @@ messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result
 referencedClasses: ["Achievement1"]
 }),
 smalltalk.Lesson3);
+
+
+
+smalltalk.addClass('Lesson4', smalltalk.Lesson, [], 'SmalltalkTutorial');
+smalltalk.addMethod(
+"_initialize",
+smalltalk.method({
+selector: "initialize",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+smalltalk.send(self, "_name_", ["Lesson 4"]);
+smalltalk.send(self, "_explanation_", ["Goal: In the next four lessons you are going to learn the three types of messages: Unary, Binary and Keyword.\x0aThe following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated."]);
+smalltalk.send(self, "_mission_", ["Print the expressions to see the results, then ask for the object String length, to do it, send it the message \x22size\x22"]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson5 || Lesson5)]);
+smalltalk.send(self, "_content_", ["3 factorial.\x0a\x0aDate tomorrow.\x0a\x0a'ImAString'"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(9)]);})]);
+return self;
+return self;},
+args: [],
+source: "initialize\x0aself name:'Lesson 4'.\x0aself explanation:'Goal: In the next four lessons you are going to learn the three types of messages: Unary, Binary and Keyword.\x0aThe following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated.'.\x0aself mission:'Print the expressions to see the results, then ask for the object String length, to do it, send it the message \x22size\x22'.\x0aself next:Lesson5.\x0aself content: '3 factorial.\x0a\x0aDate tomorrow.\x0a\x0a''ImAString'''.\x0aself result:[:x|x=9].\x0a^self",
+messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
+referencedClasses: ["Lesson5"]
+}),
+smalltalk.Lesson4);
+
+
+
+smalltalk.addClass('Lesson5', smalltalk.Lesson, [], 'SmalltalkTutorial');
+smalltalk.addMethod(
+"_initialize",
+smalltalk.method({
+selector: "initialize",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+smalltalk.send(self, "_name_", ["Lesson 5"]);
+smalltalk.send(self, "_explanation_", ["The next expressions are binary messages, they are evaluated after unary messages, they are generally arithmetic, comparison, and logical operations."]);
+smalltalk.send(self, "_mission_", ["To advance to the next lesson, first check the results of the following expressions, probably they wont behave the way you think, so analyze the results, then complete the last one with a number to get 4 as result"]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson6 || Lesson6)]);
+smalltalk.send(self, "_content_", ["10>7.\x0a\x0a15-6/9.\x0a\x0a2*3-4*"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(4)]);})]);
+return self;
+return self;},
+args: [],
+source: "initialize\x0aself name:'Lesson 5'.\x0aself explanation:'The next expressions are binary messages, they are evaluated after unary messages, they are generally arithmetic, comparison, and logical operations.'.\x0aself mission:'To advance to the next lesson, first check the results of the following expressions, probably they wont behave the way you think, so analyze the results, then complete the last one with a number to get 4 as result'.\x0aself next:Lesson6.\x0aself content: '10>7.\x0a\x0a15-6/9.\x0a\x0a2*3-4*'.\x0aself result:[:x|x=4].\x0a^self",
+messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
+referencedClasses: ["Lesson6"]
+}),
+smalltalk.Lesson5);
+
+
+
+smalltalk.addClass('Lesson6', smalltalk.Lesson, [], 'SmalltalkTutorial');
+smalltalk.addMethod(
+"_initialize",
+smalltalk.method({
+selector: "initialize",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+smalltalk.send(self, "_name_", ["Lesson 6"]);
+smalltalk.send(self, "_explanation_", ["Here you got some keyword messages, as you may see, they are of the form \x22object message: argument\x22, they are the last to be evaluated in a combined Smalltalk expression"]);
+smalltalk.send(self, "_mission_", ["Try the examples, then complete the argument of the last expression to get 9"]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson7 || Lesson7)]);
+smalltalk.send(self, "_content_", ["2 max:3.\x0a\x0a5@7 x:6.\x0a\x0a9 min:"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(9)]);})]);
+return self;
+return self;},
+args: [],
+source: "initialize\x0aself name:'Lesson 6'.\x0aself explanation:'Here you got some keyword messages, as you may see, they are of the form \x22object message: argument\x22, they are the last to be evaluated in a combined Smalltalk expression'.\x0aself mission:'Try the examples, then complete the argument of the last expression to get 9'.\x0aself next:Lesson7.\x0aself content: '2 max:3.\x0a\x0a5@7 x:6.\x0a\x0a9 min:'.\x0aself result: [:x|x=9].\x0a^self\x0a\x0a\x0a",
+messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
+referencedClasses: ["Lesson7"]
+}),
+smalltalk.Lesson6);
+
+
+
+smalltalk.addClass('Lesson7', smalltalk.Lesson, [], 'SmalltalkTutorial');
+smalltalk.addMethod(
+"_initialize",
+smalltalk.method({
+selector: "initialize",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+smalltalk.send(self, "_name_", ["Lesson 7"]);
+smalltalk.send(self, "_explanation_", ["Also, you can combine unary, binary and keyword messages, but what if the evaluation order does not match your needs? then you can use parentheses, expressions between parentheses evaluate before any other, using them you can control the evaluation order of the expression"]);
+smalltalk.send(self, "_mission_", ["See how parentheses work in the first three expressions, then complete the last with them so you can obtain 6"]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson1 || Lesson1)]);
+smalltalk.send(self, "_content_", ["3+4 squared.\x0a\x0a(3+4) squared.\x0a\x0a3+ (4 squared).\x0a\x0a3 min: 4 * 2\x0a"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(6)]);})]);
+return self;
+return self;},
+args: [],
+source: "initialize\x0aself name:'Lesson 7'.\x0aself explanation:'Also, you can combine unary, binary and keyword messages, but what if the evaluation order does not match your needs? then you can use parentheses, expressions between parentheses evaluate before any other, using them you can control the evaluation order of the expression'.\x0aself mission:'See how parentheses work in the first three expressions, then complete the last with them so you can obtain 6'.\x0aself next:Lesson1.\x0aself content: '3+4 squared.\x0a\x0a(3+4) squared.\x0a\x0a3+ (4 squared).\x0a\x0a3 min: 4 * 2\x0a'.\x0aself result:[:x|x=6].\x0a^self",
+messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
+referencedClasses: ["Lesson1"]
+}),
+smalltalk.Lesson7);
 
 
 

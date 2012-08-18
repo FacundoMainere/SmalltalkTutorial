@@ -30,7 +30,6 @@ function redirect(req, res, location) {
 }
 
 function renderFile(filename, options) {
-  console.log('wesa, ' + filename);
 	return ejs.render(fs.readFileSync(__dirname + '/templates/' + filename, 'utf8'), options);
 }
 
@@ -78,12 +77,15 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	if (isGoogle)   ext_type = 3;
 	
 	sqlconn.connect();
-	sqlconn.query('select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type),
+	sql = 'select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type);
+	console.log('sql1 con ' + sql);
+	sqlconn.query(sql,
 	function(err, rows, fields) {
 		if (rows) ret=rows.c;
+		console.log('ret es ahora ' + ret);
 	});
 	
-	if( ! ret ) { 
+	if(  ret = 0 ) { 
 		sqlconn.query('insert into usersocial (ext_type, ext_id, user_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ', 123)');
 	}
 	sqlconn.end();

@@ -133,13 +133,10 @@ function routes(app) {
 					uimg = det.user.picture;
 					uname = det.user.name;
 				}
-				console.log(JSON.stringify(det));
-				console.log(uname);
-				console.log(uimg);
 				renderWrapped(res, 'home.html', {
-					lesson_number: 1
+					lesson_number: (parseInt(ret[0].user_level)+1)
 					, user: {name: uname, imgsrc: uimg}
-					, debug: (JSON.stringify(det))
+					//, debug: (JSON.stringify(det))
 				});
 			});
 

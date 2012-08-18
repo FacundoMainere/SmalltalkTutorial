@@ -87,9 +87,9 @@ var sqlconn = mysql.createConnection({
 		ret=parseInt(a[0].c);
 		if(  ret == 0 ) { 
 			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', "' + sqlconn.escape(ext_id) + '")');
-		}else{
 		}
 		redirect( authContext.request, authContext.response, "/");
+		sqlconn.end();
 		});
 	
 	
@@ -151,6 +151,7 @@ function routes(app) {
 		} else {
 			renderWrapped(res, 'home-noauth.html');
 		}
+	sqlconn.end();
 	});
 	
 	app.get(/.*/, function(req, res, params) {

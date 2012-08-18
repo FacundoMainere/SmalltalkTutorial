@@ -89,7 +89,8 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 		sqlconn.query('insert into usersocial (ext_type, ext_id, user_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ', 123)');
 	}
 	console.log("CHAU FLH!");
-	sqlconn.end();
+	sqlconn.destroy();
+	console.log("CHAUCHAU!");
 	redirect( authContext.request, authContext.response, "/");
 	
 	

@@ -83,15 +83,15 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 		console.log('a: '+JSON.stringify(a));
 		ret=parseInt(a[0].c);
 		console.log(JSON.stringify(ret));
-	});
+		if(  ret == 0 ) { 
+			console.log('insertando');
+			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ')');
+		}else{
+			console.log('ya taba adentro');
+		}
+		redirect( authContext.request, authContext.response, "/");
+		});
 	
-	if(  ret == 0 ) { 
-		console.log('insertando');
-		sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ')');
-	}else{
-		console.log('ya taba adentro');
-	}
-	redirect( authContext.request, authContext.response, "/");
 	
 	
 }

@@ -80,7 +80,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	console.log(sql);
 	sqlconn.query(sql,
 	function(err, a, b) {
-		console.log(JSON.stringify({'a': a, 'b' : b});
+		console.log(JSON.stringify({ a, b});
 	});
 	
 	if(  ret == 0 ) { 

@@ -2,7 +2,13 @@ var	  connect = require('connect')
 	, auth= require('connect-auth')
 	, url= require('url')
 	, ejs= require('ejs')
-	, fs= require('fs');
+	, fs= require('fs')
+	, mysql= require('mysql');
+
+var sqlHost = 'us-cdbr-east.cleardb.com';
+var sqlUser  =     'be9c143f242393';
+var sqlPass =      '21ac9130';
+var sqlDB =        'heroku_205f67b308148bb';
 
 var fbId= "138391069632276";
 var fbSecret= "662321b535c93082a88378ff4c468e60";
@@ -22,7 +28,6 @@ function redirect(req, res, location) {
 }
 
 function renderFile(filename, options) {
-  console.log('wesa, ' + filename);
 	return ejs.render(fs.readFileSync(__dirname + '/templates/' + filename, 'utf8'), options);
 }
 
@@ -52,13 +57,42 @@ var smalltalk_tutorial_middleware = function() {
 	}
 };
 
-var users= {};
-
 function firstLoginHandler( authContext, executionResult, callback ) {
-	if( ! users[executionResult.user.id] ) {  // ClearDB dis
-		users[executionResult.user.id]= true;
-	}
-	redirect( authContext.request, authContext.response, "/");
+
+var sqlconn = mysql.createConnection({
+		  host     : sqlHost,
+		  user     : sqlUser,
+		  password : sqlPass,
+		  database : sqlDB,
+});
+	var ret=0;
+	var ext_id=0;
+	var ext_type=0;
+	isTwitter = ( executionResult.currentStrategy == "twitter" );
+	isGoogle = ( executionResult.currentStrategy == "google2" );
+	isFacebook = ( executionResult.currentStrategy == "facebook" );
+	
+	if (isGoogle || isFacebook) ext_id = executionResult.user.id;
+	if (isTwitter) ext_id = executionResult.user.user_id;
+	
+	if (isFacebook) ext_type = 1;
+	if (isTwitter)  ext_type = 2;
+	if (isGoogle)   ext_type = 3;
+	
+	
+	sql = 'select count(ext_id) as c from usersocial where ext_id = "' + sqlconn.escape(ext_id) + '" and ext_type = ' + sqlconn.escape(ext_type);
+	//console.log(sql);
+	sqlconn.query(sql,
+	function(err, a, b) {
+		ret=parseInt(a[0].c);
+		if(  ret == 0 ) { 
+			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', "' + sqlconn.escape(ext_id) + '")');
+		}else{
+		}
+		redirect( authContext.request, authContext.response, "/");
+		});
+	
+	
 }
 
 function routes(app) {
@@ -68,32 +102,52 @@ function routes(app) {
 	}); 
 
 	app.get("/", function(req, res, params) {
+		
+		var sqlconn = mysql.createConnection({
+		  host     : sqlHost,
+		  user     : sqlUser,
+		  password : sqlPass,
+		  database : sqlDB,
+		});
 		res.writeHead(200, {'Content-Type': 'text/html'})
 		if( req.isAuthenticated() ) {
+
 			det = req.getAuthDetails();
-			isTwitter = ( typeof det.twitter_oauth_token != "undefined");
-			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google") != -1));
-			isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook") != -1));
-			var uimg="";
-			var uname="";
-			if (isTwitter) {
-				uimg = "https://api.twitter.com/1/users/profile_image?screen_name=" + det.user.username + "&size=normal";
-				uname = det.user.username;
-			}
-			else if (isFacebook) {
-				uimg = "http://graph.facebook.com/"+ det.user.id + "/picture";
-				uname = det.user.name;
-			}
-			else if (isGoogle) {
-				uimg = det.user.picture;
-				uname = det.user.name;
-			}
-			
-			renderWrapped(res, 'home.html', {
-				  lesson_number: 1
-				, user: {name: uname, imgsrc: uimg}
-				//, debug: (JSON.stringify(det))
+			if ( typeof det.twitter_oauth_token != "undefined")
+				uid= det.user.user_id;
+			else
+				uid= det.user.id;
+			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(uid) +'"';
+
+			console.log(sql);
+			sqlconn.query(sql,
+			function(err, ret, b) {
+				var uimg="";
+				var uname="";
+				console.log(JSON.stringify(ret));
+				if (ret){
+				if (ret[0].ext_type==1) { 
+					uimg = "http://graph.facebook.com/"+ det.user.id + "/picture";
+					uname = det.user.name;
+				}
+				else if (ret[0].ext_type==2) {
+					uimg = "https://api.twitter.com/1/users/profile_image?screen_name=" + det.user.username + "&size=normal";
+					uname = det.user.username;
+				}
+				else if (ret[0].ext_type==3) { //gugel
+					uimg = det.user.picture;
+					uname = det.user.name;
+				}
+				level = (parseInt(ret[0].user_level)+1);
+				}
+				renderWrapped(res, 'home.html', {
+					lesson_number: level
+					, user: {name: uname, imgsrc: uimg}
+					//, debug: (JSON.stringify(det))
+				});
 			});
+
+
 		} else {
 			renderWrapped(res, 'home-noauth.html');
 		}

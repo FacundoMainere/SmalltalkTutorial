@@ -1,0 +1,69 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'connect',
+1 verbose cli   '1.8.x' ]
+2 info using npm@1.1.45
+3 info using node@v0.8.4
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose config file C:\Documents and Settings\Administrator.EXPERIEN-94F75B\.npmrc
+6 verbose config file C:\Program Files\nodejs\etc\npmrc
+7 verbose config file C:\Program Files\nodejs\node_modules\npm\npmrc
+8 verbose read json E:\heroku\smalltalktutorial\package.json
+9 warn package.json smalltalk-tutorial@0.0.1 No README.md file found!
+10 verbose from cache E:\heroku\smalltalktutorial\package.json
+11 verbose readDependencies using package.json deps
+12 verbose cache add [ 'connect@1.8.x', null ]
+13 silly cache add name=undefined spec="connect@1.8.x" args=["connect@1.8.x",null]
+14 verbose parsed url { pathname: 'connect@1.8.x',
+14 verbose parsed url   path: 'connect@1.8.x',
+14 verbose parsed url   href: 'connect@1.8.x' }
+15 silly cache add name="connect" spec="1.8.x" args=["connect","1.8.x"]
+16 verbose parsed url { pathname: '1.8.x', path: '1.8.x', href: '1.8.x' }
+17 verbose addNamed [ 'connect', '1.8.x' ]
+18 verbose addNamed [ null, '>=1.8.0- <1.9.0-' ]
+19 verbose cache add [ '1.8.x', null ]
+20 silly cache add name=undefined spec="1.8.x" args=["1.8.x",null]
+21 verbose parsed url { pathname: '1.8.x', path: '1.8.x', href: '1.8.x' }
+22 silly lockFile df822ab0-connect-1-8-x connect@1.8.x
+23 verbose lock connect@1.8.x C:\Documents and Settings\Administrator.EXPERIEN-94F75B\Application Data\npm-cache\df822ab0-connect-1-8-x.lock
+24 silly lockFile b28ab85a-1-8-x 1.8.x
+25 verbose lock 1.8.x C:\Documents and Settings\Administrator.EXPERIEN-94F75B\Application Data\npm-cache\b28ab85a-1-8-x.lock
+26 silly addNameRange { name: 'connect', range: '>=1.8.0- <1.9.0-', hasData: false }
+27 verbose url raw connect
+28 verbose url resolving [ 'https://registry.npmjs.org/', './connect' ]
+29 verbose url resolved https://registry.npmjs.org/connect
+30 info retry registry request attempt 1 at 03:52:55
+31 http GET https://registry.npmjs.org/connect
+32 silly lockFile b28ab85a-1-8-x 1.8.x
+33 verbose addNamed [ '1.8.x', '' ]
+34 verbose addNamed [ null, '' ]
+35 silly lockFile a75205ae-1-8-x 1.8.x@
+36 verbose lock 1.8.x@ C:\Documents and Settings\Administrator.EXPERIEN-94F75B\Application Data\npm-cache\a75205ae-1-8-x.lock
+37 silly addNameRange { name: '1.8.x', range: '', hasData: false }
+38 verbose url raw 1.8.x
+39 verbose url resolving [ 'https://registry.npmjs.org/', './1.8.x' ]
+40 verbose url resolved https://registry.npmjs.org/1.8.x
+41 info retry registry request attempt 1 at 03:52:56
+42 http GET https://registry.npmjs.org/1.8.x
+43 http 404 https://registry.npmjs.org/1.8.x
+44 silly registry.get cb [ 404,
+44 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+44 silly registry.get     date: 'Sun, 12 Aug 2012 06:52:55 GMT',
+44 silly registry.get     'content-type': 'application/json',
+44 silly registry.get     'content-length': '52',
+44 silly registry.get     'cache-control': 'must-revalidate' } ]
+45 silly lockFile a75205ae-1-8-x 1.8.x@
+46 error 404 '1.8.x' is not in the npm registry.
+46 error 404 You should bug the author to publish it
+46 error 404
+46 error 404 Note that you can also install from a
+46 error 404 tarball, folder, or http url, or git url.
+47 error System Windows_NT 5.1.2600
+48 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "connect" "1.8.x"
+49 error cwd E:\heroku\smalltalktutorial
+50 error node -v v0.8.4
+51 error npm -v 1.1.45
+52 error code E404
+53 verbose exit [ 1, true ]

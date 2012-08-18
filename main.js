@@ -64,17 +64,17 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	var ret=0;
 	var ext_id=0;
 	var ext_type=0;
-	det = executionResult;
-	isTwitter = ( typeof det.twitter_oauth_token != "undefined");
-	isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google") != -1));
-	isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook") != -1));
+	isTwitter = ( executionResult.currentStrategy == "twitter" );
+	isGoogle = ( executionResult.currentStrategy == "google2" );
+	isFacebook = ( executionResult.currentStrategy == "facebook" );
 	
-	if (isGoogle || isFacebook) ext_id = det.user.id;
-	if (isTwitter) ext_id = det.user.user_id;
+	if (isGoogle || isFacebook) ext_id = executionResult.user.id;
+	if (isTwitter) ext_id = executionResult.user.user_id;
 	
 	if (isFacebook) ext_type = 1;
 	if (isTwitter)  ext_type = 2;
 	if (isGoogle)   ext_type = 3;
+	
 	console.log('tenemos er ... ' + JSON.stringify(executionResult));
 		sql = 'select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type);
 	console.log('sql1 con ' + sql);

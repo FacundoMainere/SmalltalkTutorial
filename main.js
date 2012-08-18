@@ -120,6 +120,7 @@ function routes(app) {
 			function(err, ret, b) {
 				var uimg="";
 				var uname="";
+				console.log(JSON.stringify(ret));
 				if (ret.ext_type==1) { 
 					uimg = "http://graph.facebook.com/"+ det.user.id + "/picture";
 					uname = det.user.name;

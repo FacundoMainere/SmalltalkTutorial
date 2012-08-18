@@ -121,15 +121,15 @@ function routes(app) {
 				var uimg="";
 				var uname="";
 				console.log(JSON.stringify(ret));
-				if (ret.ext_type==1) { 
+				if (ret[0].ext_type==1) { 
 					uimg = "http://graph.facebook.com/"+ det.user.id + "/picture";
 					uname = det.user.name;
 				}
-				else if (ret.ext_type==2) {
+				else if (ret[0].ext_type==2) {
 					uimg = "https://api.twitter.com/1/users/profile_image?screen_name=" + det.user.username + "&size=normal";
 					uname = det.user.username;
 				}
-				else if (ret.ext_type==3) { //gugel
+				else if (ret[0].ext_type==3) { //gugel
 					uimg = det.user.picture;
 					uname = det.user.name;
 				}

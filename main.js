@@ -60,7 +60,7 @@ var smalltalk_tutorial_middleware = function() {
 };
 
 function firstLoginHandler( authContext, executionResult, callback ) {
-	console.log("HOLA FLH!");
+
 	var ret=0;
 	var ext_id=0;
 	var ext_type=0;
@@ -81,14 +81,12 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	sqlconn.query(sql,
 	function(err, rows, fields) {
 		if (rows) ret=rows.c;
-		console.log('ret es ahora ' + ret);
 	});
+		console.log('ret es ahora ' + ret);
 	
 	if(  ret = 0 ) { 
 		sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ')');
 	}
-	console.log("CHAU FLH!");
-	console.log("CHAUCHAU!");
 	redirect( authContext.request, authContext.response, "/");
 	
 	

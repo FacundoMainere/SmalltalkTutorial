@@ -100,47 +100,40 @@ function routes(app) {
 	app.get("/", function(req, res, params) {
 		res.writeHead(200, {'Content-Type': 'text/html'})
 		if( req.isAuthenticated() ) {
-		
+
 			det = req.getAuthDetails();
 			if ( typeof det.twitter_oauth_token != "undefined")
 				uid= det.user.user_id;
 			else
 				uid= det.user.id;
 			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(uid) +'"';
-	console.log("WACHEMM");
-	console.log("WACHEMM");
-	console.log(sql);
-	sqlconn.query(sql,
-	function(err, a, b) {
-		console.log("TURREEMM");
-		console.log("TURREEMM");
-		console.log(JSON.stringify(a));
-		
-		});
-	
-			isTwitter = ( typeof det.twitter_oauth_token != "undefined");
-			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google") != -1));
-			isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook") != -1));
-			var uimg="";
-			var uname="";
-			if (isTwitter) {
-				uimg = "https://api.twitter.com/1/users/profile_image?screen_name=" + det.user.username + "&size=normal";
-				uname = det.user.username;
-			}
-			else if (isFacebook) {
-				uimg = "http://graph.facebook.com/"+ det.user.id + "/picture";
-				uname = det.user.name;
-			}
-			else if (isGoogle) {
-				uimg = det.user.picture;
-				uname = det.user.name;
-			}
-			
-			renderWrapped(res, 'home.html', {
-				  lesson_number: 1
-				, user: {name: uname, imgsrc: uimg}
-				, debug: (JSON.stringify(det))
+
+			console.log(sql);
+			sqlconn.query(sql,
+			function(err, ret, b) {
+				var uimg="";
+				var uname="";
+				if (ret.ext_type==1) { 
+					uimg = "http://graph.facebook.com/"+ det.user.id + "/picture";
+					uname = det.user.name;
+				}
+				else if (ret.ext_type==2) {
+					uimg = "https://api.twitter.com/1/users/profile_image?screen_name=" + det.user.username + "&size=normal";
+					uname = det.user.username;
+				}
+				else if (ret.ext_type==3) { //gugel
+					uimg = det.user.picture;
+					uname = det.user.name;
+				}
+
+				renderWrapped(res, 'home.html', {
+					lesson_number: 1
+					, user: {name: uname, imgsrc: uimg}
+					, debug: (JSON.stringify(det))
+				});
 			});
+
+
 		} else {
 			renderWrapped(res, 'home-noauth.html');
 		}

@@ -76,7 +76,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	
 	
 	sql = 'select count(ext_id) as c from usersocial where ext_id = "' + sqlconn.escape(ext_id) + '" and ext_type = ' + sqlconn.escape(ext_type);
-	console.log(sql);
+	//console.log(sql);
 	sqlconn.query(sql,
 	function(err, a, b) {
 		ret=parseInt(a[0].c);
@@ -107,10 +107,15 @@ function routes(app) {
 			else
 				uid= det.user.id;
 			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(uid);
+	console.log("WACHEMM");
+	console.log("WACHEMM");
 	console.log(sql);
 	sqlconn.query(sql,
 	function(err, a, b) {
+		console.log("TURREEMM");
+		console.log("TURREEMM");
 		console.log(JSON.stringify(a));
+		
 		});
 	
 			isTwitter = ( typeof det.twitter_oauth_token != "undefined");

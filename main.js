@@ -76,7 +76,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	if (isGoogle)   ext_type = 3;
 	
 	
-	sql = 'select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type);
+	sql = 'select count(ext_id) as c from usersocial where ext_id = "' + sqlconn.escape(ext_id) + '" and ext_type = ' + sqlconn.escape(ext_type);
 	console.log(sql);
 	sqlconn.query(sql,
 	function(err, a, b) {
@@ -85,7 +85,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 		console.log(JSON.stringify(ret));
 		if(  ret == 0 ) { 
 			console.log('insertando');
-			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ')');
+			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', "' + sqlconn.escape(ext_id) + '")');
 		}else{
 			console.log('ya taba adentro');
 		}

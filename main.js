@@ -60,7 +60,6 @@ var smalltalk_tutorial_middleware = function() {
 };
 
 function firstLoginHandler( authContext, executionResult, callback ) {
-	console.log(JSON.stringify(authContext));
 	var ret=0;
 	var ext_id=0;
 	var ext_type=0;

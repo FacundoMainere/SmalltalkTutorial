@@ -83,7 +83,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 		if (rows) ret=rows.c;
 	});
 	
-	if( ! ret ) {  // ClearDB dis
+	if( ! ret ) { 
 		sqlconn.query('insert into usersocial (ext_type, ext_id, user_id)) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ', 123)');
 	}
 	sqlconn.end();

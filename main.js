@@ -84,7 +84,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	});
 	
 	if( ! ret ) {  // ClearDB dis
-		sqlconn.query('insert into usersocial values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ', 123)');
+		sqlconn.query('insert into usersocial (ext_type, ext_id, user_id)) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ', 123)');
 	}
 	sqlconn.end();
 	redirect( authContext.request, authContext.response, "/");

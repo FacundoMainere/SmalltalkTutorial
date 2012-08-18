@@ -139,7 +139,8 @@ function routes(app) {
 				renderWrapped(res, 'home.html', {
 					lesson_number: level
 					, user: {name: uname, imgsrc: uimg}
-					//, debug: (JSON.stringify(det))
+					, debug: 'probando, borrame del main.js'
+//, debug: (JSON.stringify(det))
 				});
 			});
 

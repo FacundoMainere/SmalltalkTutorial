@@ -80,13 +80,14 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	console.log('sql1 con ' + sql);
 	sqlconn.query(sql,
 	function(err, rows, fields) {
-		if (rows) ret=rows.c;
+		if (rows) ret=int(rows.c);
 	});
 		console.log('ret es ahora ' + ret);
 	
 	if(  ret = 0 ) { 
+		console.log('insertando');
 		sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ')');
-	}
+	}else{console.log('ya taba adentro');}
 	redirect( authContext.request, authContext.response, "/");
 	
 	

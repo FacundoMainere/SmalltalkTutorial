@@ -123,11 +123,11 @@ smalltalk.addMethod(
 "_close",
 smalltalk.method({
 selector: "close",
-fn: function () {
-    var self = this;
-    smalltalk.send(smalltalk.send(".lesson", "_asJQuery", []), "_empty", []);
-    return self;
-}
+fn: function (){
+var self=this;
+smalltalk.send(smalltalk.send(".lesson", "_asJQuery", []), "_empty", []);
+smalltalk.send(smalltalk.send(".transition", "_asJQuery", []), "_empty", []);
+return self;}
 }),
 smalltalk.Lesson);
 
@@ -251,11 +251,10 @@ smalltalk.addMethod(
 "_open",
 smalltalk.method({
 selector: "open",
-fn: function () {
-    var self = this;
-    smalltalk.send(smalltalk.send(typeof window == "undefined" ? nil : window, "_jQuery_", [typeof document == "undefined" ? nil : document]), "_ready_", [function () {return smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);}]);
-    return self;
-}
+fn: function (){
+var self=this;
+smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);return smalltalk.send(smalltalk.send(self, "_name", []), "_appendToJQuery_", [smalltalk.send(".transition", "_asJQuery", [])]);})]);
+return self;}
 }),
 smalltalk.Lesson);
 

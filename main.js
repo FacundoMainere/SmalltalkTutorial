@@ -5,6 +5,10 @@ var	  connect = require('connect')
 	, fs= require('fs')
 	, mysql= require('mysql');
 
+var sqlHost = 'us-cdbr-east.cleardb.com';
+var sqlUser  =     'be9c143f242393';
+var sqlPass =      '21ac9130';
+var sqlDB =        'heroku_205f67b308148bb';
 
 var fbId= "138391069632276";
 var fbSecret= "662321b535c93082a88378ff4c468e60";
@@ -56,10 +60,10 @@ var smalltalk_tutorial_middleware = function() {
 function firstLoginHandler( authContext, executionResult, callback ) {
 
 var sqlconn = mysql.createConnection({
-  host     : 'us-cdbr-east.cleardb.com',
-  user     : 'be9c143f242393',
-  password : '21ac9130',
-  database : 'heroku_205f67b308148bb',
+		  host     : sqlHost,
+		  user     : sqlUser,
+		  password : sqlPass,
+		  database : sqlDB,
 });
 	var ret=0;
 	var ext_id=0;
@@ -100,10 +104,10 @@ function routes(app) {
 	app.get("/", function(req, res, params) {
 		
 		var sqlconn = mysql.createConnection({
-		  host     : 'us-cdbr-east.cleardb.com',
-		  user     : 'be9c143f242393',
-		  password : '21ac9130',
-		  database : 'heroku_205f67b308148bb',
+		  host     : sqlHost,
+		  user     : sqlUser,
+		  password : sqlPass,
+		  database : sqlDB,
 		});
 		res.writeHead(200, {'Content-Type': 'text/html'})
 		if( req.isAuthenticated() ) {
@@ -139,8 +143,7 @@ function routes(app) {
 				renderWrapped(res, 'home.html', {
 					lesson_number: level
 					, user: {name: uname, imgsrc: uimg}
-					, debug: 'probando, borrame del main.js'
-//, debug: (JSON.stringify(det))
+					//, debug: (JSON.stringify(det))
 				});
 			});
 

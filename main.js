@@ -132,7 +132,9 @@ function routes(app) {
 					uimg = det.user.picture;
 					uname = det.user.name;
 				}
-				
+				console.log(JSON.stringify(det));
+				console.log(uname);
+				console.log(uimg);
 				renderWrapped(res, 'home.html', {
 					lesson_number: 1
 					, user: {name: uname, imgsrc: uimg}

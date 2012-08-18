@@ -106,7 +106,7 @@ function routes(app) {
 				uid= det.user.user_id;
 			else
 				uid= det.user.id;
-			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(uid));
+			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(uid);
 	console.log(sql);
 	sqlconn.query(sql,
 	function(err, a, b) {

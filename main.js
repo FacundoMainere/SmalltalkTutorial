@@ -76,7 +76,6 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	if (isTwitter)  ext_type = 2;
 	if (isGoogle)   ext_type = 3;
 	
-	sqlconn.connect();
 	sql = 'select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type);
 	console.log('sql1 con ' + sql);
 	sqlconn.query(sql,
@@ -89,7 +88,6 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 		sqlconn.query('insert into usersocial (ext_type, ext_id, user_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ', 123)');
 	}
 	console.log("CHAU FLH!");
-	sqlconn.destroy();
 	console.log("CHAUCHAU!");
 	redirect( authContext.request, authContext.response, "/");
 	

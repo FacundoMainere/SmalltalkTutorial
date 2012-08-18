@@ -64,7 +64,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	var ret=0;
 	sqlconn.query('select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(executionResult.user.id),
 	function(err, rows, fields) {
-		ret=rows.c;
+		if (rows) ret=rows.c;
 	});
 	
 	if( ! ret ) {  // ClearDB dis
@@ -105,7 +105,7 @@ function routes(app) {
 			renderWrapped(res, 'home.html', {
 				  lesson_number: 1
 				, user: {name: uname, imgsrc: uimg}
-				//, debug: (JSON.stringify(det))
+				, debug: (JSON.stringify(det))
 			});
 		} else {
 			renderWrapped(res, 'home-noauth.html');

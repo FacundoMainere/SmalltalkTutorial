@@ -61,18 +61,32 @@ var smalltalk_tutorial_middleware = function() {
 };
 
 function firstLoginHandler( authContext, executionResult, callback ) {
-	//sqlconn.connect();
+	
 	var ret=0;
-	/*sqlconn.query('select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(executionResult.user.id),
+	var ext_id=0;
+	var ext_type=0;
+	det = executionResult;
+	isTwitter = ( typeof det.twitter_oauth_token != "undefined");
+	isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google") != -1));
+	isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook") != -1));
+	
+	if (isGoogle || isFacebook) ext_id = det.user.id;
+	if (isTwitter) ext_id = det.user.user_id;
+	
+	if (isFacebook) ext_type = 1;
+	if (isTwitter)  ext_type = 2;
+	if (isGoogle)   ext_type = 3;
+	
+	sqlconn.connect();
+	sqlconn.query('select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type),
 	function(err, rows, fields) {
 		if (rows) ret=rows.c;
 	});
-	*/
-	if( ! ret ) {  // ClearDB dis
 	
-	//	if (facebook) sqlconn.query('insert into usersocial values(1, ' + sqlconn.escape(executionResult.user.id) + ', 123)');
+	if( ! ret ) {  // ClearDB dis
+		sqlconn.query('insert into usersocial values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ', 123)');
 	}
-	//sqlconn.end();
+	sqlconn.end();
 	redirect( authContext.request, authContext.response, "/");
 }
 

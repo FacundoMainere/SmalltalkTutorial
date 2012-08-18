@@ -250,7 +250,7 @@ self mission:'Print the expressions to see the results, then ask for the object 
 self next:Lesson5.
 self content: '3 squared.
 
-Date asString.
+Date now asString.
 
 ''ImAString'''.
 self result:[:x|x=9].

@@ -527,12 +527,12 @@ smalltalk.send(self, "_name_", ["Lesson 4"]);
 smalltalk.send(self, "_explanation_", ["Goal: In the next four lessons you are going to learn the three types of messages: Unary, Binary and Keyword.\x0aThe following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated."]);
 smalltalk.send(self, "_mission_", ["Print the expressions to see the results, then ask for the object String length, to do it, send it the message \x22size\x22"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson5 || Lesson5)]);
-smalltalk.send(self, "_content_", ["3 squared.\x0a\x0aDate asString.\x0a\x0a'ImAString'"]);
+smalltalk.send(self, "_content_", ["3 squared.\x0a\x0aDate now asString.\x0a\x0a'ImAString'"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(9)]);})]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 4'.\x0aself explanation:'Goal: In the next four lessons you are going to learn the three types of messages: Unary, Binary and Keyword.\x0aThe following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated.'.\x0aself mission:'Print the expressions to see the results, then ask for the object String length, to do it, send it the message \x22size\x22'.\x0aself next:Lesson5.\x0aself content: '3 squared.\x0a\x0aDate asString.\x0a\x0a''ImAString'''.\x0aself result:[:x|x=9].\x0a^self",
+source: "initialize\x0aself name:'Lesson 4'.\x0aself explanation:'Goal: In the next four lessons you are going to learn the three types of messages: Unary, Binary and Keyword.\x0aThe following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated.'.\x0aself mission:'Print the expressions to see the results, then ask for the object String length, to do it, send it the message \x22size\x22'.\x0aself next:Lesson5.\x0aself content: '3 squared.\x0a\x0aDate now asString.\x0a\x0a''ImAString'''.\x0aself result:[:x|x=9].\x0a^self",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson5"]
 }),

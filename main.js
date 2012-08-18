@@ -121,6 +121,7 @@ function routes(app) {
 				var uimg="";
 				var uname="";
 				console.log(JSON.stringify(ret));
+				if (ret){
 				if (ret[0].ext_type==1) { 
 					uimg = "http://graph.facebook.com/"+ det.user.id + "/picture";
 					uname = det.user.name;
@@ -133,8 +134,10 @@ function routes(app) {
 					uimg = det.user.picture;
 					uname = det.user.name;
 				}
+				level = (parseInt(ret[0].user_level)+1);
+				}
 				renderWrapped(res, 'home.html', {
-					lesson_number: (parseInt(ret[0].user_level)+1)
+					lesson_number: level
 					, user: {name: uname, imgsrc: uimg}
 					//, debug: (JSON.stringify(det))
 				});

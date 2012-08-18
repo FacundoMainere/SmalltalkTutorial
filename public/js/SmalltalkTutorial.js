@@ -177,10 +177,9 @@ category: 'render',
 fn: function (){
 var self=this;
 smalltalk.send(smalltalk.send(".lesson", "_asJQuery", []), "_empty", []);
-smalltalk.send(smalltalk.send(".transition", "_asJQuery", []), "_empty", []);
 return self;},
 args: [],
-source: "close\x0a'.lesson' asJQuery empty.\x0a'.transition' asJQuery empty.",
+source: "close\x0a'.lesson' asJQuery empty.",
 messageSends: ["empty", "asJQuery"],
 referencedClasses: []
 }),
@@ -359,11 +358,11 @@ selector: "open",
 category: 'render',
 fn: function (){
 var self=this;
-smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);return smalltalk.send(smalltalk.send(self, "_name", []), "_appendToJQuery_", [smalltalk.send(".transition", "_asJQuery", [])]);})]);
+smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);return smalltalk.send((typeof window == 'undefined' ? nil : window), "_alert_", [smalltalk.send(self, "_name", [])]);})]);
 return self;},
 args: [],
-source: "open\x0a\x09(window jQuery: document)  ready: [\x0a          \x09self appendToJQuery: '.lesson' asJQuery.\x0a\x09\x09self name appendToJQuery:'.transition' asJQuery.\x0a        ].",
-messageSends: ["ready:", "jQuery:", "appendToJQuery:", "asJQuery", "name"],
+source: "open\x0a\x09(window jQuery: document)  ready: [\x0a          \x09self appendToJQuery: '.lesson' asJQuery.\x0a\x09\x09window alert:self name.\x0a        ].",
+messageSends: ["ready:", "jQuery:", "appendToJQuery:", "asJQuery", "alert:", "name"],
 referencedClasses: []
 }),
 smalltalk.Lesson);

@@ -136,13 +136,12 @@ checkResult:aResult
 
 close
 '.lesson' asJQuery empty.
-'.transition' asJQuery empty.
 !
 
 open
 	(window jQuery: document)  ready: [
           	self appendToJQuery: '.lesson' asJQuery.
-		self name appendToJQuery:'.transition' asJQuery.
+		window alert:self name.
         ].
 !
 

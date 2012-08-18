@@ -76,13 +76,12 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	if (isGoogle)   ext_type = 3;
 	
 	console.log('tenemos er ... ' + JSON.stringify(executionResult));
-		sql = 'select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type);
-	console.log('sql1 con ' + sql);
+	sql = 'select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type);
+	console.log('+ sql);
 	sqlconn.query(sql,
-	function(err, rows, fields) {
-		if (rows) ret=parseInt(rows.c);
+	function(err, a, b) {
+		console.log(JSON.stringify({'a': a, 'b' : b});
 	});
-		console.log('ret es ahora ' + ret);
 	
 	if(  ret == 0 ) { 
 		console.log('insertando');

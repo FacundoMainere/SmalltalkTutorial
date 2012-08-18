@@ -61,7 +61,7 @@ var smalltalk_tutorial_middleware = function() {
 };
 
 function firstLoginHandler( authContext, executionResult, callback ) {
-	sqlconn.connect();
+	//sqlconn.connect();
 	var ret=0;
 	/*sqlconn.query('select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(executionResult.user.id),
 	function(err, rows, fields) {
@@ -69,9 +69,10 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	});
 	*/
 	if( ! ret ) {  // ClearDB dis
-	//	sqlconn.query('insert into usersocial values(1337, ' + sqlconn.escape(executionResult.user.id) + ',123)');
+	
+	//	if (facebook) sqlconn.query('insert into usersocial values(1, ' + sqlconn.escape(executionResult.user.id) + ', 123)');
 	}
-	sqlconn.end();
+	//sqlconn.end();
 	redirect( authContext.request, authContext.response, "/");
 }
 

@@ -81,8 +81,8 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	sqlconn.query(sql,
 	function(err, a, b) {
 	
-		console.log('a: '+JSON.stringify(a);
-		console.log('b: '+JSON.stringify(b);
+		console.log('a: '+JSON.stringify(a));
+		console.log('b: '+JSON.stringify(b));
 	});
 	
 	if(  ret == 0 ) { 

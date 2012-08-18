@@ -80,7 +80,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	console.log('sql1 con ' + sql);
 	sqlconn.query(sql,
 	function(err, rows, fields) {
-		if (rows) ret=int(rows.c);
+		if (rows) ret=parseInt(rows.c);
 	});
 		console.log('ret es ahora ' + ret);
 	

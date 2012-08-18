@@ -85,7 +85,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	});
 	
 	if(  ret = 0 ) { 
-		sqlconn.query('insert into usersocial (ext_type, ext_id, user_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ', 123)');
+		sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ')');
 	}
 	console.log("CHAU FLH!");
 	console.log("CHAUCHAU!");

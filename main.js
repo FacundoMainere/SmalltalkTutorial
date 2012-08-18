@@ -9,6 +9,7 @@ var sqlconn = mysql.createConnection({
   host     : 'us-cdbr-east.cleardb.com',
   user     : 'be9c143f242393',
   password : '21ac9130',
+  database : 'heroku_205f67b308148bb',
 });
 
 var fbId= "138391069632276";

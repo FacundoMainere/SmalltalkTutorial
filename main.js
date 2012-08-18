@@ -75,7 +75,8 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	if (isFacebook) ext_type = 1;
 	if (isTwitter)  ext_type = 2;
 	if (isGoogle)   ext_type = 3;
-	
+	console.log('tenemos er ... ' + JSON.stringify(executionResult);
+	console.log('tenemos ac... ' + JSON.stringify(authContext);
 	sql = 'select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type);
 	console.log('sql1 con ' + sql);
 	sqlconn.query(sql,

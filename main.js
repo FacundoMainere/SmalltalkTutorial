@@ -2,7 +2,14 @@ var	  connect = require('connect')
 	, auth= require('connect-auth')
 	, url= require('url')
 	, ejs= require('ejs')
-	, fs= require('fs');
+	, fs= require('fs')
+	, mysql= require('mysql');
+
+var sqlconn = mysql.createConnection({
+  host     : 'us-cdbr-east.cleardb.com',
+  user     : 'be9c143f242393',
+  password : '21ac9130',
+});
 
 var fbId= "138391069632276";
 var fbSecret= "662321b535c93082a88378ff4c468e60";
@@ -52,12 +59,18 @@ var smalltalk_tutorial_middleware = function() {
 	}
 };
 
-var users= {};
-
 function firstLoginHandler( authContext, executionResult, callback ) {
-	if( ! users[executionResult.user.id] ) {  // ClearDB dis
-		users[executionResult.user.id]= true;
+	sqlconn.connect();
+	var ret=0;
+	sqlconn.query('select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(executionResult.user.id),
+	function(err, rows, fields) {
+		ret=rows.c;
+	});
+	
+	if( ! ret ) {  // ClearDB dis
+		sqlconn.query('insert into usersocial values(1337, ' + sqlconn.escape(ext_id) + ',123)');
 	}
+	sqlconn.end();
 	redirect( authContext.request, authContext.response, "/");
 }
 

@@ -60,7 +60,7 @@ var smalltalk_tutorial_middleware = function() {
 };
 
 function firstLoginHandler( authContext, executionResult, callback ) {
-
+	console.log(authContext
 	var ret=0;
 	var ext_id=0;
 	var ext_type=0;
@@ -80,14 +80,10 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 	console.log(sql);
 	sqlconn.query(sql,
 	function(err, a, b) {
-		console.log('a: '+JSON.stringify(a));
 		ret=parseInt(a[0].c);
-		console.log(JSON.stringify(ret));
 		if(  ret == 0 ) { 
-			console.log('insertando');
 			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', "' + sqlconn.escape(ext_id) + '")');
 		}else{
-			console.log('ya taba adentro');
 		}
 		redirect( authContext.request, authContext.response, "/");
 		});
@@ -105,7 +101,20 @@ function routes(app) {
 	app.get("/", function(req, res, params) {
 		res.writeHead(200, {'Content-Type': 'text/html'})
 		if( req.isAuthenticated() ) {
+		
 			det = req.getAuthDetails();
+			/*sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(det.user.id));
+	console.log(sql);
+	sqlconn.query(sql,
+	function(err, a, b) {
+		ret=parseInt(a[0].c);
+		if(  ret == 0 ) { 
+			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', "' + sqlconn.escape(ext_id) + '")');
+		}else{
+		}
+		redirect( authContext.request, authContext.response, "/");
+		});
+	*/
 			isTwitter = ( typeof det.twitter_oauth_token != "undefined");
 			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google") != -1));
 			isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook") != -1));

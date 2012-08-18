@@ -102,18 +102,17 @@ function routes(app) {
 		if( req.isAuthenticated() ) {
 		
 			det = req.getAuthDetails();
-			/*sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(det.user.id));
+			if ( typeof det.twitter_oauth_token != "undefined")
+				uid= det.user.user_id;
+			else
+				uid= det.user.id;
+			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(uid));
 	console.log(sql);
 	sqlconn.query(sql,
 	function(err, a, b) {
-		ret=parseInt(a[0].c);
-		if(  ret == 0 ) { 
-			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', "' + sqlconn.escape(ext_id) + '")');
-		}else{
-		}
-		redirect( authContext.request, authContext.response, "/");
+		console.log(JSON.stringify(a));
 		});
-	*/
+	
 			isTwitter = ( typeof det.twitter_oauth_token != "undefined");
 			isGoogle = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("google") != -1));
 			isFacebook = ( (typeof det.user != "undefined") && (typeof det.user.link != "undefined") && (det.user.link.indexOf("facebook") != -1));

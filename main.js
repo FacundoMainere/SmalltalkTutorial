@@ -89,6 +89,7 @@ function firstLoginHandler( authContext, executionResult, callback ) {
 		}else{
 			console.log('ya taba adentro');
 		}
+		sqlconn.destroy();
 		redirect( authContext.request, authContext.response, "/");
 		});
 	

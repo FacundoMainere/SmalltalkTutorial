@@ -89,7 +89,6 @@ var sqlconn = mysql.createConnection({
 		});
 	
 	
-	sqlconn.destroy();
 }
 
 function routes(app) {
@@ -133,7 +132,7 @@ function routes(app) {
 					uimg = det.user.picture;
 					uname = det.user.name;
 				}
-
+				
 				renderWrapped(res, 'home.html', {
 					lesson_number: 1
 					, user: {name: uname, imgsrc: uimg}
@@ -145,7 +144,6 @@ function routes(app) {
 		} else {
 			renderWrapped(res, 'home-noauth.html');
 		}
-		sqlconn.destroy();
 	});
 	
 	app.get(/.*/, function(req, res, params) {

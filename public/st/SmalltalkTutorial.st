@@ -196,6 +196,27 @@ self mission: 'To advance to the next lesson evaluate the following code'.
 ^self
 ! !
 
+Lesson subclass: #Lesson10
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson10 methodsFor: 'not yet classified'!
+
+initialize
+self name:'Lesson 10'.
+self explanation:'Some messages take blocks as parameters, this is the case of "ifTrue:ifFalse:", it takes two blocks as parameter, the first is executed if the receiver object is true, and the second if it is false'.
+self mission:'Also you can use them by separate "ifTrue:" or "ifFalse", see how the two first expressions behave, then correct the last one to get the second block to execute'.
+self next:Lesson1.
+self content: '3>4 ifTrue:[1] ifFalse:[0].
+
+false ifTrue:[''yes''] ifFalse:[''no''].
+
+(''six'' isNumber) ifTrue:[''stay here''] ifFalse:[''Pass to the next lesson'']
+'.
+self result:[:x|x='Pass to the next lesson'].
+^self
+! !
+
 Lesson subclass: #Lesson2
 	instanceVariableNames: ''
 	package: 'SmalltalkTutorial'!
@@ -307,7 +328,7 @@ initialize
 self name:'Lesson 7'.
 self explanation:'Also, you can combine unary, binary and keyword messages, but what if the evaluation order does not match your needs? then you can use parentheses, expressions between parentheses evaluate before any other, using them you can control the evaluation order of the expression'.
 self mission:'See how parentheses work in the first three expressions, then complete the last with them so you can obtain 6'.
-self next:Lesson1.
+self next:Lesson8.
 self content: '3+4 squared.
 
 (3+4) squared.
@@ -317,6 +338,47 @@ self content: '3+4 squared.
 3 min: 4 * 2
 '.
 self result:[:x|x=6].
+^self
+! !
+
+Lesson subclass: #Lesson8
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson8 methodsFor: 'not yet classified'!
+
+initialize
+self name:'Lesson 8'.
+self explanation:'Goal: In the next three lessons you will learn blocks and some usage for them.The following expressions are blocks, they contain code, but the code is not executed until you tell the block to execute the code inside it.'.
+self mission:'To evaluate the code inside the block you have to send it the message "value", try it with this blocks.'.
+self next:Lesson1.
+self content: '[4+6] 
+
+[david:=Person bornWithName:''David''.david name]
+ 
+[david age:15. david age]'.
+self result:[:x|x=15].
+^self.
+! !
+
+Lesson subclass: #Lesson9
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson9 methodsFor: 'not yet classified'!
+
+initialize
+self name:'Lesson 9'.
+self explanation:'Also block can have some parameters'.
+self mission:'To value blocks with parameters you can use the messages "value:", "value: value:", "value: value: value:", depending on the number of arguments of the block. Value the following blocks, pass the correct arguments to the last one to get 9'.
+self next:Lesson10.
+self content: '[:n|n*5]
+
+[:aName :anAge|person:=Person bornWithName:aName.person age:anAge]
+
+[:x :y :z| x+y*z]
+'.
+self result:[:x|x=9].
 ^self
 ! !
 

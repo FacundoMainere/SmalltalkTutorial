@@ -5,6 +5,11 @@ Object subclass: #Person
 
 !Person methodsFor: 'not yet classified'!
 
+age
+
+^age
+!
+
 age: anAge
 
 age:=anAge
@@ -15,6 +20,11 @@ initialize:aName
 self name:aName.
 self age:0.
 ^self
+!
+
+name
+
+^name
 !
 
 name: aName

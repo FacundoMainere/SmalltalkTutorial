@@ -168,7 +168,7 @@ app.get(/saveLesson.*/, function(req,res,params){
 			uid= det.user.user_id;
 		else
 			uid= det.user.id;
-		sql = 'update usersocial set userlevel = ' + sqlconn.escape(parseInt(req.url.substr(11)))+ ' where ext_id = ' + sqlconn.escape(uid) ; 
+		sql = 'update usersocial set user_level = ' + sqlconn.escape(parseInt(req.url.substr(11)))+ ' where ext_id = ' + sqlconn.escape(uid) ; 
 		sqlconn.query(sql);
 		sqlconn.end();
 		//res.end(sql);

@@ -154,7 +154,14 @@ function routes(app) {
 	sqlconn.end();
 	});
 	app.get(/saveLesson.*/, function(req,res,params){
-	res.end(JSON.stringify(req.url));
+		var sqlconn = mysql.createConnection({
+		  host     : sqlHost,
+		  user     : sqlUser,
+		  password : sqlPass,
+		  database : sqlDB,
+		});
+	res.end(sqlconn.escape(req.url.substr(11)));
+sqlconn.end();
 	});	
 	app.get(/.*/, function(req, res, params) {
 		redirect(req, res, "/");

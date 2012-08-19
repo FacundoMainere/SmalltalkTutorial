@@ -1,4 +1,35 @@
+<div class="share-social">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-text="Learning Smalltalk the fun way! Interactive Smalltalk Tutorial">Tweet</a>
+</div>
+<div class="share-social">
+	<g:plusone size="medium" annotation="inline" width="120" href="http://smalltalktutorial.herokuapp.com/achievementX"></g:plusone>
+</div>
+<div class="share-social">
+   <div id='fb-root'></div>
+    <script src='http://connect.facebook.net/en_US/all.js'></script>
+    <p><a onclick='postToFeed();'>Post to Feed</a></p>
 
+    <script> 
+      FB.init({appId: "138391069632276", status: true, cookie: true});
+
+      function postToFeed() {
+
+        // calling the API ...
+        var obj = {
+          method: 'feed',
+          link: 'http://smalltalktutorial.herokuapp.com/',
+          picture: 'http://fbrell.com/f8.jpg',
+          name: 'Smalltalk Tutorial',
+          caption: 'Learning Smalltalk the fun way!',
+          description: 'Interactive Smalltalk Tutorial'
+        };
+
+
+        FB.ui(obj, callback);
+      }
+    
+    </script>
+</div>	
 			</div>
 		</div>
 	</body>

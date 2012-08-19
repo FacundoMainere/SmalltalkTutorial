@@ -141,7 +141,7 @@ close
 open
 	(window jQuery: document)  ready: [
           	self appendToJQuery: '.lesson' asJQuery.
-		saveLesson: self name.
+		window saveLesson: self name.
         ].
 !
 
@@ -188,7 +188,7 @@ Lesson subclass: #Lesson1
 initialize
 self explanation: 'Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.
 Smalltalk expressions are evaluated by selecting the code and clicking "DoIt"'.
-self name: 'Lesson 1'.
+self name: 1.
 self result:[:x| x class = Date].
 self next:Lesson2.
 self content: 'Date now'.
@@ -203,7 +203,7 @@ Lesson subclass: #Lesson10
 !Lesson10 methodsFor: 'not yet classified'!
 
 initialize
-self name:'Lesson 10'.
+self name:10.
 self explanation:'Some messages take blocks as parameters, this is the case of "ifTrue:ifFalse:", it takes two blocks as parameter, the first is executed if the receiver object is true, and the second if it is false'.
 self mission:'Also you can use them by separate "ifTrue:" or "ifFalse", see how the two first expressions behave, then correct the last one to get the second block to execute'.
 self next:Lesson1.
@@ -217,6 +217,27 @@ self result:[:x|x='Pass to the next lesson'].
 ^self
 ! !
 
+Lesson subclass: #Lesson11
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson11 methodsFor: 'not yet classified'!
+
+initialize
+self name:11.
+self explanation:'Goal: In the next three lessons you will learn three different types of Smalltalk collections. The first one is the Array, it has predefined size and order, there is many ways to define an array'.
+self mission:'Below there are three different forms of defining an Array, pick one, then create an array with the numbers from 1 to 5'.
+self next:Lesson12.
+self content: '((Array new:2) at:1 put:''Hello'') at:2 put:''world''.
+
+#(9 10 11).
+
+{(6+6) (3*4)}.
+'.
+self result:[:x|x=15].
+^self.
+! !
+
 Lesson subclass: #Lesson2
 	instanceVariableNames: ''
 	package: 'SmalltalkTutorial'!
@@ -226,7 +247,7 @@ Lesson subclass: #Lesson2
 initialize
 self explanation: 'Also, you can know the result of evaluating your expression by selecting the code and clicking "PrintIt"'.
 self mission:'Print the results of the next expressions one by one, once finished, select the result of printing 3<4 and click "DoIt"'.
-self name: 'Lesson 2'.
+self name: 2.
 self result:[:x|x].
 self next:Lesson3.
 self content:'3+3.
@@ -246,7 +267,7 @@ Lesson subclass: #Lesson3
 !Lesson3 methodsFor: 'not yet classified'!
 
 initialize
-self name:'Lesson 3'.
+self name:3.
 self explanation:'Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy'.
 self mission:'Select the following code and InspectIt, get the age of the person, write it, and then evaluate it'.
 self next:Achievement1.
@@ -264,7 +285,7 @@ Lesson subclass: #Lesson4
 !Lesson4 methodsFor: 'not yet classified'!
 
 initialize
-self name:'Lesson 4'.
+self name:4.
 self explanation:'Goal: In the next four lessons you are going to learn the three types of messages: Unary, Binary and Keyword.
 The following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated.'.
 self mission:'Print the expressions to see the results, then ask for the object String length, to do it, send it the message "size"'.
@@ -285,7 +306,7 @@ Lesson subclass: #Lesson5
 !Lesson5 methodsFor: 'not yet classified'!
 
 initialize
-self name:'Lesson 5'.
+self name:5.
 self explanation:'The next expressions are binary messages, they are evaluated after unary messages, they are generally arithmetic, comparison, and logical operations.'.
 self mission:'To advance to the next lesson, first check the results of the following expressions, probably they wont behave the way you think, so analyze the results, then complete the last one with a number to get 4 as result'.
 self next:Lesson6.
@@ -305,7 +326,7 @@ Lesson subclass: #Lesson6
 !Lesson6 methodsFor: 'not yet classified'!
 
 initialize
-self name:'Lesson 6'.
+self name:6.
 self explanation:'Here you got some keyword messages, as you may see, they are of the form "object message: argument", they are the last to be evaluated in a combined Smalltalk expression'.
 self mission:'Try the examples, then complete the argument of the last expression to get 9'.
 self next:Lesson7.
@@ -325,7 +346,7 @@ Lesson subclass: #Lesson7
 !Lesson7 methodsFor: 'not yet classified'!
 
 initialize
-self name:'Lesson 7'.
+self name:7.
 self explanation:'Also, you can combine unary, binary and keyword messages, but what if the evaluation order does not match your needs? then you can use parentheses, expressions between parentheses evaluate before any other, using them you can control the evaluation order of the expression'.
 self mission:'See how parentheses work in the first three expressions, then complete the last with them so you can obtain 6'.
 self next:Lesson8.
@@ -348,7 +369,7 @@ Lesson subclass: #Lesson8
 !Lesson8 methodsFor: 'not yet classified'!
 
 initialize
-self name:'Lesson 8'.
+self name:8.
 self explanation:'Goal: In the next three lessons you will learn blocks and some usage for them.The following expressions are blocks, they contain code, but the code is not executed until you tell the block to execute the code inside it.'.
 self mission:'To evaluate the code inside the block you have to send it the message "value", try it with this blocks.'.
 self next:Lesson1.
@@ -368,7 +389,7 @@ Lesson subclass: #Lesson9
 !Lesson9 methodsFor: 'not yet classified'!
 
 initialize
-self name:'Lesson 9'.
+self name:9.
 self explanation:'Also block can have some parameters'.
 self mission:'To value blocks with parameters you can use the messages "value:", "value: value:", "value: value: value:", depending on the number of arguments of the block. Value the following blocks, pass the correct arguments to the last one to get 9'.
 self next:Lesson10.

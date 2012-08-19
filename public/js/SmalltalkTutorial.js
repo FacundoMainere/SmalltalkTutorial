@@ -358,11 +358,11 @@ selector: "open",
 category: 'render',
 fn: function (){
 var self=this;
-smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);return smalltalk.send((typeof window == 'undefined' ? nil : window), "_alert_", [smalltalk.send(self, "_name", [])]);})]);
+smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);return smalltalk.send((typeof window == 'undefined' ? nil : window), "_saveLesson_", [smalltalk.send(self, "_name", [])]);})]);
 return self;},
 args: [],
-source: "open\x0a\x09(window jQuery: document)  ready: [\x0a          \x09self appendToJQuery: '.lesson' asJQuery.\x0a\x09\x09window alert: self name.\x0a        ].",
-messageSends: ["ready:", "jQuery:", "appendToJQuery:", "asJQuery", "alert:", "name"],
+source: "open\x0a\x09(window jQuery: document)  ready: [\x0a          \x09self appendToJQuery: '.lesson' asJQuery.\x0a\x09\x09window saveLesson: self name.\x0a        ].",
+messageSends: ["ready:", "jQuery:", "appendToJQuery:", "asJQuery", "saveLesson:", "name"],
 referencedClasses: []
 }),
 smalltalk.Lesson);
@@ -447,7 +447,7 @@ category: 'initialize',
 fn: function (){
 var self=this;
 smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.\x0aSmalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22"]);
-smalltalk.send(self, "_name_", ["Lesson 1"]);
+smalltalk.send(self, "_name_", [(1)]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(x, "_class", []), "__eq", [(smalltalk.Date || Date)]);})]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson2 || Lesson2)]);
 smalltalk.send(self, "_content_", ["Date now"]);
@@ -455,7 +455,7 @@ smalltalk.send(self, "_mission_", ["To advance to the next lesson evaluate the f
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself explanation: 'Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.\x0aSmalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22'.\x0aself name: 'Lesson 1'.\x0aself result:[:x| x class = Date].\x0aself next:Lesson2.\x0aself content: 'Date now'.\x0aself mission: 'To advance to the next lesson evaluate the following code'.\x0a^self",
+source: "initialize\x0aself explanation: 'Goal: In the next three lessons you are going to learn how to evaluate in different ways a piece of code in Smalltalk.\x0aSmalltalk expressions are evaluated by selecting the code and clicking \x22DoIt\x22'.\x0aself name: 1.\x0aself result:[:x| x class = Date].\x0aself next:Lesson2.\x0aself content: 'Date now'.\x0aself mission: 'To advance to the next lesson evaluate the following code'.\x0a^self",
 messageSends: ["explanation:", "name:", "result:", "=", "class", "next:", "content:", "mission:"],
 referencedClasses: ["Date", "Lesson2"]
 }),
@@ -471,7 +471,7 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_name_", ["Lesson 10"]);
+smalltalk.send(self, "_name_", [(10)]);
 smalltalk.send(self, "_explanation_", ["Some messages take blocks as parameters, this is the case of \x22ifTrue:ifFalse:\x22, it takes two blocks as parameter, the first is executed if the receiver object is true, and the second if it is false"]);
 smalltalk.send(self, "_mission_", ["Also you can use them by separate \x22ifTrue:\x22 or \x22ifFalse\x22, see how the two first expressions behave, then correct the last one to get the second block to execute"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson1 || Lesson1)]);
@@ -480,11 +480,36 @@ smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", 
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 10'.\x0aself explanation:'Some messages take blocks as parameters, this is the case of \x22ifTrue:ifFalse:\x22, it takes two blocks as parameter, the first is executed if the receiver object is true, and the second if it is false'.\x0aself mission:'Also you can use them by separate \x22ifTrue:\x22 or \x22ifFalse\x22, see how the two first expressions behave, then correct the last one to get the second block to execute'.\x0aself next:Lesson1.\x0aself content: '3>4 ifTrue:[1] ifFalse:[0].\x0a\x0afalse ifTrue:[''yes''] ifFalse:[''no''].\x0a\x0a(''six'' isNumber) ifTrue:[''stay here''] ifFalse:[''Pass to the next lesson'']\x0a'.\x0aself result:[:x|x='Pass to the next lesson'].\x0a^self",
+source: "initialize\x0aself name:10.\x0aself explanation:'Some messages take blocks as parameters, this is the case of \x22ifTrue:ifFalse:\x22, it takes two blocks as parameter, the first is executed if the receiver object is true, and the second if it is false'.\x0aself mission:'Also you can use them by separate \x22ifTrue:\x22 or \x22ifFalse\x22, see how the two first expressions behave, then correct the last one to get the second block to execute'.\x0aself next:Lesson1.\x0aself content: '3>4 ifTrue:[1] ifFalse:[0].\x0a\x0afalse ifTrue:[''yes''] ifFalse:[''no''].\x0a\x0a(''six'' isNumber) ifTrue:[''stay here''] ifFalse:[''Pass to the next lesson'']\x0a'.\x0aself result:[:x|x='Pass to the next lesson'].\x0a^self",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson1"]
 }),
 smalltalk.Lesson10);
+
+
+
+smalltalk.addClass('Lesson11', smalltalk.Lesson, [], 'SmalltalkTutorial');
+smalltalk.addMethod(
+"_initialize",
+smalltalk.method({
+selector: "initialize",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+smalltalk.send(self, "_name_", [(11)]);
+smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you will learn three different types of Smalltalk collections. The first one is the Array, it has predefined size and order, there is many ways to define an array"]);
+smalltalk.send(self, "_mission_", ["Below there are three different forms of defining an Array, pick one, then create an array with the numbers from 1 to 5"]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson12 || Lesson12)]);
+smalltalk.send(self, "_content_", ["((Array new:2) at:1 put:'Hello') at:2 put:'world'.\x0a\x0a#(9 10 11).\x0a\x0a{(6+6) (3*4)}.\x0a"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(15)]);})]);
+return self;
+return self;},
+args: [],
+source: "initialize\x0aself name:11.\x0aself explanation:'Goal: In the next three lessons you will learn three different types of Smalltalk collections. The first one is the Array, it has predefined size and order, there is many ways to define an array'.\x0aself mission:'Below there are three different forms of defining an Array, pick one, then create an array with the numbers from 1 to 5'.\x0aself next:Lesson12.\x0aself content: '((Array new:2) at:1 put:''Hello'') at:2 put:''world''.\x0a\x0a#(9 10 11).\x0a\x0a{(6+6) (3*4)}.\x0a'.\x0aself result:[:x|x=15].\x0a^self.",
+messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
+referencedClasses: ["Lesson12"]
+}),
+smalltalk.Lesson11);
 
 
 
@@ -498,14 +523,14 @@ fn: function (){
 var self=this;
 smalltalk.send(self, "_explanation_", ["Also, you can know the result of evaluating your expression by selecting the code and clicking \x22PrintIt\x22"]);
 smalltalk.send(self, "_mission_", ["Print the results of the next expressions one by one, once finished, select the result of printing 3<4 and click \x22DoIt\x22"]);
-smalltalk.send(self, "_name_", ["Lesson 2"]);
+smalltalk.send(self, "_name_", [(2)]);
 smalltalk.send(self, "_result_", [(function(x){return x;})]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson3 || Lesson3)]);
 smalltalk.send(self, "_content_", ["3+3.\x0a\x0a'tutorial' class.\x0a\x0aDate now.\x0a\x0a3<4"]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself explanation: 'Also, you can know the result of evaluating your expression by selecting the code and clicking \x22PrintIt\x22'.\x0aself mission:'Print the results of the next expressions one by one, once finished, select the result of printing 3<4 and click \x22DoIt\x22'.\x0aself name: 'Lesson 2'.\x0aself result:[:x|x].\x0aself next:Lesson3.\x0aself content:'3+3.\x0a\x0a''tutorial'' class.\x0a\x0aDate now.\x0a\x0a3<4'.\x0a^self",
+source: "initialize\x0aself explanation: 'Also, you can know the result of evaluating your expression by selecting the code and clicking \x22PrintIt\x22'.\x0aself mission:'Print the results of the next expressions one by one, once finished, select the result of printing 3<4 and click \x22DoIt\x22'.\x0aself name: 2.\x0aself result:[:x|x].\x0aself next:Lesson3.\x0aself content:'3+3.\x0a\x0a''tutorial'' class.\x0a\x0aDate now.\x0a\x0a3<4'.\x0a^self",
 messageSends: ["explanation:", "mission:", "name:", "result:", "next:", "content:"],
 referencedClasses: ["Lesson3"]
 }),
@@ -521,7 +546,7 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_name_", ["Lesson 3"]);
+smalltalk.send(self, "_name_", [(3)]);
 smalltalk.send(self, "_explanation_", ["Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy"]);
 smalltalk.send(self, "_mission_", ["Select the following code and InspectIt, get the age of the person, write it, and then evaluate it"]);
 smalltalk.send(self, "_next_", [(smalltalk.Achievement1 || Achievement1)]);
@@ -530,7 +555,7 @@ smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", 
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 3'.\x0aself explanation:'Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy'.\x0aself mission:'Select the following code and InspectIt, get the age of the person, write it, and then evaluate it'.\x0aself next:Achievement1.\x0aself content: 'david:=Person bornWithName:''David''.\x0a\x0adavid'.\x0aself result:[:x|x=0].\x0a^self",
+source: "initialize\x0aself name:3.\x0aself explanation:'Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy'.\x0aself mission:'Select the following code and InspectIt, get the age of the person, write it, and then evaluate it'.\x0aself next:Achievement1.\x0aself content: 'david:=Person bornWithName:''David''.\x0a\x0adavid'.\x0aself result:[:x|x=0].\x0a^self",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Achievement1"]
 }),
@@ -546,7 +571,7 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_name_", ["Lesson 4"]);
+smalltalk.send(self, "_name_", [(4)]);
 smalltalk.send(self, "_explanation_", ["Goal: In the next four lessons you are going to learn the three types of messages: Unary, Binary and Keyword.\x0aThe following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated."]);
 smalltalk.send(self, "_mission_", ["Print the expressions to see the results, then ask for the object String length, to do it, send it the message \x22size\x22"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson5 || Lesson5)]);
@@ -555,7 +580,7 @@ smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", 
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 4'.\x0aself explanation:'Goal: In the next four lessons you are going to learn the three types of messages: Unary, Binary and Keyword.\x0aThe following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated.'.\x0aself mission:'Print the expressions to see the results, then ask for the object String length, to do it, send it the message \x22size\x22'.\x0aself next:Lesson5.\x0aself content: '3 squared.\x0a\x0aDate now asString.\x0a\x0a''ImAString'''.\x0aself result:[:x|x=9].\x0a^self",
+source: "initialize\x0aself name:4.\x0aself explanation:'Goal: In the next four lessons you are going to learn the three types of messages: Unary, Binary and Keyword.\x0aThe following are examples of unary messages, you have seen many in the past lessons, in a Smalltalk expression, unary messages are the first to be evaluated.'.\x0aself mission:'Print the expressions to see the results, then ask for the object String length, to do it, send it the message \x22size\x22'.\x0aself next:Lesson5.\x0aself content: '3 squared.\x0a\x0aDate now asString.\x0a\x0a''ImAString'''.\x0aself result:[:x|x=9].\x0a^self",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson5"]
 }),
@@ -571,7 +596,7 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_name_", ["Lesson 5"]);
+smalltalk.send(self, "_name_", [(5)]);
 smalltalk.send(self, "_explanation_", ["The next expressions are binary messages, they are evaluated after unary messages, they are generally arithmetic, comparison, and logical operations."]);
 smalltalk.send(self, "_mission_", ["To advance to the next lesson, first check the results of the following expressions, probably they wont behave the way you think, so analyze the results, then complete the last one with a number to get 4 as result"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson6 || Lesson6)]);
@@ -580,7 +605,7 @@ smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", 
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 5'.\x0aself explanation:'The next expressions are binary messages, they are evaluated after unary messages, they are generally arithmetic, comparison, and logical operations.'.\x0aself mission:'To advance to the next lesson, first check the results of the following expressions, probably they wont behave the way you think, so analyze the results, then complete the last one with a number to get 4 as result'.\x0aself next:Lesson6.\x0aself content: '10>7.\x0a\x0a15-6/9.\x0a\x0a2*3-4*'.\x0aself result:[:x|x=4].\x0a^self",
+source: "initialize\x0aself name:5.\x0aself explanation:'The next expressions are binary messages, they are evaluated after unary messages, they are generally arithmetic, comparison, and logical operations.'.\x0aself mission:'To advance to the next lesson, first check the results of the following expressions, probably they wont behave the way you think, so analyze the results, then complete the last one with a number to get 4 as result'.\x0aself next:Lesson6.\x0aself content: '10>7.\x0a\x0a15-6/9.\x0a\x0a2*3-4*'.\x0aself result:[:x|x=4].\x0a^self",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson6"]
 }),
@@ -596,7 +621,7 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_name_", ["Lesson 6"]);
+smalltalk.send(self, "_name_", [(6)]);
 smalltalk.send(self, "_explanation_", ["Here you got some keyword messages, as you may see, they are of the form \x22object message: argument\x22, they are the last to be evaluated in a combined Smalltalk expression"]);
 smalltalk.send(self, "_mission_", ["Try the examples, then complete the argument of the last expression to get 9"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson7 || Lesson7)]);
@@ -605,7 +630,7 @@ smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", 
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 6'.\x0aself explanation:'Here you got some keyword messages, as you may see, they are of the form \x22object message: argument\x22, they are the last to be evaluated in a combined Smalltalk expression'.\x0aself mission:'Try the examples, then complete the argument of the last expression to get 9'.\x0aself next:Lesson7.\x0aself content: '2 max:3.\x0a\x0a5@7 x:6.\x0a\x0a9 min:'.\x0aself result: [:x|x=9].\x0a^self\x0a\x0a\x0a",
+source: "initialize\x0aself name:6.\x0aself explanation:'Here you got some keyword messages, as you may see, they are of the form \x22object message: argument\x22, they are the last to be evaluated in a combined Smalltalk expression'.\x0aself mission:'Try the examples, then complete the argument of the last expression to get 9'.\x0aself next:Lesson7.\x0aself content: '2 max:3.\x0a\x0a5@7 x:6.\x0a\x0a9 min:'.\x0aself result: [:x|x=9].\x0a^self\x0a\x0a\x0a",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson7"]
 }),
@@ -621,7 +646,7 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_name_", ["Lesson 7"]);
+smalltalk.send(self, "_name_", [(7)]);
 smalltalk.send(self, "_explanation_", ["Also, you can combine unary, binary and keyword messages, but what if the evaluation order does not match your needs? then you can use parentheses, expressions between parentheses evaluate before any other, using them you can control the evaluation order of the expression"]);
 smalltalk.send(self, "_mission_", ["See how parentheses work in the first three expressions, then complete the last with them so you can obtain 6"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson8 || Lesson8)]);
@@ -630,7 +655,7 @@ smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", 
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 7'.\x0aself explanation:'Also, you can combine unary, binary and keyword messages, but what if the evaluation order does not match your needs? then you can use parentheses, expressions between parentheses evaluate before any other, using them you can control the evaluation order of the expression'.\x0aself mission:'See how parentheses work in the first three expressions, then complete the last with them so you can obtain 6'.\x0aself next:Lesson8.\x0aself content: '3+4 squared.\x0a\x0a(3+4) squared.\x0a\x0a3+ (4 squared).\x0a\x0a3 min: 4 * 2\x0a'.\x0aself result:[:x|x=6].\x0a^self",
+source: "initialize\x0aself name:7.\x0aself explanation:'Also, you can combine unary, binary and keyword messages, but what if the evaluation order does not match your needs? then you can use parentheses, expressions between parentheses evaluate before any other, using them you can control the evaluation order of the expression'.\x0aself mission:'See how parentheses work in the first three expressions, then complete the last with them so you can obtain 6'.\x0aself next:Lesson8.\x0aself content: '3+4 squared.\x0a\x0a(3+4) squared.\x0a\x0a3+ (4 squared).\x0a\x0a3 min: 4 * 2\x0a'.\x0aself result:[:x|x=6].\x0a^self",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson8"]
 }),
@@ -646,7 +671,7 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_name_", ["Lesson 8"]);
+smalltalk.send(self, "_name_", [(8)]);
 smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you will learn blocks and some usage for them.The following expressions are blocks, they contain code, but the code is not executed until you tell the block to execute the code inside it."]);
 smalltalk.send(self, "_mission_", ["To evaluate the code inside the block you have to send it the message \x22value\x22, try it with this blocks."]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson1 || Lesson1)]);
@@ -655,7 +680,7 @@ smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", 
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 8'.\x0aself explanation:'Goal: In the next three lessons you will learn blocks and some usage for them.The following expressions are blocks, they contain code, but the code is not executed until you tell the block to execute the code inside it.'.\x0aself mission:'To evaluate the code inside the block you have to send it the message \x22value\x22, try it with this blocks.'.\x0aself next:Lesson1.\x0aself content: '[4+6] \x0a\x0a[david:=Person bornWithName:''David''.david name]\x0a \x0a[david age:15. david age]'.\x0aself result:[:x|x=15].\x0a^self.",
+source: "initialize\x0aself name:8.\x0aself explanation:'Goal: In the next three lessons you will learn blocks and some usage for them.The following expressions are blocks, they contain code, but the code is not executed until you tell the block to execute the code inside it.'.\x0aself mission:'To evaluate the code inside the block you have to send it the message \x22value\x22, try it with this blocks.'.\x0aself next:Lesson1.\x0aself content: '[4+6] \x0a\x0a[david:=Person bornWithName:''David''.david name]\x0a \x0a[david age:15. david age]'.\x0aself result:[:x|x=15].\x0a^self.",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson1"]
 }),
@@ -671,7 +696,7 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-smalltalk.send(self, "_name_", ["Lesson 9"]);
+smalltalk.send(self, "_name_", [(9)]);
 smalltalk.send(self, "_explanation_", ["Also block can have some parameters"]);
 smalltalk.send(self, "_mission_", ["To value blocks with parameters you can use the messages \x22value:\x22, \x22value: value:\x22, \x22value: value: value:\x22, depending on the number of arguments of the block. Value the following blocks, pass the correct arguments to the last one to get 9"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson10 || Lesson10)]);
@@ -680,7 +705,7 @@ smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", 
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:'Lesson 9'.\x0aself explanation:'Also block can have some parameters'.\x0aself mission:'To value blocks with parameters you can use the messages \x22value:\x22, \x22value: value:\x22, \x22value: value: value:\x22, depending on the number of arguments of the block. Value the following blocks, pass the correct arguments to the last one to get 9'.\x0aself next:Lesson10.\x0aself content: '[:n|n*5]\x0a\x0a[:aName :anAge|person:=Person bornWithName:aName.person age:anAge]\x0a\x0a[:x :y :z| x+y*z]\x0a'.\x0aself result:[:x|x=9].\x0a^self",
+source: "initialize\x0aself name:9.\x0aself explanation:'Also block can have some parameters'.\x0aself mission:'To value blocks with parameters you can use the messages \x22value:\x22, \x22value: value:\x22, \x22value: value: value:\x22, depending on the number of arguments of the block. Value the following blocks, pass the correct arguments to the last one to get 9'.\x0aself next:Lesson10.\x0aself content: '[:n|n*5]\x0a\x0a[:aName :anAge|person:=Person bornWithName:aName.person age:anAge]\x0a\x0a[:x :y :z| x+y*z]\x0a'.\x0aself result:[:x|x=9].\x0a^self",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson10"]
 }),

@@ -80,13 +80,13 @@ var sqlconn = mysql.createConnection({
 	if (isGoogle)   ext_type = 3;
 	
 	
-	sql = 'select count(ext_id) as c from usersocial where ext_id = "' + sqlconn.escape(ext_id) + '" and ext_type = ' + sqlconn.escape(ext_type);
+	sql = 'select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type);
 	//console.log(sql);
 	sqlconn.query(sql,
 	function(err, a, b) {
 		ret=parseInt(a[0].c);
 		if(  ret == 0 ) { 
-			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', "' + sqlconn.escape(ext_id) + '")');
+			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ')');
 		}
 		redirect( authContext.request, authContext.response, "/");
 		sqlconn.end();
@@ -117,7 +117,7 @@ function routes(app) {
 				uid= det.user.user_id;
 			else
 				uid= det.user.id;
-			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(uid) +'"';
+			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = ' + sqlconn.escape(uid) ;
 
 			console.log(sql);
 			sqlconn.query(sql,
@@ -153,7 +153,32 @@ function routes(app) {
 		}
 	sqlconn.end();
 	});
-	
+app.get(/saveLesson.*/, function(req,res,params){
+	res.writeHead(200, {'Content-Type': 'text/html'});
+	if( req.isAuthenticated() ) {
+		var sqlconn = mysql.createConnection({
+		host     : sqlHost,
+		user     : sqlUser,
+		password : sqlPass,
+		database : sqlDB,
+		});
+numlesson = sqlconn.escape(parseInt(req.url.substr(11)));
+	if (numlesson < 1) numlesson = 1;
+	if (numlesson > 20) numlesson=20;
+	numlesson--;
+		det = req.getAuthDetails();
+		if ( typeof det.twitter_oauth_token != "undefined")
+			uid= det.user.user_id;
+		else
+			uid= det.user.id;
+		sql = 'update usersocial set user_level = ' + numlesson + ' where ext_id = ' + sqlconn.escape(uid) ; 
+		sqlconn.query(sql);
+		sqlconn.end();
+		//res.end(sql);
+	}
+	res.end('');
+});	
+
 	app.get(/.*/, function(req, res, params) {
 		redirect(req, res, "/");
 	});

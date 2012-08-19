@@ -230,11 +230,165 @@ self mission:'Below there are three different forms of defining an Array, pick o
 self next:Lesson12.
 self content: '((Array new:2) at:1 put:''Hello'') at:2 put:''world''.
 
-#(9 10 11).
+#(9 10 11) at:2.
 
 {(6+6) (3*4)}.
 '.
 self result:[:x|x=15].
+^self.
+! !
+
+Lesson subclass: #Lesson12
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson12 methodsFor: 'not yet classified'!
+
+initialize
+self name:12.
+self explanation:'The Set is a collection without order and without repetitions, whenever you add an object that was already inside it, it is not added'.
+self mission:'A Set can be created empty or with elements already inside, you can add elements to a Set with the message "add:". Evaluate the following expressions, then create a Set with some strings on it.(Remember: Strings are created with single quotes, double quotes are for comments)'.
+self next:Lesson13.
+self content: 'set:=Set with:1 with:2.
+set add:5.
+
+set includes:3.
+
+set includes:2.
+
+'.
+self result:[:x|x isMemberOf:Set].
+^self.
+! !
+
+Lesson subclass: #Lesson13
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson13 methodsFor: 'not yet classified'!
+
+initialize
+self name:13.
+self explanation:'These are dictionaries, a Dictionary is a collection that stores an Object key and relates it to an Object value, for each key, there is only one value.'.
+self mission:'To add key-value relationships to a Dictionary, use the message "at:put:", for example "dictionary at:''key'' put:''value''".Then get the value 5 from dictionary'.
+self next:Lesson14.
+self content: 'dictionary:= Dictionary new.
+dictionary at:5 put:7.
+dictionary at:''smalltalk'' put:5.
+dictionary at:''tutorial'' put:9.
+
+dictionary at:''tutorial''.
+dictionary keys.
+dictionary values.
+'.
+self result:[:x|x=5].
+^self.
+! !
+
+Lesson subclass: #Lesson14
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson14 methodsFor: 'not yet classified'!
+
+initialize
+self name:14.
+self explanation:'Goal: In the next four lessons you will learn some useful collection messages. The first and less specific is "do:", it takes a block with a single parameter and applies it to each element of the collection.'.
+self mission:'The expression "n to: i" also creates a collection with the numbers from n to i, the following example is adding all the numbers from 1 to 5, modify it to multiply all the numbers from 5 to 8 (Remember to modify the initial value of "res") '.
+self next:Lesson15.
+self content: 'res:=0.
+(1 to: 5) do: [:n| res:=res+n],
+res.
+'.
+self result:[:x|x=1680].
+^self.
+! !
+
+Lesson subclass: #Lesson15
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson15 methodsFor: 'not yet classified'!
+
+initialize
+self name:15.
+self explanation:'The next message is "collect:", it is similar to "do:" but it also makes a new collection made of the results of applying the block to each element.'.
+self mission:'Write a collect block that returns a collection with the size of each string on set'.
+self next:Lesson16.
+self content: 'set:= Set with: ''smalltalk'' with: ''tutorial'' with: ''rules''.
+set collect:
+'.
+self result:[:x|x=Set with:9 with: 8 with: 5].
+^self.
+! !
+
+Lesson subclass: #Lesson16
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson16 methodsFor: 'not yet classified'!
+
+initialize
+self name:16.
+self explanation:'"select:" and "reject:" are opposite messages, both take a block with one parameter that returns true or false, "select:" returns a collection with all the elements returning true, "reject:" returns a collection without the elements returning true. '.
+self mission:'The following is a "select:" taking all the strings that have "h" as the first letter, create a "reject:" block to discard all the strings with size 4 or more'.
+self next:Lesson17.
+self content: 'array:=#(''cow'' ''horn'' ''helicopter'' ''pig'').
+array select:[:word|word first=''h'']
+'.
+self result:[:x|x=#('cow' 'pig')].
+^self.
+! !
+
+Lesson subclass: #Lesson17
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson17 methodsFor: 'not yet classified'!
+
+initialize
+self name:17.
+self explanation:'"inject:into:" is the more complex, it takes two parameters, first any object and second a block that takes two parameters too, it uses the block to operate the first parameter with the first element of the collection, then operates the result of that with the next element in the collection, until there is no more elements '.
+self mission:'With "inject:into:" we can make the sum without using a variable, try to complete it.'.
+self next:Lesson18.
+self content: '(1 to: 5) inject: into:[:x :y|]
+'.
+self result:[:x|x=15].
+^self.
+! !
+
+Lesson subclass: #Lesson18
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson18 methodsFor: 'not yet classified'!
+
+initialize
+self name:18.
+self explanation:'Goal: In the next three lessons you will learn how to create your own classes, instance methods and class methods. To create a class, click on "Class Browser" button, then choose a category in the first column, then complete the template and save.'.
+self mission:'Create a Dog class that''s subclass of Animal, to do subclassification replace "Object" in the template with "Animal". Then evaluate the following code'.
+self next:Lesson19.
+self content: 'spike:=Dog bornWithName: ''Spike''.
+spike name'.
+self result:[:x|x='Spike'].
+^self.
+! !
+
+Lesson subclass: #Lesson19
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson19 methodsFor: 'not yet classified'!
+
+initialize
+self name:20.
+self explanation:'A Class method is what a Class can do, we generally use it for constructing instances of a Class, to create one is similar to an instance method, but choosing the Class tab.'.
+self mission:'Create a class method "bornWithName:withOwner:" that takes as argument the name of the dog and its owner, it returns a dog with its owner and its name assigned(Tip: use the message "bornWithName:" and "owner:", dont forget to return it)'.
+self next:Congratulations.
+self content: 'david:= Person bornWithName:''David''.
+spike:= Dog bornWithName: ''Spike'' withOwner:david.
+spike.'.
+self result:[:x|x owner name = 'David'].
 ^self.
 ! !
 
@@ -372,7 +526,7 @@ initialize
 self name:8.
 self explanation:'Goal: In the next three lessons you will learn blocks and some usage for them.The following expressions are blocks, they contain code, but the code is not executed until you tell the block to execute the code inside it.'.
 self mission:'To evaluate the code inside the block you have to send it the message "value", try it with this blocks.'.
-self next:Lesson1.
+self next:Lesson9.
 self content: '[4+6] 
 
 [david:=Person bornWithName:''David''.david name]

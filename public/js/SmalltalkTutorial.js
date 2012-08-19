@@ -358,11 +358,11 @@ selector: "open",
 category: 'render',
 fn: function (){
 var self=this;
-smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);return smalltalk.send((typeof window == 'undefined' ? nil : window), "_alert_", [smalltalk.send(self, "_name", [])]);})]);
+smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){return smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);})]);
 return self;},
 args: [],
-source: "open\x0a\x09(window jQuery: document)  ready: [\x0a          \x09self appendToJQuery: '.lesson' asJQuery.\x0a\x09\x09window alert:self name.\x0a        ].",
-messageSends: ["ready:", "jQuery:", "appendToJQuery:", "asJQuery", "alert:", "name"],
+source: "open\x0a\x09(window jQuery: document)  ready: [\x0a          \x09self appendToJQuery: '.lesson' asJQuery.\x0a        ].",
+messageSends: ["ready:", "jQuery:", "appendToJQuery:", "asJQuery"],
 referencedClasses: []
 }),
 smalltalk.Lesson);

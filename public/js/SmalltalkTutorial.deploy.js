@@ -107,6 +107,20 @@ smalltalk.Achievement1);
 
 
 
+smalltalk.addClass('Congratulations', smalltalk.Widget, [], 'SmalltalkTutorial');
+smalltalk.addMethod(
+"_renderOn_",
+smalltalk.method({
+selector: "renderOn:",
+fn: function (html){
+var self=this;
+smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", ["Congratulations, you just have just completed Smalltalk Tutorial!"]);
+return self;}
+}),
+smalltalk.Congratulations);
+
+
+
 smalltalk.addClass('Lesson', smalltalk.Widget, ['explanation', 'mission', 'result', 'name', 'next', 'content'], 'SmalltalkTutorial');
 smalltalk.addMethod(
 "_checkResult_",

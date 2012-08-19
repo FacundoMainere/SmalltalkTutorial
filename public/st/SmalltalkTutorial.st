@@ -61,6 +61,16 @@ self title:'DoIt, PrintIt, InspectIt'.
 ^self
 ! !
 
+Widget subclass: #Congratulations
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Congratulations methodsFor: 'not yet classified'!
+
+renderOn: html
+html h2 with:'Congratulations, you just have just completed Smalltalk Tutorial!!'.
+! !
+
 Widget subclass: #Lesson
 	instanceVariableNames: 'explanation mission result name next content'
 	package: 'SmalltalkTutorial'!

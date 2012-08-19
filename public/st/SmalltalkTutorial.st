@@ -150,7 +150,7 @@ renderOn: html
 	| workspace |
 	workspace := SourceArea new.
 	html div class: 'section center'; with: [
-		html h1 with: self name.
+		html h1 with: ('Lesson ',self name).
 		html h5 with: self explanation.
 		html h4 with: self mission.
 		workspace renderOn: html.

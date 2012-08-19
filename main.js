@@ -162,17 +162,21 @@ app.get(/saveLesson.*/, function(req,res,params){
 		password : sqlPass,
 		database : sqlDB,
 		});
-
+numlesson = sqlconn.escape(parseInt(req.url.substr(11)));
+	if (numlesson < 1) numlesson = 1;
+	if (numlesson > 20) numlesson=20;
+	numlesson--;
 		det = req.getAuthDetails();
 		if ( typeof det.twitter_oauth_token != "undefined")
 			uid= det.user.user_id;
 		else
 			uid= det.user.id;
-		sql = 'update usersocial set user_level = ' + sqlconn.escape(parseInt(req.url.substr(11)))+ ' where ext_id = ' + sqlconn.escape(uid) ; 
+		sql = 'update usersocial set user_level = ' + numlesson + ' where ext_id = ' + sqlconn.escape(uid) ; 
 		sqlconn.query(sql);
 		sqlconn.end();
 		//res.end(sql);
 	}
+	res.end('');
 });	
 
 	app.get(/.*/, function(req, res, params) {

@@ -141,7 +141,7 @@ close
 open
 	(window jQuery: document)  ready: [
           	self appendToJQuery: '.lesson' asJQuery.
-		window alert: self name.
+		saveLesson: self name.
         ].
 !
 

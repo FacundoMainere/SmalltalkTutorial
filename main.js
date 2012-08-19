@@ -153,8 +153,8 @@ function routes(app) {
 		}
 	sqlconn.end();
 	});
-	app.get("/saveLesson", function(req,res,params){
-	res.end(JSON.stringify(req));
+	app.get(/saveLesson.*/, function(req,res,params){
+	res.end(JSON.stringify(req.url));
 	});	
 	app.get(/.*/, function(req, res, params) {
 		redirect(req, res, "/");

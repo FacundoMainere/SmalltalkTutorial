@@ -153,25 +153,26 @@ function routes(app) {
 		}
 	sqlconn.end();
 	});
-	app.get(/saveLesson.*/, function(req,res,params){
-	res.writeHead(200, {'Content-Type': 'text/html'})
-		if( req.isAuthenticated() ) {
+app.get(/saveLesson.*/, function(req,res,params){
+	res.writeHead(200, {'Content-Type': 'text/html'});
+	if( req.isAuthenticated() ) {
 		var sqlconn = mysql.createConnection({
-		  host     : sqlHost,
-		  user     : sqlUser,
-		  password : sqlPass,
-		  database : sqlDB,
+		host     : sqlHost,
+		user     : sqlUser,
+		password : sqlPass,
+		database : sqlDB,
 		});
-	
-			det = req.getAuthDetails();
-			if ( typeof det.twitter_oauth_token != "undefined")
-				uid= det.user.user_id;
-			else
-				uid= det.user.id;
-			sql = 'update usersocial where ext_id = "' + sqlconn.escape(uid) +'" set userlevel = ' + sqlconn.escape(parseInt(req.url.substr(11))));
-			sqlconn.query(sql);
+
+		det = req.getAuthDetails();
+		if ( typeof det.twitter_oauth_token != "undefined")
+			uid= det.user.user_id;
+		else
+			uid= det.user.id;
+		sql = 'update usersocial where ext_id = "' + sqlconn.escape(uid) +'" set userlevel = ' + sqlconn.escape(parseInt(req.url.substr(11))));
+		sqlconn.query(sql);
 		sqlconn.end();
-	});	
+	}
+});	
 
 	app.get(/.*/, function(req, res, params) {
 		redirect(req, res, "/");

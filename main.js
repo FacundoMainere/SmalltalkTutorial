@@ -80,13 +80,13 @@ var sqlconn = mysql.createConnection({
 	if (isGoogle)   ext_type = 3;
 	
 	
-	sql = 'select count(ext_id) as c from usersocial where ext_id = "' + sqlconn.escape(ext_id) + '" and ext_type = ' + sqlconn.escape(ext_type);
+	sql = 'select count(ext_id) as c from usersocial where ext_id = ' + sqlconn.escape(ext_id) + ' and ext_type = ' + sqlconn.escape(ext_type);
 	//console.log(sql);
 	sqlconn.query(sql,
 	function(err, a, b) {
 		ret=parseInt(a[0].c);
 		if(  ret == 0 ) { 
-			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', "' + sqlconn.escape(ext_id) + '")');
+			sqlconn.query('insert into usersocial (ext_type, ext_id) values(' + sqlconn.escape(ext_type) + ', ' + sqlconn.escape(ext_id) + ')');
 		}
 		redirect( authContext.request, authContext.response, "/");
 		sqlconn.end();
@@ -117,7 +117,7 @@ function routes(app) {
 				uid= det.user.user_id;
 			else
 				uid= det.user.id;
-			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = "' + sqlconn.escape(uid) +'"';
+			sql = 'select ext_type, user_id, user_level from usersocial where ext_id = ' + sqlconn.escape(uid) ;
 
 			console.log(sql);
 			sqlconn.query(sql,
@@ -168,9 +168,10 @@ app.get(/saveLesson.*/, function(req,res,params){
 			uid= det.user.user_id;
 		else
 			uid= det.user.id;
-		sql = 'update usersocial where ext_id = "' + sqlconn.escape(uid) +'" set userlevel = ' + sqlconn.escape(parseInt(req.url.substr(11)));
-		sqlconn.query(sql);
+		sql = 'update usersocial set userlevel = ' + sqlconn.escape(parseInt(req.url.substr(11)))+ 'where ext_id = ' + sqlconn.escape(uid) ; 
+		//sqlconn.query(sql);
 		sqlconn.end();
+		res.end(sql);
 	}
 });	
 

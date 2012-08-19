@@ -252,7 +252,7 @@ smalltalk.method({
 selector: "open",
 fn: function (){
 var self=this;
-smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){return smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);})]);
+smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);return smalltalk.send((typeof window == 'undefined' ? nil : window), "_alert_", [smalltalk.send(self, "_name", [])]);})]);
 return self;}
 }),
 smalltalk.Lesson);

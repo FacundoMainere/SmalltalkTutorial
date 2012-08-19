@@ -4,47 +4,7 @@
 				prefix: 'js',
 				ready: function() {smalltalk.Lesson<%=lesson_number%>._new()._open() }
 				}); 
-				(function() {
-					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-					po.src = 'https://apis.google.com/js/plusone.js';
-					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-				})();
-				
-				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 			</script>
 			
 			<div class='lesson'></div>
 
-			<a href="https://twitter.com/share" class="twitter-share-button" data-text="aguante smalltalktutorial! http:/smalltalktutorial.herokuapp.com">Tweet</a>
-		
-			<g:plusone size="medium" annotation="inline" width="120" href="http://smalltalktutorial.herokuapp.com/achievementX"></g:plusone>
-
-   <div id='fb-root'></div>
-    <script src='http://connect.facebook.net/en_US/all.js'></script>
-    <p><a onclick='postToFeed(); return false;'>Post to Feed</a></p>
-    <p id='msg'></p>
-
-    <script> 
-      FB.init({appId: "138391069632276", status: true, cookie: true});
-
-      function postToFeed() {
-
-        // calling the API ...
-        var obj = {
-          method: 'feed',
-          link: 'https://developers.facebook.com/docs/reference/dialogs/',
-          picture: 'http://fbrell.com/f8.jpg',
-          name: 'Facebook Dialogs',
-          caption: 'Reference Documentation',
-          description: 'Using Dialogs to interact with users.'
-        };
-
-        function callback(response) {
-          document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
-        }
-
-        FB.ui(obj, callback);
-      }
-    
-    </script>
-	

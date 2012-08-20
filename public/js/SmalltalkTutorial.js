@@ -520,11 +520,11 @@ smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you will
 smalltalk.send(self, "_mission_", ["Below there are three different forms of defining an Array, pick one, then create an array with the numbers from 1 to 5"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson12 || Lesson12)]);
 smalltalk.send(self, "_content_", ["((Array new:2) at:1 put:'Hello') at:2 put:'world'.\x0a\x0a#(9 10 11) at:2.\x0a\x0a{(6+6). (3*4)}.\x0a"]);
-smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(15)]);})]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [[(1), (2), (3), (4), (5)]]);})]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:11.\x0aself explanation:'Goal: In the next three lessons you will learn three different types of Smalltalk collections. The first one is the Array, it has predefined size and order, there is many ways to define an array'.\x0aself mission:'Below there are three different forms of defining an Array, pick one, then create an array with the numbers from 1 to 5'.\x0aself next:Lesson12.\x0aself content: '((Array new:2) at:1 put:''Hello'') at:2 put:''world''.\x0a\x0a#(9 10 11) at:2.\x0a\x0a{(6+6). (3*4)}.\x0a'.\x0aself result:[:x|x=15].\x0a^self.",
+source: "initialize\x0aself name:11.\x0aself explanation:'Goal: In the next three lessons you will learn three different types of Smalltalk collections. The first one is the Array, it has predefined size and order, there is many ways to define an array'.\x0aself mission:'Below there are three different forms of defining an Array, pick one, then create an array with the numbers from 1 to 5'.\x0aself next:Lesson12.\x0aself content: '((Array new:2) at:1 put:''Hello'') at:2 put:''world''.\x0a\x0a#(9 10 11) at:2.\x0a\x0a{(6+6). (3*4)}.\x0a'.\x0aself result:[:x|x = #(1 2 3 4 5)].\x0a^self.",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson12"]
 }),
@@ -620,12 +620,12 @@ smalltalk.send(self, "_explanation_", ["The next message is \x22collect:\x22, it
 smalltalk.send(self, "_mission_", ["Write a collect block that returns a collection with the size of each string on set"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson16 || Lesson16)]);
 smalltalk.send(self, "_content_", ["set:= Set with: 'smalltalk' with: 'tutorial' with: 'rules'.\x0aset collect:\x0a"]);
-smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(x, "__eq", [(smalltalk.Set || Set)]), "_with_with_with_", [(9), (8), (5)]);})]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [smalltalk.send((smalltalk.Set || Set), "_with_with_with_", [(9), (8), (5)])]);})]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:15.\x0aself explanation:'The next message is \x22collect:\x22, it is similar to \x22do:\x22 but it also makes a new collection made of the results of applying the block to each element.'.\x0aself mission:'Write a collect block that returns a collection with the size of each string on set'.\x0aself next:Lesson16.\x0aself content: 'set:= Set with: ''smalltalk'' with: ''tutorial'' with: ''rules''.\x0aset collect:\x0a'.\x0aself result:[:x|x=Set with:9 with: 8 with: 5].\x0a^self.",
-messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "with:with:with:", "="],
+source: "initialize\x0aself name:15.\x0aself explanation:'The next message is \x22collect:\x22, it is similar to \x22do:\x22 but it also makes a new collection made of the results of applying the block to each element.'.\x0aself mission:'Write a collect block that returns a collection with the size of each string on set'.\x0aself next:Lesson16.\x0aself content: 'set:= Set with: ''smalltalk'' with: ''tutorial'' with: ''rules''.\x0aset collect:\x0a'.\x0aself result:[:x|x=(Set with:9 with: 8 with: 5)].\x0a^self.",
+messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "=", "with:with:with:"],
 referencedClasses: ["Lesson16", "Set"]
 }),
 smalltalk.Lesson15);

@@ -374,7 +374,7 @@ smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you will
 smalltalk.send(self, "_mission_", ["Below there are three different forms of defining an Array, pick one, then create an array with the numbers from 1 to 5"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson12 || Lesson12)]);
 smalltalk.send(self, "_content_", ["((Array new:2) at:1 put:'Hello') at:2 put:'world'.\x0a\x0a#(9 10 11) at:2.\x0a\x0a{(6+6). (3*4)}.\x0a"]);
-smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(15)]);})]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [[(1), (2), (3), (4), (5)]]);})]);
 return self;
 return self;}
 }),
@@ -454,7 +454,7 @@ smalltalk.send(self, "_explanation_", ["The next message is \x22collect:\x22, it
 smalltalk.send(self, "_mission_", ["Write a collect block that returns a collection with the size of each string on set"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson16 || Lesson16)]);
 smalltalk.send(self, "_content_", ["set:= Set with: 'smalltalk' with: 'tutorial' with: 'rules'.\x0aset collect:\x0a"]);
-smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(x, "__eq", [(smalltalk.Set || Set)]), "_with_with_with_", [(9), (8), (5)]);})]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [smalltalk.send((smalltalk.Set || Set), "_with_with_with_", [(9), (8), (5)])]);})]);
 return self;
 return self;}
 }),

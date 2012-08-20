@@ -244,7 +244,7 @@ self content: '((Array new:2) at:1 put:''Hello'') at:2 put:''world''.
 
 {(6+6). (3*4)}.
 '.
-self result:[:x|x=15].
+self result:[:x|x = #(1 2 3 4 5)].
 ^self.
 ! !
 
@@ -328,7 +328,7 @@ self next:Lesson16.
 self content: 'set:= Set with: ''smalltalk'' with: ''tutorial'' with: ''rules''.
 set collect:
 '.
-self result:[:x|x=Set with:9 with: 8 with: 5].
+self result:[:x|x=(Set with:9 with: 8 with: 5)].
 ^self.
 ! !
 

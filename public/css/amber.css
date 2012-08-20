@@ -110,6 +110,7 @@ body.amberBody {
 }
 
 #amber #amber_toolbar input {
+	color: black;
     margin-left: 50px;
     width: 250px;
     margin-top: 5px;

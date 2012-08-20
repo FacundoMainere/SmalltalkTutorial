@@ -74,7 +74,7 @@ open
 !
 
 renderOn: html
-html h2 with:'Congratulations, you just have just completed Smalltalk Tutorial!! Thenks for doing it.'.
+html h2 with:'Congratulations, you just have just completed Smalltalk Tutorial!! Thanks for doing it.'.
 ! !
 
 Widget subclass: #Lesson
@@ -457,7 +457,7 @@ initialize
 self name:3.
 self explanation:'Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy'.
 self mission:'Select the following code and InspectIt, get the age of the person, write it, and then evaluate it'.
-self next:Achievement1.
+self next:Lesson4.
 self content: 'david:=Person bornWithName:''David''.
 
 david'.

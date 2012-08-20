@@ -176,10 +176,10 @@ selector: "renderOn:",
 category: 'not yet classified',
 fn: function (html){
 var self=this;
-smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", ["Congratulations, you just have just completed Smalltalk Tutorial! Thenks for doing it."]);
+smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", ["Congratulations, you just have just completed Smalltalk Tutorial! Thanks for doing it."]);
 return self;},
 args: ["html"],
-source: "renderOn: html\x0ahtml h2 with:'Congratulations, you just have just completed Smalltalk Tutorial! Thenks for doing it.'.\x0a",
+source: "renderOn: html\x0ahtml h2 with:'Congratulations, you just have just completed Smalltalk Tutorial! Thanks for doing it.'.\x0a",
 messageSends: ["with:", "h2"],
 referencedClasses: []
 }),
@@ -809,15 +809,15 @@ var self=this;
 smalltalk.send(self, "_name_", [(3)]);
 smalltalk.send(self, "_explanation_", ["Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy"]);
 smalltalk.send(self, "_mission_", ["Select the following code and InspectIt, get the age of the person, write it, and then evaluate it"]);
-smalltalk.send(self, "_next_", [(smalltalk.Achievement1 || Achievement1)]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson4 || Lesson4)]);
 smalltalk.send(self, "_content_", ["david:=Person bornWithName:'David'.\x0a\x0adavid"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(0)]);})]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:3.\x0aself explanation:'Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy'.\x0aself mission:'Select the following code and InspectIt, get the age of the person, write it, and then evaluate it'.\x0aself next:Achievement1.\x0aself content: 'david:=Person bornWithName:''David''.\x0a\x0adavid'.\x0aself result:[:x|x=0].\x0a^self",
+source: "initialize\x0aself name:3.\x0aself explanation:'Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy'.\x0aself mission:'Select the following code and InspectIt, get the age of the person, write it, and then evaluate it'.\x0aself next:Lesson4.\x0aself content: 'david:=Person bornWithName:''David''.\x0a\x0adavid'.\x0aself result:[:x|x=0].\x0a^self",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
-referencedClasses: ["Achievement1"]
+referencedClasses: ["Lesson4"]
 }),
 smalltalk.Lesson3);
 

@@ -125,7 +125,7 @@ smalltalk.method({
 selector: "renderOn:",
 fn: function (html){
 var self=this;
-smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", ["Congratulations, you just have just completed Smalltalk Tutorial! Thenks for doing it."]);
+smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", ["Congratulations, you just have just completed Smalltalk Tutorial! Thanks for doing it."]);
 return self;}
 }),
 smalltalk.Congratulations);
@@ -603,7 +603,7 @@ var self=this;
 smalltalk.send(self, "_name_", [(3)]);
 smalltalk.send(self, "_explanation_", ["Sometimes you may need to explore inside your results, then is when InspectIt becomes very handy"]);
 smalltalk.send(self, "_mission_", ["Select the following code and InspectIt, get the age of the person, write it, and then evaluate it"]);
-smalltalk.send(self, "_next_", [(smalltalk.Achievement1 || Achievement1)]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson4 || Lesson4)]);
 smalltalk.send(self, "_content_", ["david:=Person bornWithName:'David'.\x0a\x0adavid"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(0)]);})]);
 return self;

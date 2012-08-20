@@ -692,14 +692,14 @@ fn: function (){
 var self=this;
 smalltalk.send(self, "_name_", [(18)]);
 smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you will learn how to create your own classes, instance methods and class methods. To create a class, click on \x22Class Browser\x22 button, then choose a category in the first column, then complete the template and save."]);
-smalltalk.send(self, "_mission_", ["Create a Dog class that's subclass of Animal, to do subclassification replace \x22Object\x22 in the template with \x22Animal\x22. Then evaluate the following code"]);
+smalltalk.send(self, "_mission_", ["Create a Cat class that's subclass of Animal, to do subclassification replace \x22Object\x22 in the template with \x22Animal\x22. Then evaluate the following code"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson19 || Lesson19)]);
-smalltalk.send(self, "_content_", ["spike:=Dog bornWithName: 'Spike'.\x0aspike name"]);
-smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", ["Spike"]);})]);
+smalltalk.send(self, "_content_", ["mrnoodles:=Cat bornWithName: 'MrNoodles'.\x0amrnoodles name"]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", ["MrNoodles"]);})]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:18.\x0aself explanation:'Goal: In the next three lessons you will learn how to create your own classes, instance methods and class methods. To create a class, click on \x22Class Browser\x22 button, then choose a category in the first column, then complete the template and save.'.\x0aself mission:'Create a Dog class that''s subclass of Animal, to do subclassification replace \x22Object\x22 in the template with \x22Animal\x22. Then evaluate the following code'.\x0aself next:Lesson19.\x0aself content: 'spike:=Dog bornWithName: ''Spike''.\x0aspike name'.\x0aself result:[:x|x='Spike'].\x0a^self.",
+source: "initialize\x0aself name:18.\x0aself explanation:'Goal: In the next three lessons you will learn how to create your own classes, instance methods and class methods. To create a class, click on \x22Class Browser\x22 button, then choose a category in the first column, then complete the template and save.'.\x0aself mission:'Create a Cat class that''s subclass of Animal, to do subclassification replace \x22Object\x22 in the template with \x22Animal\x22. Then evaluate the following code'.\x0aself next:Lesson19.\x0aself content: 'mrnoodles:=Cat bornWithName: ''MrNoodles''.\x0amrnoodles name'.\x0aself result:[:x|x='MrNoodles'].\x0a^self.",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "="],
 referencedClasses: ["Lesson19"]
 }),
@@ -717,14 +717,14 @@ fn: function (){
 var self=this;
 smalltalk.send(self, "_name_", [(19)]);
 smalltalk.send(self, "_explanation_", ["An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template"]);
-smalltalk.send(self, "_mission_", ["Define an instance method \x22bark\x22 for the class Dog, the method should return a string of what the Dog barks like(Tip: to define what the method return use \x22^\x22. For example \x22^'Grrrr'\x22.)"]);
+smalltalk.send(self, "_mission_", ["Define an instance method \x22meow\x22 for the class Cat, the method should return a string of what the Cat meows like(Tip: to define what the method return use \x22^\x22. For example \x22^'bark bark!'\x22.)"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson20 || Lesson20)]);
-smalltalk.send(self, "_content_", ["spike:= Dog bornWithName: 'Spike'.\x0aspike bark."]);
+smalltalk.send(self, "_content_", ["mrnoodles:= Dog bornWithName: 'MrNoodles'.\x0amrnoodles meow."]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "_isKindOf_", [(smalltalk.String || String)]);})]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:19.\x0aself explanation:'An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template'.\x0aself mission:'Define an instance method \x22bark\x22 for the class Dog, the method should return a string of what the Dog barks like(Tip: to define what the method return use \x22^\x22. For example \x22^''Grrrr''\x22.)'.\x0aself next:Lesson20.\x0aself content: 'spike:= Dog bornWithName: ''Spike''.\x0aspike bark.'.\x0aself result:[:x|x isKindOf:String].\x0a^self.",
+source: "initialize\x0aself name:19.\x0aself explanation:'An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template'.\x0aself mission:'Define an instance method \x22meow\x22 for the class Cat, the method should return a string of what the Cat meows like(Tip: to define what the method return use \x22^\x22. For example \x22^''bark bark!''\x22.)'.\x0aself next:Lesson20.\x0aself content: 'mrnoodles:= Dog bornWithName: ''MrNoodles''.\x0amrnoodles meow.'.\x0aself result:[:x|x isKindOf:String].\x0a^self.",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "isKindOf:"],
 referencedClasses: ["Lesson20", "String"]
 }),
@@ -767,14 +767,14 @@ fn: function (){
 var self=this;
 smalltalk.send(self, "_name_", [(20)]);
 smalltalk.send(self, "_explanation_", ["A Class method is what a Class can do, we generally use it for constructing instances of a Class, to create one is similar to an instance method, but choosing the Class tab."]);
-smalltalk.send(self, "_mission_", ["Create a class method \x22bornWithName:withOwner:\x22 that takes as argument the name of the dog and its owner, it returns a dog with its owner and its name assigned(Tip: use the message \x22bornWithName:\x22 and \x22owner:\x22, dont forget to return it)"]);
+smalltalk.send(self, "_mission_", ["Create a class method \x22bornWithName:withOwner:\x22 that takes as argument the name of the cat and its owner, it returns a cat with its owner and its name assigned(Tip: use the message \x22bornWithName:\x22 and \x22owner:\x22, dont forget to return it)"]);
 smalltalk.send(self, "_next_", [(smalltalk.Congratulations || Congratulations)]);
-smalltalk.send(self, "_content_", ["david:= Person bornWithName:'David'.\x0aspike:= Dog bornWithName: 'Spike' withOwner:david.\x0aspike."]);
+smalltalk.send(self, "_content_", ["david:= Person bornWithName:'David'.\x0amrnoodles:= Cat bornWithName: 'MrNoodles' withOwner:david.\x0amrnoodles."]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(smalltalk.send(x, "_owner", []), "_name", []), "__eq", ["David"]);})]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:20.\x0aself explanation:'A Class method is what a Class can do, we generally use it for constructing instances of a Class, to create one is similar to an instance method, but choosing the Class tab.'.\x0aself mission:'Create a class method \x22bornWithName:withOwner:\x22 that takes as argument the name of the dog and its owner, it returns a dog with its owner and its name assigned(Tip: use the message \x22bornWithName:\x22 and \x22owner:\x22, dont forget to return it)'.\x0aself next:Congratulations.\x0aself content: 'david:= Person bornWithName:''David''.\x0aspike:= Dog bornWithName: ''Spike'' withOwner:david.\x0aspike.'.\x0aself result:[:x|x owner name = 'David'].\x0a^self.",
+source: "initialize\x0aself name:20.\x0aself explanation:'A Class method is what a Class can do, we generally use it for constructing instances of a Class, to create one is similar to an instance method, but choosing the Class tab.'.\x0aself mission:'Create a class method \x22bornWithName:withOwner:\x22 that takes as argument the name of the cat and its owner, it returns a cat with its owner and its name assigned(Tip: use the message \x22bornWithName:\x22 and \x22owner:\x22, dont forget to return it)'.\x0aself next:Congratulations.\x0aself content: 'david:= Person bornWithName:''David''.\x0amrnoodles:= Cat bornWithName: ''MrNoodles'' withOwner:david.\x0amrnoodles.'.\x0aself result:[:x|x owner name = 'David'].\x0a^self.",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "=", "name", "owner"],
 referencedClasses: ["Congratulations"]
 }),

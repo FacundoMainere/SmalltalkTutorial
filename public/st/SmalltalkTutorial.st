@@ -376,11 +376,11 @@ Lesson subclass: #Lesson18
 initialize
 self name:18.
 self explanation:'Goal: In the next three lessons you will learn how to create your own classes, instance methods and class methods. To create a class, click on "Class Browser" button, then choose a category in the first column, then complete the template and save.'.
-self mission:'Create a Dog class that''s subclass of Animal, to do subclassification replace "Object" in the template with "Animal". Then evaluate the following code'.
+self mission:'Create a Cat class that''s subclass of Animal, to do subclassification replace "Object" in the template with "Animal". Then evaluate the following code'.
 self next:Lesson19.
-self content: 'spike:=Dog bornWithName: ''Spike''.
-spike name'.
-self result:[:x|x='Spike'].
+self content: 'mrnoodles:=Cat bornWithName: ''MrNoodles''.
+mrnoodles name'.
+self result:[:x|x='MrNoodles'].
 ^self.
 ! !
 
@@ -393,10 +393,10 @@ Lesson subclass: #Lesson19
 initialize
 self name:19.
 self explanation:'An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template'.
-self mission:'Define an instance method "bark" for the class Dog, the method should return a string of what the Dog barks like(Tip: to define what the method return use "^". For example "^''Grrrr''".)'.
+self mission:'Define an instance method "meow" for the class Cat, the method should return a string of what the Cat meows like(Tip: to define what the method return use "^". For example "^''bark bark!!''".)'.
 self next:Lesson20.
-self content: 'spike:= Dog bornWithName: ''Spike''.
-spike bark.'.
+self content: 'mrnoodles:= Dog bornWithName: ''MrNoodles''.
+mrnoodles meow.'.
 self result:[:x|x isKindOf:String].
 ^self.
 ! !
@@ -432,11 +432,11 @@ Lesson subclass: #Lesson20
 initialize
 self name:20.
 self explanation:'A Class method is what a Class can do, we generally use it for constructing instances of a Class, to create one is similar to an instance method, but choosing the Class tab.'.
-self mission:'Create a class method "bornWithName:withOwner:" that takes as argument the name of the dog and its owner, it returns a dog with its owner and its name assigned(Tip: use the message "bornWithName:" and "owner:", dont forget to return it)'.
+self mission:'Create a class method "bornWithName:withOwner:" that takes as argument the name of the cat and its owner, it returns a cat with its owner and its name assigned(Tip: use the message "bornWithName:" and "owner:", dont forget to return it)'.
 self next:Congratulations.
 self content: 'david:= Person bornWithName:''David''.
-spike:= Dog bornWithName: ''Spike'' withOwner:david.
-spike.'.
+mrnoodles:= Cat bornWithName: ''MrNoodles'' withOwner:david.
+mrnoodles.'.
 self result:[:x|x owner name = 'David'].
 ^self.
 ! !

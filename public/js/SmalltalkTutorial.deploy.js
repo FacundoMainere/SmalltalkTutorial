@@ -109,12 +109,23 @@ smalltalk.Achievement1);
 
 smalltalk.addClass('Congratulations', smalltalk.Widget, [], 'SmalltalkTutorial');
 smalltalk.addMethod(
+"_open",
+smalltalk.method({
+selector: "open",
+fn: function (){
+var self=this;
+smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){return smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);})]);
+return self;}
+}),
+smalltalk.Congratulations);
+
+smalltalk.addMethod(
 "_renderOn_",
 smalltalk.method({
 selector: "renderOn:",
 fn: function (html){
 var self=this;
-smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", ["Congratulations, you just have just completed Smalltalk Tutorial!"]);
+smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", ["Congratulations, you just have just completed Smalltalk Tutorial! Thenks for doing it."]);
 return self;}
 }),
 smalltalk.Congratulations);
@@ -533,7 +544,7 @@ smalltalk.send(self, "_name_", [(19)]);
 smalltalk.send(self, "_explanation_", ["An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template"]);
 smalltalk.send(self, "_mission_", ["Define an instance method \x22meow\x22 for the class Cat, the method should return a string of what the Cat meows like(Tip: to define what the method return use \x22^\x22. For example \x22^'bark bark!'\x22.)"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson20 || Lesson20)]);
-smalltalk.send(self, "_content_", ["mrnoodles:= Dog bornWithName: 'MrNoodles'.\x0amrnoodles meow."]);
+smalltalk.send(self, "_content_", ["mrnoodles:= Cat bornWithName: 'MrNoodles'.\x0amrnoodles meow."]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "_isKindOf_", [(smalltalk.String || String)]);})]);
 return self;
 return self;}

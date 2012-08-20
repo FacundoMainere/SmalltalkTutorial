@@ -67,8 +67,14 @@ Widget subclass: #Congratulations
 
 !Congratulations methodsFor: 'not yet classified'!
 
+open
+	(window jQuery: document)  ready: [
+          	self appendToJQuery: '.lesson' asJQuery.
+        ].
+!
+
 renderOn: html
-html h2 with:'Congratulations, you just have just completed Smalltalk Tutorial!!'.
+html h2 with:'Congratulations, you just have just completed Smalltalk Tutorial!! Thenks for doing it.'.
 ! !
 
 Widget subclass: #Lesson
@@ -395,7 +401,7 @@ self name:19.
 self explanation:'An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template'.
 self mission:'Define an instance method "meow" for the class Cat, the method should return a string of what the Cat meows like(Tip: to define what the method return use "^". For example "^''bark bark!!''".)'.
 self next:Lesson20.
-self content: 'mrnoodles:= Dog bornWithName: ''MrNoodles''.
+self content: 'mrnoodles:= Cat bornWithName: ''MrNoodles''.
 mrnoodles meow.'.
 self result:[:x|x isKindOf:String].
 ^self.

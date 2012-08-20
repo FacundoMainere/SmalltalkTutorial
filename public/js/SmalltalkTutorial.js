@@ -154,16 +154,32 @@ smalltalk.Achievement1);
 
 smalltalk.addClass('Congratulations', smalltalk.Widget, [], 'SmalltalkTutorial');
 smalltalk.addMethod(
+"_open",
+smalltalk.method({
+selector: "open",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+smalltalk.send(smalltalk.send((typeof window == 'undefined' ? nil : window), "_jQuery_", [(typeof document == 'undefined' ? nil : document)]), "_ready_", [(function(){return smalltalk.send(self, "_appendToJQuery_", [smalltalk.send(".lesson", "_asJQuery", [])]);})]);
+return self;},
+args: [],
+source: "open\x0a\x09(window jQuery: document)  ready: [\x0a          \x09self appendToJQuery: '.lesson' asJQuery.\x0a        ].",
+messageSends: ["ready:", "jQuery:", "appendToJQuery:", "asJQuery"],
+referencedClasses: []
+}),
+smalltalk.Congratulations);
+
+smalltalk.addMethod(
 "_renderOn_",
 smalltalk.method({
 selector: "renderOn:",
 category: 'not yet classified',
 fn: function (html){
 var self=this;
-smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", ["Congratulations, you just have just completed Smalltalk Tutorial!"]);
+smalltalk.send(smalltalk.send(html, "_h2", []), "_with_", ["Congratulations, you just have just completed Smalltalk Tutorial! Thenks for doing it."]);
 return self;},
 args: ["html"],
-source: "renderOn: html\x0ahtml h2 with:'Congratulations, you just have just completed Smalltalk Tutorial!'.\x0a",
+source: "renderOn: html\x0ahtml h2 with:'Congratulations, you just have just completed Smalltalk Tutorial! Thenks for doing it.'.\x0a",
 messageSends: ["with:", "h2"],
 referencedClasses: []
 }),
@@ -719,12 +735,12 @@ smalltalk.send(self, "_name_", [(19)]);
 smalltalk.send(self, "_explanation_", ["An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template"]);
 smalltalk.send(self, "_mission_", ["Define an instance method \x22meow\x22 for the class Cat, the method should return a string of what the Cat meows like(Tip: to define what the method return use \x22^\x22. For example \x22^'bark bark!'\x22.)"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson20 || Lesson20)]);
-smalltalk.send(self, "_content_", ["mrnoodles:= Dog bornWithName: 'MrNoodles'.\x0amrnoodles meow."]);
+smalltalk.send(self, "_content_", ["mrnoodles:= Cat bornWithName: 'MrNoodles'.\x0amrnoodles meow."]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "_isKindOf_", [(smalltalk.String || String)]);})]);
 return self;
 return self;},
 args: [],
-source: "initialize\x0aself name:19.\x0aself explanation:'An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template'.\x0aself mission:'Define an instance method \x22meow\x22 for the class Cat, the method should return a string of what the Cat meows like(Tip: to define what the method return use \x22^\x22. For example \x22^''bark bark!''\x22.)'.\x0aself next:Lesson20.\x0aself content: 'mrnoodles:= Dog bornWithName: ''MrNoodles''.\x0amrnoodles meow.'.\x0aself result:[:x|x isKindOf:String].\x0a^self.",
+source: "initialize\x0aself name:19.\x0aself explanation:'An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template'.\x0aself mission:'Define an instance method \x22meow\x22 for the class Cat, the method should return a string of what the Cat meows like(Tip: to define what the method return use \x22^\x22. For example \x22^''bark bark!''\x22.)'.\x0aself next:Lesson20.\x0aself content: 'mrnoodles:= Cat bornWithName: ''MrNoodles''.\x0amrnoodles meow.'.\x0aself result:[:x|x isKindOf:String].\x0a^self.",
 messageSends: ["name:", "explanation:", "mission:", "next:", "content:", "result:", "isKindOf:"],
 referencedClasses: ["Lesson20", "String"]
 }),

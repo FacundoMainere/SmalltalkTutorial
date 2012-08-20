@@ -351,9 +351,9 @@ fn: function (){
 var self=this;
 smalltalk.send(self, "_name_", [(10)]);
 smalltalk.send(self, "_explanation_", ["Some messages take blocks as parameters, this is the case of \x22ifTrue:ifFalse:\x22, it takes two blocks as parameter, the first is executed if the receiver object is true, and the second if it is false"]);
-smalltalk.send(self, "_mission_", ["Also you can use them by separate \x22ifTrue:\x22 or \x22ifFalse\x22, see how the two first expressions behave, then correct the last one to get the second block to execute"]);
-smalltalk.send(self, "_next_", [(smalltalk.Lesson1 || Lesson1)]);
-smalltalk.send(self, "_content_", ["3>4 ifTrue:[1] ifFalse:[0].\x0a\x0afalse ifTrue:['yes'] ifFalse:['no'].\x0a\x0a('six' isNumber) ifTrue:['stay here'] ifFalse:['Pass to the next lesson']\x0a"]);
+smalltalk.send(self, "_mission_", ["Also you can use them by separate \x22ifTrue:\x22 or \x22ifFalse\x22, see how the two first expressions behave, then correct the last one to get the first block to execute"]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson11 || Lesson11)]);
+smalltalk.send(self, "_content_", ["3>4 ifTrue:[1] ifFalse:[0].\x0a\x0afalse ifTrue:['yes'] ifFalse:['no'].\x0a\x0a('six' isNumber) ifTrue:['Pass to the next lesson'] ifFalse:['Stay here']\x0a"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", ["Pass to the next lesson"]);})]);
 return self;
 return self;}
@@ -373,7 +373,7 @@ smalltalk.send(self, "_name_", [(11)]);
 smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you will learn three different types of Smalltalk collections. The first one is the Array, it has predefined size and order, there is many ways to define an array"]);
 smalltalk.send(self, "_mission_", ["Below there are three different forms of defining an Array, pick one, then create an array with the numbers from 1 to 5"]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson12 || Lesson12)]);
-smalltalk.send(self, "_content_", ["((Array new:2) at:1 put:'Hello') at:2 put:'world'.\x0a\x0a#(9 10 11) at:2.\x0a\x0a{(6+6) (3*4)}.\x0a"]);
+smalltalk.send(self, "_content_", ["((Array new:2) at:1 put:'Hello') at:2 put:'world'.\x0a\x0a#(9 10 11) at:2.\x0a\x0a{(6+6). (3*4)}.\x0a"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(15)]);})]);
 return self;
 return self;}
@@ -433,7 +433,7 @@ smalltalk.send(self, "_name_", [(14)]);
 smalltalk.send(self, "_explanation_", ["Goal: In the next four lessons you will learn some useful collection messages. The first and less specific is \x22do:\x22, it takes a block with a single parameter and applies it to each element of the collection."]);
 smalltalk.send(self, "_mission_", ["The expression \x22n to: i\x22 also creates a collection with the numbers from n to i, the following example is adding all the numbers from 1 to 5, modify it to multiply all the numbers from 5 to 8 (Remember to modify the initial value of \x22res\x22) "]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson15 || Lesson15)]);
-smalltalk.send(self, "_content_", ["res:=0.\x0a(1 to: 5) do: [:n| res:=res+n],\x0ares.\x0a"]);
+smalltalk.send(self, "_content_", ["res:=0.\x0a(1 to: 5) do: [:n| res:=res+n].\x0ares.\x0a"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(1680)]);})]);
 return self;
 return self;}
@@ -529,12 +529,12 @@ smalltalk.method({
 selector: "initialize",
 fn: function (){
 var self=this;
-smalltalk.send(self, "_name_", [(20)]);
-smalltalk.send(self, "_explanation_", ["A Class method is what a Class can do, we generally use it for constructing instances of a Class, to create one is similar to an instance method, but choosing the Class tab."]);
-smalltalk.send(self, "_mission_", ["Create a class method \x22bornWithName:withOwner:\x22 that takes as argument the name of the dog and its owner, it returns a dog with its owner and its name assigned(Tip: use the message \x22bornWithName:\x22 and \x22owner:\x22, dont forget to return it)"]);
-smalltalk.send(self, "_next_", [(smalltalk.Congratulations || Congratulations)]);
-smalltalk.send(self, "_content_", ["david:= Person bornWithName:'David'.\x0aspike:= Dog bornWithName: 'Spike' withOwner:david.\x0aspike."]);
-smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(smalltalk.send(x, "_owner", []), "_name", []), "__eq", ["David"]);})]);
+smalltalk.send(self, "_name_", [(19)]);
+smalltalk.send(self, "_explanation_", ["An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template"]);
+smalltalk.send(self, "_mission_", ["Define an instance method \x22bark\x22 for the class Dog, the method should return a string of what the Dog barks like(Tip: to define what the method return use \x22^\x22. For example \x22^'Grrrr'\x22.)"]);
+smalltalk.send(self, "_next_", [(smalltalk.Lesson20 || Lesson20)]);
+smalltalk.send(self, "_content_", ["spike:= Dog bornWithName: 'Spike'.\x0aspike bark."]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "_isKindOf_", [(smalltalk.String || String)]);})]);
 return self;
 return self;}
 }),
@@ -559,6 +559,26 @@ return self;
 return self;}
 }),
 smalltalk.Lesson2);
+
+
+
+smalltalk.addClass('Lesson20', smalltalk.Lesson, [], 'SmalltalkTutorial');
+smalltalk.addMethod(
+"_initialize",
+smalltalk.method({
+selector: "initialize",
+fn: function (){
+var self=this;
+smalltalk.send(self, "_name_", [(20)]);
+smalltalk.send(self, "_explanation_", ["A Class method is what a Class can do, we generally use it for constructing instances of a Class, to create one is similar to an instance method, but choosing the Class tab."]);
+smalltalk.send(self, "_mission_", ["Create a class method \x22bornWithName:withOwner:\x22 that takes as argument the name of the dog and its owner, it returns a dog with its owner and its name assigned(Tip: use the message \x22bornWithName:\x22 and \x22owner:\x22, dont forget to return it)"]);
+smalltalk.send(self, "_next_", [(smalltalk.Congratulations || Congratulations)]);
+smalltalk.send(self, "_content_", ["david:= Person bornWithName:'David'.\x0aspike:= Dog bornWithName: 'Spike' withOwner:david.\x0aspike."]);
+smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(smalltalk.send(smalltalk.send(x, "_owner", []), "_name", []), "__eq", ["David"]);})]);
+return self;
+return self;}
+}),
+smalltalk.Lesson20);
 
 
 
@@ -671,7 +691,7 @@ fn: function (){
 var self=this;
 smalltalk.send(self, "_name_", [(8)]);
 smalltalk.send(self, "_explanation_", ["Goal: In the next three lessons you will learn blocks and some usage for them.The following expressions are blocks, they contain code, but the code is not executed until you tell the block to execute the code inside it."]);
-smalltalk.send(self, "_mission_", ["To evaluate the code inside the block you have to send it the message \x22value\x22, try it with this blocks."]);
+smalltalk.send(self, "_mission_", ["To evaluate the code inside the block you have to send it the message \x22value\x22, try it with these blocks."]);
 smalltalk.send(self, "_next_", [(smalltalk.Lesson9 || Lesson9)]);
 smalltalk.send(self, "_content_", ["[4+6] \x0a\x0a[david:=Person bornWithName:'David'.david name]\x0a \x0a[david age:15. david age]"]);
 smalltalk.send(self, "_result_", [(function(x){return smalltalk.send(x, "__eq", [(15)]);})]);

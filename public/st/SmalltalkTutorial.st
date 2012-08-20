@@ -215,13 +215,13 @@ Lesson subclass: #Lesson10
 initialize
 self name:10.
 self explanation:'Some messages take blocks as parameters, this is the case of "ifTrue:ifFalse:", it takes two blocks as parameter, the first is executed if the receiver object is true, and the second if it is false'.
-self mission:'Also you can use them by separate "ifTrue:" or "ifFalse", see how the two first expressions behave, then correct the last one to get the second block to execute'.
-self next:Lesson1.
+self mission:'Also you can use them by separate "ifTrue:" or "ifFalse", see how the two first expressions behave, then correct the last one to get the first block to execute'.
+self next:Lesson11.
 self content: '3>4 ifTrue:[1] ifFalse:[0].
 
 false ifTrue:[''yes''] ifFalse:[''no''].
 
-(''six'' isNumber) ifTrue:[''stay here''] ifFalse:[''Pass to the next lesson'']
+(''six'' isNumber) ifTrue:[''Pass to the next lesson''] ifFalse:[''Stay here'']
 '.
 self result:[:x|x='Pass to the next lesson'].
 ^self
@@ -242,7 +242,7 @@ self content: '((Array new:2) at:1 put:''Hello'') at:2 put:''world''.
 
 #(9 10 11) at:2.
 
-{(6+6) (3*4)}.
+{(6+6). (3*4)}.
 '.
 self result:[:x|x=15].
 ^self.
@@ -307,7 +307,7 @@ self explanation:'Goal: In the next four lessons you will learn some useful coll
 self mission:'The expression "n to: i" also creates a collection with the numbers from n to i, the following example is adding all the numbers from 1 to 5, modify it to multiply all the numbers from 5 to 8 (Remember to modify the initial value of "res") '.
 self next:Lesson15.
 self content: 'res:=0.
-(1 to: 5) do: [:n| res:=res+n],
+(1 to: 5) do: [:n| res:=res+n].
 res.
 '.
 self result:[:x|x=1680].
@@ -391,14 +391,13 @@ Lesson subclass: #Lesson19
 !Lesson19 methodsFor: 'not yet classified'!
 
 initialize
-self name:20.
-self explanation:'A Class method is what a Class can do, we generally use it for constructing instances of a Class, to create one is similar to an instance method, but choosing the Class tab.'.
-self mission:'Create a class method "bornWithName:withOwner:" that takes as argument the name of the dog and its owner, it returns a dog with its owner and its name assigned(Tip: use the message "bornWithName:" and "owner:", dont forget to return it)'.
-self next:Congratulations.
-self content: 'david:= Person bornWithName:''David''.
-spike:= Dog bornWithName: ''Spike'' withOwner:david.
-spike.'.
-self result:[:x|x owner name = 'David'].
+self name:19.
+self explanation:'An instance method is what messages an instance of a class can understand. To define a new one, choose a class from the second Column, choose a category in the third column and complete the template'.
+self mission:'Define an instance method "bark" for the class Dog, the method should return a string of what the Dog barks like(Tip: to define what the method return use "^". For example "^''Grrrr''".)'.
+self next:Lesson20.
+self content: 'spike:= Dog bornWithName: ''Spike''.
+spike bark.'.
+self result:[:x|x isKindOf:String].
 ^self.
 ! !
 
@@ -422,6 +421,24 @@ Date now.
 
 3<4'.
 ^self
+! !
+
+Lesson subclass: #Lesson20
+	instanceVariableNames: ''
+	package: 'SmalltalkTutorial'!
+
+!Lesson20 methodsFor: 'not yet classified'!
+
+initialize
+self name:20.
+self explanation:'A Class method is what a Class can do, we generally use it for constructing instances of a Class, to create one is similar to an instance method, but choosing the Class tab.'.
+self mission:'Create a class method "bornWithName:withOwner:" that takes as argument the name of the dog and its owner, it returns a dog with its owner and its name assigned(Tip: use the message "bornWithName:" and "owner:", dont forget to return it)'.
+self next:Congratulations.
+self content: 'david:= Person bornWithName:''David''.
+spike:= Dog bornWithName: ''Spike'' withOwner:david.
+spike.'.
+self result:[:x|x owner name = 'David'].
+^self.
 ! !
 
 Lesson subclass: #Lesson3
@@ -535,7 +552,7 @@ Lesson subclass: #Lesson8
 initialize
 self name:8.
 self explanation:'Goal: In the next three lessons you will learn blocks and some usage for them.The following expressions are blocks, they contain code, but the code is not executed until you tell the block to execute the code inside it.'.
-self mission:'To evaluate the code inside the block you have to send it the message "value", try it with this blocks.'.
+self mission:'To evaluate the code inside the block you have to send it the message "value", try it with these blocks.'.
 self next:Lesson9.
 self content: '[4+6] 
 

@@ -244,7 +244,7 @@ self name:11.
 self explanation:'Goal: In the next three lessons you will learn three different types of Smalltalk collections. The first one is the Array, it has predefined size and order, there is many ways to define an array'.
 self mission:'Below there are three different forms of defining an Array, pick one, then create an array with the numbers from 1 to 5'.
 self next:Lesson12.
-self content: '((Array new:2) at:1 put:''Hello'') at:2 put:''world''.
+self content: '(Array new:2) at:1 put:''Hello''; at:2 put:''world''.
 
 #(9 10 11) at:2.
 
